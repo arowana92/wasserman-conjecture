@@ -21,6 +21,17 @@ The program computes these residues by summing the CRT elements for individual p
 | Such rows at weights with at least three binary ones | 6 |
 | Rows avoiding all primes of $M$ | 0 |
 
+The six rows at binary-eligible weights can also be rejected by direct evaluations of Legendre’s formula. Each pair $(k,m)$ listed below produces exactly one such unordered CRT row, with $P=2^k$.
+
+| $k$ | $m$ | Prime divisor of $N-1$ | Valuation of the row coefficient |
+|---:|---:|---:|---:|
+| 26 | 7 | 3 | 13 |
+| 30 | 7 | 3 | 21 |
+| 39 | 607 | 5 | 17 |
+| 43 | 7 | 5 | 21 |
+| 45 | 25 | 17 | 10 |
+| 50 | 13 | 3 | 33 |
+
 ## Reproduction
 
 Use Python 3.9 or later with python-flint installed. The search used python-flint 0.6.0.
