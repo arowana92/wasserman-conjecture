@@ -8,8 +8,9 @@ The conjecture holds at a set of weights of natural density one. The number of p
 
 The full assertion is proved here for every $N=5\cdot2^k+1$, for all sufficiently large odd weights with at most five binary ones, and throughout growing intervals above powers of two.
 
-The conjecture has been checked here for every $3\le N\le1{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. A separate proof gives an infinite family of composite weights with certificates of size at most seven.
+The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. A separate proof gives an infinite family of composite weights with certificates of size at most seven.
 
+- [Complete finite proof through one billion and the prime-power layer bound](full_range_1b.md)
 - [Uniform theorem for weights with two separated binary blocks](separated_binary_blocks.md)
 - [Polynomial families evaluated at powers of two](polynomial_binary_families.md)
 - [Density one along every fixed odd-cofactor prime-power ray](prime_power_ray_density.md)
@@ -21,7 +22,7 @@ The conjecture has been checked here for every $3\le N\le1{,}000{,}000$. Through
 - [Proof of density one with a power-saving exceptional set](almost_all_weights.md)
 - [Complete finite proof for every weight through one million](full_range_1m.md)
 - [All three-bit weights below $2^{128}$ and an endpoint reduction for larger weights](even_three_binary_digits.md)
-- [Proof for all sufficiently large odd weights with at most five binary ones](three_binary_digits.md)
+- [Proof for all sufficiently large odd weights with three binary ones](three_binary_digits.md)
 - [The conjecture throughout growing intervals above every power of two](power_intervals.md)
 - [Proof for every weight $5\cdot2^k+1$ and eventual results for $m2^k+1$](binary_weights.md)
 - [Research notes, finite theorem, and reproduction commands](RESEARCH.md)
