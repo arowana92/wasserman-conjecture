@@ -40,3 +40,24 @@ For fixed $m\le300^2$ we have $m\ge7$. Use height 12 and omit offsets divisible 
 It remains to cover $N=q+(1+2^d)2^s$ with $q=2^r<300$, $r\ge1$, and $d=t-s\in\{1,2,3\}$. When $q\ge4$, use height 3. For each $h=0,1,2$ and each odd $w=p^e>3$ dividing $N-h$, the three residues of $A$ are nonzero and cannot sum to $h$. The 2-parts of $N,N-1,N-2$ are $q,1,2$ respectively. Consequently all three offsets are retained with constant $K$, giving lower degree 6. Cutoffs $(1,1,1)$ on each ordinary row cost at most $N^4g^2=O(N^{5.14})$.
 
 When $q=2$, both ordinary rows have minimum at least 3. Use height 12 and omit offsets $h\equiv2\pmod{1+2^d}$. The relation $(1+2^d)2^s=N-2$ again gives bounded layers on the retained offsets. The largest loss is $10+7+4+1=22$ at $d=1$, leaving degree at least 56. The first three lines of the height 12 cutoff table bound the combined cost by $O(N^{50.1})$. This final contradiction proves the theorem.
+
+## Every three-bit weight below $2^{128}$
+
+**Finite theorem.** The full conjecture holds at all $\binom{128}{3}=341{,}376$ weights with three binary ones below $2^{128}$.
+
+The endpoint test uses the exact CRT reduction above. After the odd-weight exclusion and the bound $27(N-1)^2\le P^3$, just 31,862 weights require factoring. In this checker the three groups $d_i$ are formed directly. The normalized part for group $d$ is $(M/d)\big((mM/d)^{-1}\bmod d\big)$, with the inverse taken in $[1,d-1]$ and $M=N-1$. Retain the values smaller than $P$ summing to $P$. Only 56 unordered CRT rows survive across the whole range, and each has positive factorial valuation at a prime of $N-1$.
+
+For the independent case without $E$, write $A=(a,b,c)$. If $a+b\le10$, its sum is at least 3 and Proposition 10 applies. Otherwise, for $h=0,\ldots,5$, compute
+$$D_h=\operatorname{lcm}\big(\gcd(N-h,60),\ \gcd(N-h,a-i,b-j)\text{ for }i,j\ge0,\ i+j\le h\big).$$
+This removes every small layer and every larger layer which $A$ could cover, by the same two-residue condition as in the [one-million proof](full_range_1m.md). Therefore $F=\prod_h((N-h)/D_h)^{6-h}$ is at most the total height 6 cost of the ordinary rows. Write $B=\lfloor N^9/3^9\rfloor$ and $C=\lfloor64N^9/3^9\rfloor$. At most one row contains 1, so the ordinary product is bounded by $BC$.
+
+If $F\le BC$, look for a proved prime $c<\ell\le N$. The binary row cannot avoid it. An ordinary row avoiding it has its two smaller parts summing to at most $g=N-\ell$. If $g\le10$ there is no such non-endpoint row. Otherwise the row costs at most $g^{15}$ by cutoffs $(1,5,0)$ for minimum 1 or $(2,4,0)$ for minimum at least 2. The remaining ordinary row costs at most $C$, so $F>Cg^{15}$ excludes the selection.
+
+| Deciding step without the endpoint | Weights |
+|---|---:|
+| Binary row has smaller-part sum at most 10 | 624 |
+| $F>BC$ | 246,944 |
+| Proved prime gives $g\le10$ | 15,389 |
+| $F>Cg^{15}$ | 78,419 |
+
+Run `python3 check_three_bit_range.py 128` with python-flint installed. All comparisons use integer arithmetic. The verifier confirms each prime factor returned by the factorization routine and uses a proving primality test for the nearby primes. [FLINT primality tests](https://flintlib.org/doc/fmpz/fmpz_is_prime.html)
