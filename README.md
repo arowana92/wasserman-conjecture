@@ -13,6 +13,8 @@ The full assertion is proved here for every $N=5\cdot2^k+1$, for all sufficientl
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. A separate proof gives an infinite family of composite weights with certificates of size at most seven.
 
 - [Proof of the reduction to the endpoint at every weight](all_weights_endpoint_reduction.md)
+- [Two predecessor prime powers and the family $6p^a q^b+1$](two_prime_powers.md)
+- [The full factors five and seven, with bounds for two varying parameters](predecessor_five_seven.md)
 - [Three prime factors of the predecessor with a full power at most four](three_factors_small_power.md)
 - [Four nearby prime multiples and restrictions on parts 1 and 3](near_row.md)
 - [Certified intervals at offsets from powers of a prime](prime_power_offset_intervals.md)
