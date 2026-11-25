@@ -4,13 +4,16 @@
 
 For an integer $N\ge3$, take any three triples of positive integers summing to $N$. Wasserman conjectured that a prime divides all three numbers $N!/(a!b!c!)$ obtained from the triples.
 
+Every counterexample must contain $(1,1,N-2)$ up to permutation. This reduces the full conjecture at every weight to proving that any two coefficients share a prime factor of $N(N-1)$. In particular the conjecture holds whenever $N-1$ has at most two distinct prime divisors.
+
 The conjecture holds at a set of weights of natural density one. The number of possible exceptions up to $X$ is $O(X^{15/16})$.
 
 The full assertion is proved here for every $N=5\cdot2^k+1$, for all sufficiently large odd weights with at most five binary ones, and throughout growing intervals above powers of two.
 
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. A separate proof gives an infinite family of composite weights with certificates of size at most seven.
 
-- [A unique row avoiding all prime powers near the weight in a non-endpoint counterexample](near_row.md)
+- [Proof of the reduction to the endpoint at every weight](all_weights_endpoint_reduction.md)
+- [Four nearby prime multiples and restrictions on parts 1 and 3](near_row.md)
 - [Certified intervals at offsets from powers of a prime](prime_power_offset_intervals.md)
 - [Quantitative endpoint gcd bound from two parts of a row](endpoint_pair_bound.md)
 - [Endpoint reduction through $10^{20}$ and a critical-exponent bound for small parts](critical_small_parts.md)
