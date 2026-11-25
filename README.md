@@ -10,6 +10,7 @@ The full assertion is proved here for every $N=5\cdot2^k+1$, for all sufficientl
 
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. A separate proof gives an infinite family of composite weights with certificates of size at most seven.
 
+- [Quantitative endpoint gcd bound from two parts of a row](endpoint_pair_bound.md)
 - [Endpoint reduction through $10^{20}$ and a critical-exponent bound for small parts](critical_small_parts.md)
 - [Complete finite proof through one billion and the prime-power layer bound](full_range_1b.md)
 - [Uniform theorem for weights with two separated binary blocks](separated_binary_blocks.md)
