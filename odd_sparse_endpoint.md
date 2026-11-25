@@ -31,3 +31,24 @@ Of the 7,028,847 weights, 11,627 are covered by the [one-million theorem](full_r
 ```sh
 python3 check_six_binary_digits.py 64
 ```
+
+## An unbounded-exponent check for 595,665 multipliers
+
+**Theorem.** Let $m<2^{64}$ be odd with exactly five binary ones. For **every** $k\ge1$, the endpoint is impossible at $N=1+m2^k$. Consequently the full conjecture holds at every sufficiently large weight in this union of 595,665 families. The last implication uses the [bounded-digit theorem](bounded_binary_weight.md); the endpoint conclusion has no threshold.
+
+Write $Q=2^k$ and use the 15 normalized binary rows above. For each assignment from (1), enumerate every $U\ge3$ dividing the odd part of $\gcd(a,b)$ and coprime to $m$. Choose $S$ as any product of full powers of $m$ each dividing $a$ or $b$, and put $T=m/S$. The remaining row is $(Vy_1,Vy_2,Vy_3)$ with $UV=N$ and $\sum y_i=U$. For each full power $w\mid T$ assigned to it, two of its normalized parts are divisible by $w$, and the third is $U\pmod w$. Thus $2w+1\le U$ and $27T^2\le U^3$. Assign the exceptional positions among the three bins, take least positive CRT representatives modulo $T$, and add all nonnegative lifts of sum $U$. This enumeration makes no choice of $k$.
+
+Of 29,093 preliminary assignments passing the initial product inequality, the scale and CRT enumeration yields just 726 normalized row pairs. Two one-digit checks eliminate 725 of them.
+
+- For a full power $w=p^j$ of $U$, the $j$-th base-$p$ digits of the two unshifted parts are $(a/w)Q\bmod p$ and $(b/w)Q\bmod p$. Because $U\mid Qc+1$, here $Q\equiv-c^{-1}\pmod p$. Their sum forces a carry for 677 pairs.
+- For a full power $w=p^j$ of $T$, the $j$-th digits of the two parts divisible by $w$ are $(y_i/w)V\bmod p$. We know $V\equiv U^{-1}\pmod p$, as $UV=1+mQ$. This forces a carry for 48 further pairs.
+
+For the final pair,
+$$m=6917529027643179011,\quad U=768614336404564651,\quad S=1,\quad c=2^{21},$$
+and the sorted $(y_i)$ are $(167885246399975556,238535483711833759,362193606292755336)$. The condition $U\mid 2^k c+1$ gives $k\equiv40\pmod{122}$. Take $p=23\mid T$. As $k$ traverses this class there are 11 residues for $Q$ modulo 23. Each determines $V=(mQ+1)/U$ modulo $23^2$, since $23\mid m$. For every one, the sum of the three residues of $Vy_i$ modulo $23^2$ is at least $23^2$, forcing a carry. This finishes the exhaustion.
+
+The standard-library integer and CRT steps use the prime-proved factorizations from python-flint. Run the verifier from the repository root.
+
+```sh
+python3 check_six_bit_rays.py 64
+```
