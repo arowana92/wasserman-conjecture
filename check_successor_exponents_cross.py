@@ -3,9 +3,11 @@
 from collections import Counter
 from functools import lru_cache
 from itertools import product
-from math import comb, gcd, lcm
+from math import comb, lcm
 
-from check_successor_exponents import Case, bounded_exponents, compatible, orbit_sieve, templates
+from carry_blocks import CarryGraph
+
+from check_successor_exponents import Case, bounded_exponents, compatible, fixed_divisor, layer_candidates, orbit_sieve, templates
 from search_endpoint import avoids
 from search_even_endpoint import prime_powers
 
@@ -92,6 +94,42 @@ def check_sieves():
     print(f"343 generalized CRT comparisons and {hits} positive exponent controls agree.")
 
 
+def compare_lifts():
+    for c,r,a0,L in (
+        (Case(1651,4,1,(104,1524,23),(1,1,2),1459,1459,2297,6604),2,86,126),
+        (Case(5126,7,2,(231,4893,2),(1,2,4),4877,4877,8970,17941),7,587,870),
+    ):
+        limit = 10**6
+        modulus, actual = layer_candidates(c,limit,r)
+        expected = set()
+        for a in range(a0,limit+1,L):
+            P = pow(c.p,a,modulus)
+            x,y,z = c.first
+            row = (P*x,P*y,P*z+1)
+            w = r
+            while w <= modulus and sum(row)//w == sum(k//w for k in row):
+                w *= r
+            if w > modulus:
+                expected.add(a)
+        if not expected or expected != set(actual):
+            raise ArithmeticError(("lifting classes",r))
+        print(f"Direct exponents agree on {len(expected)} survivors of the base-{r} lift.")
+    c = Case(5126,7,2,(231,4893,2),(1,2,4),4889,4889,8970,17941)
+    if fixed_divisor(c) != 5:
+        raise ArithmeticError("the common prime 5 was missed")
+
+
+def check_path_counts():
+    for r,slopes,n,num,den in ((2,(104,1524,23),1024,1,5),(7,(231,4893,2),1024,5,16)):
+        graph = CarryGraph(r,slopes,(0,0,1))
+        paths = graph.block_bound(n)
+        if paths**den >= r**(num*n):
+            raise ArithmeticError(("path bound",r,paths))
+        print(f"{len(graph.states)} states, base {r}, certified exponent at most {num}/{den}.")
+
+
 if __name__ == "__main__":
     check_sieves()
+    compare_lifts()
     check_row_pairs()
+    check_path_counts()

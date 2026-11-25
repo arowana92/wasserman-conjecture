@@ -13,7 +13,7 @@ The full assertion is proved here for every $N=5\cdot2^k+1$, for every weight wi
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. For all sufficiently large $X$, at least $cX/(\log X)^2$ pairs of consecutive weights in $[X,2X]$ have minimum certificate size exactly four at both weights.
 
 - [Quadratic prime-power families with a discriminant criterion and complete checks for coefficients through 15](quadratic_powers.md)
-- [Unrestricted prime-power exponents through offset 191, with five possible rays through 256](successor_exponents.md)
+- [Unrestricted prime-power exponents through offset 191, with four possible rays through 256](successor_exponents.md)
 - [Two consecutive weights near a product of prime powers, for all offsets through 1,000](successor_powers.md)
 - [Common-divisor bounds from determinants and density in short intervals after every fixed binary prefix](projected_rows.md)
 - [Classification of shifted proportional rows through binary prefix 4,095](shifted_binary_prefixes.md)

@@ -208,25 +208,75 @@ def affine_sieve(c):
     return True
 
 
-def bounded_exponents(c, limit):
-    # Lift all possible binary residues of the exponent until each represents
-    # at most one exponent in [1,limit]. The period can only stay put or double.
+def fixed_divisor(c):
+    # For r dividing V, remove its full power from V and look at the first
+    # nonzero scalar digit. Try every possible unit digit at this position.
+    orbit = powers(c.p % c.modulus,c.modulus)
+    L, a0 = len(orbit), orbit.index(c.residue)
+    for r in primes_through(c.u):
+        if c.u % r == 0 or pow(c.p,L,r) != 1 or (c.Q*pow(c.p,a0,r)+1) % r:
+            continue
+        if all(sum((v*k) % r for k in c.other) >= r for v in range(1,r)):
+            return r
+    return None
+
+
+def layer_candidates(c, limit, base):
     first, other = required_bases(c)
-    if 2 not in first+other or c.p == 2:
-        raise ValueError("binary lifting requires a forced base 2 and an odd prime")
-    cycle = powers(c.p % c.modulus,c.modulus)
-    stride = len(cycle)
-    current = [cycle.index(c.residue)]
-    w = 1
-    while stride <= limit and current:
-        w *= 2
-        if pow(c.p,stride,w) != 1:
-            current += [a+stride for a in current if a+stride <= limit]
-            stride *= 2
-        current = [a for a in current
-                   if sum(k % w for k in local_parts(c,pow(c.p,a,w),w,2 in first)) < w]
-    for a in current:
-        if not 1 <= a <= limit:
+    if base not in first+other:
+        raise ValueError("lifting requires a forced base")
+    orbit = powers(c.p % c.modulus,c.modulus)
+    stride, start = len(orbit), orbit.index(c.residue)
+    if pow(c.p,stride,base) != 1:
+        raise ValueError("initial period must fix the power at the lifting prime")
+    modulus = 1
+    levels = []
+    while stride <= limit:
+        modulus *= base
+        branches = 1 if pow(c.p,stride,modulus) == 1 else base
+        levels.append((modulus,stride,branches))
+        stride *= branches
+    # Store the power at final precision. At each split, moving one stride
+    # multiplies it by a fixed unit. Depth-first traversal bounds memory.
+    levels = [(w,L,b,pow(c.p,L,modulus)) for w,L,b in levels]
+    if base in first:
+        x,y,z = c.first
+        def layer(value,w):
+            return x*value % w + y*value % w + (z*value+1) % w < w
+    else:
+        inverse = pow(c.u,-1,modulus)
+        def layer(value,w):
+            v = (c.Q*value+1)*inverse % w
+            return sum(f*v % w for f in c.other) < w
+
+    def lift(i,a,value):
+        if i == len(levels):
+            if 1 <= a <= limit:
+                yield a
+            return
+        w,L,branches,multiplier = levels[i]
+        for _ in range(branches):
+            if a > limit:
+                break
+            if layer(value,w):
+                yield from lift(i+1,a,value)
+            a += L
+            value = value*multiplier % modulus
+
+    return modulus, lift(0,start,pow(c.p,start,modulus))
+
+
+def bounded_exponents(c, limit, base=2):
+    first, other = required_bases(c)
+    _, candidates = layer_candidates(c,limit,base)
+    # An independent small binary-layer table filters the leaves cheaply.
+    low = None
+    if base != 2 and 2 in first+other:
+        cycle = powers(c.p % 4096,4096)
+        low = [all(sum(k % w for k in local_parts(c,v,w,2 in first)) < w
+                   for w in (2**j for j in range(1,13))) for v in cycle]
+    for a in candidates:
+        if low is not None and not low[a % len(low)]:
             continue
         for r in first+other:
             w = r**100
@@ -253,16 +303,23 @@ def solve(limit, exponent_limit):
     print(dict(counts), flush=True)
     for c in sorted(remaining):
         print(c,flush=True)
-        survivors = list(bounded_exponents(c,exponent_limit))
+        r = fixed_divisor(c)
+        if r:
+            counts["fixed divisor"] += 1
+            print(f"Excluded at every exponent by the fixed divisor {r}.",flush=True)
+            continue
+        base = 7 if c.u == 7 else 2
+        survivors = list(bounded_exponents(c,exponent_limit,base))
         if survivors:
             raise ArithmeticError(("unresolved in bounded interval",c,survivors[:5]))
-    print(f"{len(remaining)} remaining templates, none possible at exponents up to {exponent_limit}.")
+    print(f"{len(remaining)-counts['fixed divisor']} remaining templates, "
+          f"none possible at exponents up to {exponent_limit}.")
 
 
 if __name__ == "__main__":
     cli = ArgumentParser(description=__doc__)
     cli.add_argument("max_offset",type=int,nargs="?",default=256)
-    cli.add_argument("--exponent-limit",type=int,default=10**12)
+    cli.add_argument("--exponent-limit",type=int,default=10**24)
     args = cli.parse_args()
     if not 1 <= args.max_offset <= 256 or args.exponent_limit < 1:
         cli.error("use 1 through 256 for the offset and a positive exponent limit")
