@@ -60,7 +60,7 @@ def check_constants():
     assert Fraction(3, 4) - Fraction(1, 10**8) - Fraction(9, h) > Fraction(73, 100)
     assert (Fraction(1, 12)-Fraction(1, h))*18 > Fraction(148, 100)
     assert Fraction(104+51+63-73, 100) < Fraction(148, 100)
-    print("All seven size and logarithm estimates have strict rational margins.")
+    print("All size and logarithm estimates have strict rational margins.")
 
 
 if __name__ == "__main__":

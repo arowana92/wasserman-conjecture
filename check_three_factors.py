@@ -1,7 +1,7 @@
 """Independent check of the three-factor counts at small bounds, and an explicit row."""
 
 from itertools import combinations
-from math import gcd, isqrt, prod
+from math import comb, gcd, isqrt, prod
 
 
 def powers(n):
@@ -73,7 +73,26 @@ def check_example():
     print("Example weight", n, "avoided product", avoided)
 
 
+def check_forced_carry():
+    # When the exceptional part is u*t and its complement is t+1,
+    # compare the proposed obstruction directly against a binomial coefficient.
+    count = 0
+    for u in range(2, 65):
+        factor = powers(u)
+        if len(factor) != 1:
+            continue
+        p = next(iter(factor))
+        for multiple in range(1, 1 + 2000//(u*(u+1))):
+            t = u*multiple - 1
+            n = (u+1)*t+1
+            if comb(n, t+1) % p:
+                raise ArithmeticError(("forced carry", n, p, u, t))
+            count += 1
+    print("Prime-power carry checks against exact binomials:", count)
+
+
 if __name__ == "__main__":
+    check_forced_carry()
     if check_small(500) != [235224, 117559, 8821, 2, 0]:
         raise ArithmeticError("The independent stage counts disagree.")
     check_example()
