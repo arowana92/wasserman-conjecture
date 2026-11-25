@@ -20,4 +20,4 @@ First let $Q=p^i,R=q^j$ have distinct bases exceeding 3. Here $D=6$, so the two 
 
 More generally, for $N-1=2wQR$ with four full powers of distinct bases, **all three odd bases must go to the same row**. Apply (1) to each pair of odd bases, leaving twice the third odd power as $D$. With $w$ the smallest odd power, the scale of this row is a unitary divisor $U$ of $N$ satisfying $3\le U<2w$. If $U=2w-1$ is a prime power, $k=U$ is forced in the same-row statement, and the same carry argument excludes it.
 
-Run `python3 check_two_prime_powers.py` to exhaust the four-bin criterion through $D=5000$ and test the split inequality against actual prime-avoidance assignments on small exact coefficients.
+Run `python3 check_two_prime_powers.py` to exhaust the four-bin criterion through $D=5000$. The checker tests 175,282 pairs of low-residue assignments, including 14,594 covering a further power. Direct binomial products identify 37 pairs that avoid both assigned prime bases in all digit positions.
