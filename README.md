@@ -8,10 +8,11 @@ Every counterexample must contain $(1,1,N-2)$ up to permutation. This reduces th
 
 The conjecture holds at a set of weights of natural density one. The number of possible exceptions up to $X$ is $O(X^{15/16})$.
 
-The full assertion is proved here for every $N=5\cdot2^k+1$, for all sufficiently large odd weights with at most five binary ones, and throughout growing intervals above powers of two.
+The full assertion is proved here for every $N=5\cdot2^k+1$, for every weight with base-$p$ digit sum at most five for some prime $p\mid N-1$, and throughout growing intervals above powers of two.
 
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. A separate proof gives an infinite family of composite weights with certificates of size at most seven.
 
+- [A spacing theorem for six base-$p$ digit units, with finite certificates](six_digit_gaps.md)
 - [Proof of the reduction to the endpoint at every weight](all_weights_endpoint_reduction.md)
 - [Simultaneous carry tests through a thousand-digit bound and counts at unbounded weights](carry_intersections.md)
 - [Two predecessor prime powers and the family $6p^a q^b+1$](two_prime_powers.md)
