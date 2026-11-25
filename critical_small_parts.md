@@ -43,6 +43,8 @@ The constants $D(6),D(9),D(12)$ are $540$, $26{,}460{,}000$, and $107{,}820{,}26
 
 A row avoiding the largest prime $r\le N$ must have $s\le N-r$ by Bertrand’s postulate and Kummer’s criterion. The Prime Gap Search project reports exhaustive coverage through $10^{20}$. The largest consecutive-prime difference there is 1724. Thus $N-r<2000$ throughout that range, ruling out a selection without $E$. This use of the gap table is external to our one-billion enumeration. [Coverage records](https://primegap-list-project.github.io/fully-analyzed/) · [Maximal-gap table](https://pzktupel.de/RecordGaps/GAP01.php)
 
+The same four inequalities independently verify the non-endpoint case between one million and one billion. On the three decades starting at $X=10^6,10^7,10^8$, respectively, use $S=154,220,282$. These are the maximal prime-gap bounds up to the upper ends of the decades. The integer checks pass at each left endpoint and the degree comparison covers its entire decade. This gives a second route through the range of the C++ near-prime-row enumeration. In particular, from $10^6$ through $10^9$, the largest prime and the prime factors of $N-11,\ldots,N$ certify the conjecture. [Prime-gap records](https://pzktupel.de/RecordGaps/GAP01.php)
+
 ## The explicit bound above $10^{20}$
 
 Here take $X=10^{20}$ and $S=10^8$. No part $m$ of a counterexample without $E$ can lie between 4 and 1000. At height 6 assign cutoff $\min(m,6)$ to it. If $m=4$ or $5$, put the remaining cutoffs on distinct other parts. The other two rows together cost at most $N^{18}/6^9$. Evaluating (1) at $X$ excludes the indicated interval, and the degrees preserve all the inequalities for larger $N$. More generally, any part $m\ge6$ satisfies

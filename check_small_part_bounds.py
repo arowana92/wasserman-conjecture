@@ -44,10 +44,7 @@ def defect(height):
     return prod(p**e for p, e in defect_powers(height))
 
 
-def preliminary():
-    x, s = 10**9, 2000
-    if [defect(h) for h in (6, 9, 12)] != [540, 26460000, 107820266400000]:
-        raise ArithmeticError("small-layer constants")
+def test_sum_bound(x, s):
     # Normalize by the indicated power of 2 or 3 to avoid rounding.
     if 108*3**30 >= 2**25*x**5:
         raise ArithmeticError("height 12 row with minimum 3")
@@ -60,6 +57,13 @@ def preliminary():
     for h, numerator, denominator in tests:
         if defect(h)*numerator >= denominator*(x-h+1)**triangular(h):
             raise ArithmeticError(("small sums", h))
+
+
+def preliminary():
+    if [defect(h) for h in (6, 9, 12)] != [540, 26460000, 107820266400000]:
+        raise ArithmeticError("small-layer constants")
+    for x, s in [(10**6,154), (10**7,220), (10**8,282), (10**9,2000)]:
+        test_sum_bound(x, s)
     # After the gap reduction the lower weight is 10^20.
     x = 10**20
     for m in range(4, 1001):
