@@ -57,6 +57,36 @@ def check_weight(n):
     return assigned,rows
 
 
+def binary_orbits():
+    rejected = controls = 0
+    for e in (16,24,32,48):
+        P = 1<<e
+        orbit = {pow(2,j,P+1) for j in range(2*e)}
+        for coeffs in ((3,1,1),(1,0,2),(1,1,3),(2,1,2),(1,2,4),
+                       (3,1,1,2,2),(1,2),(1,1,1),(1,2,1,1)):
+            assert 8*sum(coeffs)**3 < P
+            g = sum(v*P**i for i,v in enumerate(coeffs))
+            if g%2==0:
+                continue
+            test = abs(sum(v*(-1)**i for i,v in enumerate(coeffs)))//gcd(*coeffs)
+            odd_factor = test>0 and test & (test-1)!=0
+            mask = (P+1)*g
+            part = mask
+            successes = 0
+            while part:
+                if part<mask and part%g==0 and part%(P+1) in orbit:
+                    successes += 1
+                part = (part-1)&mask
+            if odd_factor:
+                assert successes==0
+                rejected += 1
+            else:
+                controls += successes
+    assert rejected and controls
+    print(f"{rejected} binary polynomial exclusions and {controls} admissible "
+          "part controls in the other examples.")
+
+
 def verify():
     box = 32
     weights = set()
@@ -88,4 +118,5 @@ def verify():
 
 
 if __name__=="__main__":
+    binary_orbits()
     verify()

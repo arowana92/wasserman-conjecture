@@ -114,6 +114,16 @@ if __name__ == "__main__":
     values = [valuation(n,row,p) for p in (379,439,3)]
     assert values[0]==values[1]==0 and values[2]>0
     print("Two-predecessor-prime control",n,values)
+    for N,scale,p,q,R,parts in (
+        (5480060281140,79,1777,7507,410801,(1461760592718,2710465408801,1307834279621)),
+        (42564932000094920,83,23911,24767,71875487,
+         (15957176632045956,21682043933992712,4925711434056252)),
+    ):
+        assert N==p*q*R+1==sum(parts) and N%scale==0 and N%(scale*scale)!=0
+        assert all(powers(prime)=={prime:prime} for prime in (p,q,R,scale))
+        assert [valuation(N,parts,r) for r in (scale,p,q,R)]==[0,0,0,1]
+        assert all(x%r==int(i==j) for i,x in enumerate(parts) for j,r in enumerate((p,q,R)))
+    print("Two CRT rows checked with a single carry at their last predecessor prime.")
     box = 47,5,11,2
     expected = independent_search(*box)
     out = check_output([str(args.binary.resolve()),*map(str,box)],text=True)

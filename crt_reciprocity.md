@@ -40,6 +40,15 @@ Three necessary low-digit tests are constant on this progression. At $u$ require
 
 For $103\le u\le800$ and $u<p<q\le3659$, exactly 21,334,937 of 223,692,214 progressions survive these tests. In the interval $q<R<12upq$, the full set contains 2,684,305,628 parameter choices. After the three fixed tests, exact unitarity and a complete base-$u$ addition leave 24,823. Of those, 101 also avoid $p$ and **none avoids $q$**. This excludes the prescribed assignment throughout the indicated range even when $R$ is allowed to be composite. The largest possible weight is below $12\cdot800\cdot3659^4+1<2^{63}$. Other assignments of the prime factors at a given weight are outside this search.
 
+Two explicit three-prime predecessors give rows where exactly one carry prevents the proposed assignment. In each row the coefficient has valuations $(0,0,0,1)$ at $(u,p,q,R)$, respectively. Both $R$ are prime, and the three parts have the required $1,0,0$ residues at each predecessor prime.
+
+| $N$ | $(u,p,q,R)$ | CRT row |
+|---:|---|---|
+| 5,480,060,281,140 | $(79,1777,7507,410801)$ | $(1461760592718,2710465408801,1307834279621)$ |
+| 42,564,932,000,094,920 | $(83,23911,24767,71875487)$ | $(15957176632045956,21682043933992712,4925711434056252)$ |
+
+In each case the remaining row assigned $V=N/u$ has normalized sum $u<2R+1$. It cannot avoid $R$, which would require two positive multiples of $R$ in that sum. The endpoint and the two rows therefore share $R$ for this attempted assignment.
+
 The independent verifier scans $R$ directly in a smaller box, computes the two inverse multipliers, and checks Legendre's factorial floors. Separately it checks 16,827 reciprocal pairs, including 228 where both multipliers equal the tested prime power. Twelve pairs already force a predecessor carry from the modular criterion with (1). A separate positive control at $N=1{,}050{,}469{,}803{,}524$ passes the three tested bases $101,1063,1597$. Its remaining factor is $618793=7\cdot109\cdot811$, and direct factorial floors confirm all three zero valuations.
 
 ```sh
