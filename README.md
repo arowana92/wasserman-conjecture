@@ -6,6 +6,7 @@ For an integer $N\ge3$, take any three triples of positive integers summing to $
 
 The conjecture has been checked here for every $3\le N\le5000$. At each weight the table gives a smallest possible set of candidate common primes. The only weights in the checked range requiring five primes are 699 and 717. A separate proof gives an infinite family of composite weights with certificates of size at most seven.
 
+- [The conjecture throughout growing intervals above every power of two](power_intervals.md)
 - [Proof for every weight $5\cdot2^k+1$ and eventual results for $m2^k+1$](binary_weights.md)
 - [Research notes, finite theorem, and reproduction commands](RESEARCH.md)
 - [Reduction and verification through one million for selections containing $(1,1,N-2)$](endpoint_reduction.md)
