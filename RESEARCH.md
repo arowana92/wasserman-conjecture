@@ -2,6 +2,8 @@
 
 Research checkpoint, 25 November 2026. A certificate for a weight $N$ is a set of primes from which any three positive trinomial coefficients of weight $N$ have a common divisor. The prime may depend on the three coefficients. Repeated triples are allowed.
 
+The [later finite theorem](full_range_1m.md) extends coverage of the full three-row assertion to one million. The certificate-size results below concern weights through 5,000.
+
 ## An independently checked finite theorem
 
 **Every weight from 3 through 5,000 has a certificate of size at most five.** The minimum is one for 1,788 weights, four for 3,208 weights, and five for exactly two weights, 699 and 717. The table gives one minimum-size certificate per weight.
