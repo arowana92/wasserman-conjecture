@@ -2,6 +2,8 @@
 
 **Theorem.** Let $E(X)$ count the integers $3\le N\le X$ for which some three positive trinomial coefficients of weight $N$ have gcd one. Then $E(X)=O(X^{999/1000})$. In particular the weights satisfying Wasserman’s full three-row conjecture have natural density one.
 
+A [refinement](endpoint_count.md) improves the exponent to $15/16$.
+
 ## How a single part restricts the weight
 
 First suppose the selection contains the endpoint $(1,1,N-2)$. Its coefficient $N(N-1)$ is even, so one of the other rows, say $B$, must be carry-free in base 2. Assign each prime of $N(N-1)$ to one of the two non-endpoint rows avoiding it. Let $U,S$ be the products of the full powers assigned to $B$ from $N,N-1$, respectively. Let $V,T$ be the complementary products, so $UV=N$ and $ST=N-1$. If both rows avoid a prime, choose either. [Endpoint assignment](endpoint_reduction.md)
