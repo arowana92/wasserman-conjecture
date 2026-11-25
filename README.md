@@ -13,6 +13,7 @@ The conjecture has been checked here for every $3\le N\le5000$. At each weight t
 - [Proof for every weight $5\cdot2^k+1$ and eventual results for $m2^k+1$](binary_weights.md)
 - [Research notes, finite theorem, and reproduction commands](RESEARCH.md)
 - [Reduction and verification through one million for selections containing $(1,1,N-2)$](endpoint_reduction.md)
+- [An odd-divisor theorem at all even weights below $2^{64}$](even_endpoint.md)
 - [Endpoint part-size bound and an exclusion at 2,099,636,978 weights](endpoint_factors.md)
 - [A lower bound on products of parts in different rows](parts_in_different_rows.md)
 - [Restrictions on counterexamples from weighted factorial products](weighted_obstruction.md)
