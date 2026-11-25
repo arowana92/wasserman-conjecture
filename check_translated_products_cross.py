@@ -67,7 +67,9 @@ def sign_checks():
     for n in range(2,301):
         maximum = max(b for b in range(1,n+1) if 3*(b//2)+1+(b-1)//2 <= n)
         assert maximum == n//2+int(n%4==1)
-        assert 3*(2*n*maximum+n-maximum) < 4*n*n
+        margin_numerator = 4*n*n-3*(2*n*maximum+n-maximum)
+        assert 83*margin_numerator >= (6*n+3)*(2*n)
+        assert max(83,18*n)*(2*n-1) > 12*n*(2*n)
     print(f"{root_vectors} integral root patterns ({mixed} mixed), {shifted} shifted and "
           f"{unshifted} unshifted carry checks; all degree margins through 300 agree.")
 

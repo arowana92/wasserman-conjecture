@@ -13,7 +13,7 @@ The full assertion is proved here for every $N=5\cdot2^k+1$, for every weight wi
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. For all sufficiently large $X$, at least $cX/(\log X)^2$ pairs of consecutive weights in $[X,2X]$ have minimum certificate size exactly four at both weights.
 
 - [Polynomial weights at almost all exponents of every prime, with power-saving bounds for prime bases](polynomial_row_divisors.md)
-- [Products of distinct translates of a prime power, consecutive weights and an explicit gap bound](translated_products.md)
+- [Products from growing blocks of consecutive primes, their successors and an explicit gap bound](translated_products.md)
 - [Prime bases that work at every exponent and cofactor through 1,000](prime_base_density.md)
 - [Shifted row denominators and all weights $d p^{2e}+1$ through cofactor 1,000](shifted_directions.md)
 - [Polynomial weights with a common coefficient factor](polynomial_content.md)

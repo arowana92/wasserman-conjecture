@@ -1,6 +1,6 @@
 # Products of translates of a prime power
 
-Fix $n\ge2$, distinct integers $0=h_0<h_1<\cdots<h_{n-1}$, and a positive integer $d$. Write $F(X)=\prod_j(X+h_j)$ and $P=p^a$, with $p$ prime and $a\ge1$. All sufficiently-large thresholds below are effective and depend only on $d$ and the shifts.
+Fix $n\ge2$, distinct integers $0=h_0<h_1<\cdots<h_{n-1}$, and a positive integer $d$. Write $F(X)=\prod_j(X+h_j)$ and $P=p^a$, with $p$ prime and $a\ge1$. For the two asymptotic assertions below, one may take $P>(2dF(1))^{\max(83,18n)}$. In this explicit form the multiplier and the shifts can grow with $P$.
 
 **Two consecutive weights.** Suppose that for every $j$ there is a prime power $w_j\mid P+h_j$ with
 $$ (P+h_j)/w_j\le P^{1/(2n)}. \tag{1}$$
@@ -45,6 +45,32 @@ Equivalently $b\le B=\lfloor n/2\rfloor+[n\equiv1\pmod4]$. This bound also holds
 Because $U$ is unitary in $N$, its part from each of the remaining $n-b$ factors is at most $t_j\le P^{1/(2n)}$. For $P$ above the largest shift,
 $$ U\le d(2P)^b P^{(n-b)/(2n)}.$$
 But $27(N-1)^2\le U^3 S^2$ and $S$ is bounded. We need $b+(n-b)/(2n)\ge2n/3$ as $P$ grows. For $n=2,3,4,5$ substitution of $B=1,1,2,3$ gives strict failure. For $n\ge6$, $B\le(n+1)/2$ and $B+(n-B)/(2n)<n/2+1\le 2n/3$. This finishes the proof. For an explicit threshold, take the maxima of the finitely many resultant and node bounds, impose the digit bound above, and solve the last strict power inequality.
+
+## An explicit bound for varying shifts and multiplier
+
+Put $R=2dF(1)$. We have $R\ge d2^n$, $R\ge1+h_{n-1}$ and $R\ge n$. The coefficient $1$-norms of the parts, the total and $dF\pm1$ are at most $R$. Hadamard's inequality on the Sylvester matrix bounds a nonzero resultant of two such polynomials of degrees at most $n$ by $R^{2n}$. At the unshifted weight this gives $S\le R^{3n}$.
+
+At the shifted weight write $H=dF+1=J^e$ as before and take a part $B$ not divisible by $H$. If $J\nmid B$, then $U\mid\operatorname{Res}(H,B)$. Otherwise $e=2$ and $B=JL$ with $J\nmid L$. For every $r^v\parallel J(P)$ with $r\mid U$, we have $r^v\mid L(P)$ since $r^{2v}\mid B(P)$. Therefore $r^v\mid B'(P)$ by the product rule. The resultant $\operatorname{Res}(H,B')$ is nonzero since $J\nmid J'L$ in characteristic zero. Thus $U\mid\operatorname{Res}(H,B')^2$. The derivative has norm at most $nR$, so in all cases $U\le(nR)^{4n}\le R^{8n}$ and $T\le R^{12n}$. Each root evaluation used in the three CRT groups is bounded in absolute value by $R(1+h_{n-1})^n+1\le R^{n+2}$. Failure to obtain a unit vector would force $P\le R^{15n+6}\le R^{18n}$.
+
+Take $P>R^{\max(83,18n)}$. Every $w_j$ satisfying (1) is larger than $R^{12n}$. The absolute signed coefficients at degrees below $n$ in the change of origin are at most $R^{n+1}P^{(n-1)/(2n)}<w_j/8$, as $P^{1/2}>8R^{n+1}$. The integer node and digit arguments therefore apply with the stated threshold, including the successor result with just the last factor condition.
+
+At the unshifted weight set $m=2n-3B-3(n-B)/(2n)$, where $B$ is the upper bound on the number of assigned nodes. The inequalities $N-1\ge P^n/2$, $S\le R^{3n}$ and $U\le R P^{B+(n-B)/(2n)}$ would give $P^m\le(4/27)R^{6n+3}$. For $n=2,3,4,5$, the values of $m$ are $1/4,2,5/4,2/5$, and $(6n+3)/m\le83$. For $n\ge6$, using $B\le(n+1)/2$ gives $m\ge n/2-9/4\ge n/8$ and $(6n+3)/m\le52$. Thus $P>R^{83}$ contradicts the size inequality. This completes the uniform bound.
+
+For example, take any $n\ge3$ distinct full prime powers $w_0<\cdots<w_{n-1}$ of distinct bases. Put $P=w_0$ and $D=w_{n-1}-P$. Both their product and its successor satisfy the conjecture whenever
+$$P>\big(2(1+D)^{n-1}\big)^{\max(83,18n)}.$$
+The exponents are explicit sufficient bounds. For three factors the direct gap test below gives a stronger bound at the successor.
+
+## Products from a growing block of consecutive primes
+
+Fix $n\ge2$ and $d\ge1$, and write $E_n=\max(83,18n)$. Among starting primes in $[X,2X]$, at most
+$$O_{n,d}\big(X^{1-1/((n-1)E_n)}\big)$$
+can fail the following assertion. For *any* subset of at least two of the $n$ consecutive primes beginning at the starting prime, both $d$ times its product and the successor of that multiple satisfy the conjecture. In particular this proves infinitude without any hypothesis on prescribed prime tuples.
+
+There is also a simultaneous result with growing parameters. Put $m=\lfloor\tfrac17\sqrt{\log X/\log\log X}\rfloor$. At all but $O(mX/(\log X)^2)$ starting primes in $[X,2X]$, take **any subset of at least two of the next $m$ primes, counting the starting prime**, and **any integer $1\le d\le X^{1/(100m)}$**. Both $d$ times the subset product and one more than that multiple satisfy the full conjecture. The proportion of excluded starts among primes tends to zero.
+
+To prove both claims, the prime number theorem puts the last prime of each block below $3X$ for sufficiently large $X$. Each prime gap contributes to the sum of the block diameters at most $n-1$ times in the fixed case, and at most $m-1$ times in the growing case. The respective diameter sums are at most $2nX$ and $2mX$. For fixed $n,d$ the explicit bound covers every diameter $D$ with $(2d(1+D)^{n-1})^{E_n}<X$. Counting larger diameters gives the first assertion. For growing $m$ discard all diameters exceeding $(\log X)^2$. For any remaining subset, at its smallest prime $P\ge X$ the factors are translates by at most $D$ and each is prime. Its threshold is at most $(2d(1+D)^{m-1})^{18m}$ for large $X$. The logarithm of this bound is at most
+$$\big(18/100+36/49+o(1)\big)\log X<\log X.$$
+All the indicated choices are consequently covered at once.
 
 ## A gap bound with no asymptotic threshold
 
