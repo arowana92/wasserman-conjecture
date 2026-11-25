@@ -32,7 +32,7 @@ More generally, at a three-factor predecessor with $P$ full and $(c+1)H_D<P$, a 
 
 A useful case has no large-$P$ threshold. Let $Z$ have at most two distinct prime divisors and satisfy $Z\equiv1\pmod P$. Then $PZ+1$ satisfies the conjecture for every prime power $P$. If the base-$P$ digits of $Z$ are all at most $(P-1)/2$, so does $2PZ+1$. In particular both weights work at every prime power when $Z$ is a polynomial in $P$ with coefficients 0 and 1 and constant term 1, subject only to the same prime-factor condition on $Z$.
 
-Indeed, at $PZ+1$ in the three-factor case the special part is a multiple of $Z$ less than $PZ$, and its multiplier is 1 modulo $P$. This forces the part to be $Z$, coprime to $N$. At $2PZ+1$ the preceding three- and four-factor arguments make $B$ a multiple of $Z$ as well, since $p\nmid Z$. Its only possible multipliers are 1 and $P+1$. The latter gives $B=(P+1)Z$. Under the digit bound, neither $Z+PZ$ nor $1+2PZ$ has any base-$P$ digit overflow in these formulas. Comparing digits of the part to the total forces each digit of $Z$ to be at most the preceding digit. They start at 1, giving a repunit and a complement equal to a single power of $P$, impossible for the other two positive parts. For the 0–1 polynomial statement at $P=2$, the predecessor of $2PZ+1$ has full power 4 and at most two odd bases, so the [small full-power theorem](three_factors_small_power.md) applies.
+Indeed, at $PZ+1$ in the three-factor case the special part is a multiple of $Z$ less than $PZ$, and its multiplier is 1 modulo $P$. This forces the part to be $Z$, coprime to $N$. At $2PZ+1$ the preceding three- and four-factor arguments make $B$ a multiple of $Z$ as well, since $p\nmid Z$. Its only possible multipliers are 1 and $P+1$. The latter gives $B=(P+1)Z$. Under the digit bound, neither $Z+PZ$ nor $1+2PZ$ has any base-$P$ digit overflow in these formulas. Comparing digits of the part to the total forces each digit of $Z$ to be at most the preceding digit. They start at 1, giving a repunit and a complement equal to a single power of $P$, impossible for the other two positive parts. For instance, for each fixed pair of coprime prime powers $P,Q$, Dirichlet’s theorem gives infinitely many primes $r\equiv Q^{-1}\pmod P$. Every weight $PQr+1$ satisfies the conjecture by the first assertion. For the 0–1 polynomial statement at $P=2$, the predecessor of $2PZ+1$ has full power 4 and at most two odd bases, so the [small full-power theorem](three_factors_small_power.md) applies.
 
 ## Two polynomial prime-power factors
 
@@ -44,7 +44,7 @@ It remains to consider $h>1,k=1$, interchanging $f,g$ as necessary. Here $c=h$. 
 
 ## Reproduction
 
-Run the digit and CRT controls using Python.
+The verifier checks 354 instances inside the gcd gap, including 223 with $s>1$ and 25 with a part sharing a divisor of at least 3 with the weight and $y>0$. It also tests 9,307 carry-free rows obtained from exact binomial products, and 1,152 CRT divisor checks. Run the controls using Python.
 
 ```sh
 python3 check_cofactor_digit_gap.py
