@@ -62,6 +62,18 @@ If $\dim Y=1$ and $Y$ is a line, all actual rows lie on that line, already exclu
 
 Fix $H$. Omit all offsets $0\le h<H$ that are a sum of three nonnegative residues in one of these exceptional triples. Omit also the one offset, if present, for which $N-h$ is divisible by a power of 2 exceeding $H$. There is at most one since such an offset must be congruent to $N$ modulo the smallest power of two greater than $H$. The retained degree satisfies $L\ge W(H)-o(H^2)$ as $H$ grows, uniformly on the subsequence. At any retained odd layer covered by $A$, the actual residues sum to $h$, and the layer divides the gcd in (2) for that residue triple. For fixed $H$ multiply those odd gcds over all nonexceptional triples of sum less than $H$. By (2) this provides $K=N^{o(1)}$ as $N$ grows, besides the bounded layers. Choose $H$ large enough that the retained degree exceeds the exponent in (1) by a fixed positive margin. The lower bound $P\ge N^{L-o(1)}$ now contradicts (1). This completes the proof.
 
+## Even weights at each fixed digit sum
+
+For each fixed $s\ge3$, among the even weights below $2^T$ with exactly $s$ binary ones, the upper limiting fraction admitting a counterexample is at most $3^{1-s}$. For instance, at six binary ones the bound is $1/243$.
+
+To prove this, write $N=P m$ with $P=2^r$, $m$ odd, and put $t=\lfloor\log_2 N\rfloor$. For a large counterexample take $E$ and a binary row $A=P(a,b,c)$. The bits of $a,b,c$ partition $m$. Assign the full powers of $N,N-1$ between $A$ and the remaining row, putting 2 in the assignment for $A$. Write $U=Pu$ for the part of $N$ assigned to $A$, $S$ for the part of $N-1$ assigned to it, and $T'=(N-1)/S$. Then $u$ divides every one of $a,b,c$. Each full power of $S$ divides two of them, and $(T')^2\le(U/3)^3$ by the [endpoint size bound](endpoint_reduction.md).
+
+Use variables for the positive bit positions of $m$, keeping its lowest bit equal to 1. Each of $(a,b),(b,c),(a,c)$ consists of coprime polynomials with disjoint supports of variables, or includes the constant 1. For any fixed $\epsilon>0$ the odd parts of the three gcds are at most $m^\epsilon$, except on finitely many proper affine hyperplanes in the exponents and at bounded $m$, by the gcd theorem above. Hence $u\le m^\epsilon$, $S\le m^{3\epsilon}$ and
+$$(Pm-1)^2\le S^2(Pu/3)^3\ll P^3m^{9\epsilon}.$$
+Thus $P\gg m^{2-9\epsilon}$. Since $\log_2m=t-r+O_s(1)$, for every $\eta>0$ this requires $r\ge(2/3-\eta)t$ for large $t$ on choosing $\epsilon$ sufficiently small.
+
+The exceptional hyperplanes contribute $O_{s,\epsilon}(T^{s-1})$ tuples among $\binom{T-1}{s}$ even weights. This follows on lifting the exponent differences of $m$ by adding $r$, as in the [odd-weight argument](odd_sparse_endpoint.md). For a given top position $t$, the other $s-1$ positions must all lie above $(2/3-\eta)t-O(1)$. Their limiting fraction is at most $(1/3+\eta)^{s-1}$ by the binomial counts, also after summing over $t<T$. Taking $\eta$ to zero proves the assertion.
+
 ## Finite verification for odd weights
 
 The full conjecture holds at all 333,375 odd four-bit weights below $2^{128}$ and all 595,665 odd five-bit weights below $2^{64}$. For fewer bits use the [three-bit verification](even_three_binary_digits.md) and the universal divisor 2 when there are at most two ones.
