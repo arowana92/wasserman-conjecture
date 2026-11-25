@@ -10,6 +10,7 @@ The full assertion is proved here for every $N=5\cdot2^k+1$, for all sufficientl
 
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. A separate proof gives an infinite family of composite weights with certificates of size at most seven.
 
+- [Density-one prime lists with mean size below 35.32](typical_certificates.md)
 - [Stronger exceptional-set bound and its factorization argument](endpoint_count.md)
 - [Proof of density one with a power-saving exceptional set](almost_all_weights.md)
 - [Complete finite proof for every weight through one million](full_range_1m.md)
