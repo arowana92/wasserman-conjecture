@@ -64,7 +64,7 @@ def height(v):
     return 4*v[0]+2*v[1]
 
 
-def sectors(first, second, pairs):
+def sectors(first, second, pairs, height_fn=height):
     assert first[0]*second[1]-first[1]*second[0] == 1
     mid = tuple(i+j for i, j in zip(first, second))
     orientations = []
@@ -72,9 +72,9 @@ def sectors(first, second, pairs):
         fs = [projection(f, g, v, w) for f, g in pairs]
         degree = sum(k*(len(h)-1) for k, h in zip(MULTIPLICITIES, fs))
         orientations.append((v, w, fs, degree))
-    if any(height(mid) <= degree+1 for _, _, _, degree in orientations):
-        yield from sectors(first, mid, pairs)
-        yield from sectors(mid, second, pairs)
+    if any(height_fn(mid) <= degree+1 for _, _, _, degree in orientations):
+        yield from sectors(first, mid, pairs, height_fn)
+        yield from sectors(mid, second, pairs, height_fn)
     else:
         yield from orientations
 

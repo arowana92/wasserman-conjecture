@@ -12,6 +12,8 @@ The full assertion is proved here for every $N=5\cdot2^k+1$, for every weight wi
 
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. For all sufficiently large $X$, at least $cX/(\log X)^2$ pairs of consecutive weights in $[X,2X]$ have minimum certificate size exactly four at both weights.
 
+- [The gcd of a binomial and a trinomial in powers of a prime, up to an explicit subexponential factor](binomial_trinomial_gcd.md)
+- [Only finitely many inner exponent triples in $(1+p^i+p^j)(1+p^k)$ can give an exception at any prime or outer shift](translated_triple_weights.md)
 - [Every weight $1+p^a(1+p^i+p^{2i})(1+p^k)$ at all primes and all three independent positive exponents](geometric_product_weights.md)
 - [A power saving for sparse exponent patterns across all primes, with unrestricted shifts](sparse_shifts_across_primes.md)
 - [Seven digit units through normalized span 100 at every shift and dilation, with a bound on each successive gap](seven_span_and_gaps.md)
