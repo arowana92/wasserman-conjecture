@@ -12,6 +12,7 @@ The full assertion is proved here for every $N=5\cdot2^k+1$, for every weight wi
 
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. For all sufficiently large $X$, at least $cX/(\log X)^2$ pairs of consecutive weights in $[X,2X]$ have minimum certificate size exactly four at both weights.
 
+- [Adjacent binomial cuts share an endpoint prime through one billion, with an all-weight five-sixths bound on their distance from the center](adjacent_cuts.md)
 - [A logarithmic count for nearby central cuts, with gaps through 512 checked in the quadratic case below $2^{4096}$](central_cuts.md)
 - [The full conjecture at every prime power with cofactor 1651 or 2563, and unrestricted successor offsets through 248](cofactor_1651.md)
 - [The second interval above every binary power for smaller predecessor powers through 128, and a modular-inverse digit obstruction checked in Lean](inverse_pair_digit_gap.md)
