@@ -8,10 +8,13 @@ Every counterexample must contain $(1,1,N-2)$ up to permutation. This reduces th
 
 The conjecture holds at a set of weights of natural density one. The number of possible exceptions up to $X$ is $O(X^{0.8689})$. The proportion of exceptions also tends to zero uniformly in every interval of length at least $X^{29/40}$ within $[X,2X]$.
 
+For almost all weights $N$, every three rows share an individual prime exceeding $\exp(\sqrt{\log N}/\log\log N)$. More generally the number of weights in $[X,2X)$ where some triple of rows has no common prime greater than $y$ is $O(X\log^2(2y)/\log X)$.
+
 The full assertion is proved here for every $N=5\cdot2^k+1$, for every weight with base-$p$ digit sum at most five for some prime $p\mid N-1$, and throughout growing intervals above powers of two.
 
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. For all sufficiently large $X$, at least $cX/(\log X)^2$ pairs of consecutive weights in $[X,2X]$ have minimum certificate size exactly four at both weights.
 
+- [A growing individual common prime for every three unrestricted rows, with a uniform count of exceptional weights](growing_common_primes.md)
 - [Two predecessor congruences give the global exponent 0.8689, a sharp density-one exponent for the endpoint divisor of a single trinomial, and a three-row bound with one unrestricted row](two_predecessor_congruences.md)
 - [A growing common endpoint divisor for three or four rows with small valuations at different primes](several_carry_counts.md)
 - [A common divisor exceeding the eighth root of the weight for every pair of trinomials at almost all weights, and large individual common primes for rows with few binary carries](growing_endpoint_divisors.md)
