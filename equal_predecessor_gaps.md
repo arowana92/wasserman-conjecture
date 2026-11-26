@@ -139,6 +139,8 @@ This exhausts the unequal gaps. At $d=e$, $G=p^d+1$ and (1) gives $S_d=S_e=1$. I
 
 ## Two sparse primes
 
+The [mixed six-unit theorem](mixed_six_units.md) now removes the extra conditions at six weight-prime units in item 2 below.
+
 The full conjecture holds under either of the following hypotheses.
 
 1. Two distinct primes of $N-1$ each have $s_p(N)\le6$.
