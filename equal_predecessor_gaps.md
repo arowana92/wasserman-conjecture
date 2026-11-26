@@ -142,7 +142,7 @@ This exhausts the unequal gaps. At $d=e$, $G=p^d+1$ and (1) gives $S_d=S_e=1$. I
 The full conjecture holds under either of the following hypotheses.
 
 1. Two distinct primes of $N-1$ each have $s_p(N)\le6$.
-2. There are primes $p\mid N-1$ and $q\mid N$ with $s_p(N)\le6$ and $s_q(N)\le5$. The upper bound on $s_q(N)$ can be raised to six whenever $p=2$ or $q=2$.
+2. There are primes $p\mid N-1$ and $q\mid N$ with $s_p(N)\le6$ and $s_q(N)\le5$. The upper bound on $s_q(N)$ can be raised to six whenever $p=2$, $q=2$, or the six base-$p$ units occupy distinct positions.
 
 For the first assertion we need only consider six units at each base. In a counterexample the row $A$ for $p$ has its two parts $p^i(1+p^d),p^j(1+p^d)$ coprime to every prime of $N-1$ other than $p$, since $1+p^d\mid N$. It must carry at every such prime because avoiding one requires two zero residues. The second base must therefore be avoided by the companion. Applying the same theorem there leaves no row to avoid a third prime of $N-1$. But weights with at most two prime factors of $N-1$ already satisfy the [full conjecture](all_weights_endpoint_reduction.md).
 
@@ -153,6 +153,16 @@ With $s_q(N)\le5$, one of the three parts of $A$ is a pure power of $q$. The las
 For $p=2$ the weight is odd and $q$ is odd, so even the bound $s_q(N)\le6$ implies $s_q(N)\le5$ by parity. If $1+2^u=q^b$ with $b>1$, any odd divisor of $b$ greater than one would give a nontrivial odd factor of $q^b-1$ by a geometric sum. Hence $b$ is even. The powers of two $q^{b/2}-1,q^{b/2}+1$ differ by two, giving $q=3$, $b=2$, $u=3$. Five distinct positive binary positions have span at least four, so the span bound and $d\mid u$ force $d=3$. The five consecutive positive positions must then be $1,2,3,4,5$: the two gap-three pairs use the first and fourth and the second and fifth, leaving the middle position $u=3$. This is the checked weight 63.
 
 If $b=1$, $q=1+2^u$ divides every part of $A$, forcing $d=u$ because $d\mid u$ and $q\mid1+2^d$. Again $d\ge3$ by the span bound. Carry-free addition at $q$ gives $1+s_q(2^i)+s_q(2^j)\le5$. For an exponent at least $u$, its positive digit sum is zero modulo $q-1=2^u$, hence at least eight. Otherwise both powers are single digits, and $1+2^i+2^j\ge7$ since $i,j$ are distinct and positive. This contradiction proves the assertions.
+
+Finally suppose $p,q$ are odd, $s_q(N)=6$, and no $q$-part is a singleton, since the singleton argument above already excludes that case. Each part of $A$ is a sum of two $q$-powers. If $i<j$, write its two $p$-divisible parts as
+$$
+p^i F=q^a(1+q^f),\qquad p^j F=q^a(1+q^l),\qquad F=1+p^d .
+$$
+The same $a=v_q(F)$ occurs because $q$ is odd and $p\ne q$. Moreover $f>0$ since $p\mid1+q^f$, and $l>f$. Division gives $1+q^f\mid1+q^l$. The order of $q$ modulo $q^f+1$ is exactly $2f$: it divides $2f$, and no positive exponent at most $f$ gives 1 by size. Hence $l=fL$ with $L\ge3$ odd. The odd-prime lifting formula gives
+$$
+v_p\big((1+q^{fL})/(1+q^f)\big)=v_p(L).
+$$
+The quotient is $p^{j-i}$, so it would be at most $L$. But $(1+x^L)/(1+x)>L$ for $x=q^f\ge3$, $L\ge3$ odd, as follows by grouping the alternating sum or directly from $x^L>L(x+1)$. Thus $i=j$ is necessary. This requires digit multiplicity at least two at each of $i,i+d$ and excludes the distinct-position case.
 
 ## Two separated groups and consecutive weights
 
