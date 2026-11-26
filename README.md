@@ -6,12 +6,13 @@ For an integer $N\ge3$, take any three triples of positive integers summing to $
 
 Every counterexample must contain $(1,1,N-2)$ up to permutation. This reduces the full conjecture at every weight to proving that any two coefficients share a prime factor of $N(N-1)$. In particular the conjecture holds whenever $N-1$ has at most two distinct prime divisors.
 
-The conjecture holds at a set of weights of natural density one. The number of possible exceptions up to $X$ is $O(X^{0.9329})$. The proportion of exceptions also tends to zero uniformly in every interval of length at least $X^{19/25}$ within $[X,2X]$.
+The conjecture holds at a set of weights of natural density one. The number of possible exceptions up to $X$ is $O(X^{0.8946})$. The proportion of exceptions also tends to zero uniformly in every interval of length at least $X^{37/50}$ within $[X,2X]$.
 
 The full assertion is proved here for every $N=5\cdot2^k+1$, for every weight with base-$p$ digit sum at most five for some prime $p\mid N-1$, and throughout growing intervals above powers of two.
 
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. For all sufficiently large $X$, at least $cX/(\log X)^2$ pairs of consecutive weights in $[X,2X]$ have minimum certificate size exactly four at both weights.
 
+- [The global exceptional-weight bound of exponent 0.8946, uniform counts with prescribed high and low binary digits, and bounds for single cuts](common_factor_count.md)
 - [The full conjecture for six prime exponent positions at every base, mixed prime and power-of-two positions at odd bases, and exact outer-shift congruences](seven_outer_pair.md)
 - [Only finitely many one-parameter families of possible seven-unit patterns at all odd predecessor primes, with an almost linear logarithmic count of the weights](ternary_seven_lines.md)
 - [At most a quadratic logarithmic count of exceptional seven-unit weights across all odd predecessor primes](odd_seven_count.md)
