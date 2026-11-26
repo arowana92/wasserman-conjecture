@@ -12,6 +12,8 @@ The full assertion is proved here for every $N=5\cdot2^k+1$, for every weight wi
 
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. For all sufficiently large $X$, at least $cX/(\log X)^2$ pairs of consecutive weights in $[X,2X]$ have minimum certificate size exactly four at both weights.
 
+- [Every nonconstant nonendpoint row has spread above one million, with infinite families above three equal prime powers and an optimal four-prime certificate](spread_families.md)
+- [A quadratic equation for successive gaps and a ninth-root count of weights near the minimum spread](row_spreads.md)
 - [A power saving in the binary exponent for equalities between gaps, with multiplier 2,661 checked through million-bit weights](row_gap_powers.md)
 - [Separation of unequal parts, a cube-root count for bounded products of gaps, and an all-weight exclusion for prime multipliers and multipliers through 2,660 in the equality case](row_gap_products.md)
 - [At least two of $5t+1$, $7t+1$ and $9t+1$ for every product of two prime powers, with a residue test and bounds for factor nine](factor_nine_pairs.md)
