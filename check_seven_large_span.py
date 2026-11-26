@@ -8,13 +8,14 @@ from check_translated_triple_lines import specialize
 
 
 def constants():
-    assert below_one([(2,1,101),(3,1,1),(2,300,1000),(11,102,1000),(11,-1,1)])
-    assert 29 < 2**5 and 9**16 < 11**15
-    # At H >= 10^14 these are rational upper bounds on normalized error terms.
-    assert 40000**3 <= 10**14
-    assert Fraction(13,40000) < Fraction(1,1800)
-    assert Fraction(39,40000) + Fraction(22*3600*60,10**7) < Fraction(9,16)
-    assert Fraction(39,40000) + Fraction(22*12*4,10**7) < Fraction(1,16)
+    for row in ([(3,1,1),(10,1,2)], [(4,1,1),(6,1,2),(12,1,100000)],
+                [(4,1,100000),(11,18,100000),(3,1,1),(2,2,3),(11,1,3)],
+                [(3,1,1),(2,1,10),(11,7,15)]):
+        assert below_one(row+[(11,-197,200)])
+    assert 9**16 < 11**15
+    assert 460**3 <= 10**8 and 250**2*1600 == 10**8
+    assert Fraction(1,100)-Fraction(4,460) > Fraction(1,800)
+    assert Fraction(12,460)+Fraction(8,250) < Fraction(1,16)
 
 
 def affine_controls():

@@ -92,7 +92,7 @@ def check():
             scale += 1
         v = cyclotomic(p,d,e,f)
         g = gcd(1+p**d, 1+p**e+p**f)
-        assert g % v == 0 and g//v <= p**(13*scale)
+        assert g % v == 0 and g//v <= p**((6 if p == 5 else 4)*scale)
     for b in (11,91,501,5001):
         for p, d, e, f in ((2,b,b+1,2*b), (3,3*b,(b+1)//2,b)):
             g = gcd(1+p**d, 1+p**e+p**f)

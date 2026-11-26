@@ -3,6 +3,7 @@ from argparse import ArgumentParser
 from collections import Counter
 from itertools import combinations
 from math import gcd, isqrt
+from multiprocessing import Pool
 
 from check_seven_span import companion, coprime_part, odd_part
 
@@ -83,19 +84,30 @@ def check(base, p, width):
     return counts
 
 
+def at_base(args):
+    base, p, width = args
+    return base, check(base, p, width)
+
+
 if __name__ == '__main__':
     parser = ArgumentParser(description=__doc__)
-    parser.add_argument('--width', type=int, default=48)
+    parser.add_argument('--width', type=int, default=100)
+    parser.add_argument('--jobs', type=int, default=1)
     args = parser.parse_args()
-    if args.width < 2:
-        parser.error("the column span must be at least two")
-    totals = Counter()
-    for p in range(2, 64):
+    if args.width < 2 or args.jobs < 1:
+        parser.error("use a column span of at least two and a positive worker count")
+    inputs = []
+    for p in range(2, 31):
         if any(p % q == 0 for q in range(2, isqrt(p)+1)):
             continue
         base = p
-        while base < 64:
-            totals.update(check(base, p, args.width))
-            totals['bases'] += 1
+        while base < 31:
+            inputs.append((base, p, args.width))
             base *= p
-    print(dict(totals))
+    totals = Counter()
+    with Pool(args.jobs) as pool:
+        for base, counts in pool.imap_unordered(at_base, inputs):
+            totals.update(counts)
+            totals['bases'] += 1
+            print(f"base {base}: {dict(counts)}", flush=True)
+    print(f"width {args.width}: {dict(totals)}")

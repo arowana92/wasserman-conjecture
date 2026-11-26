@@ -4,7 +4,7 @@ Let $p$ be prime, $a,k\ge1$, and $0<i<j$. Put
 $$N=1+p^a(1+p^i+p^j)(1+p^k),\qquad H=j+k.$$
 **The full three-row conjecture holds if $H>414{,}720$.** At $p\ge5$ the upper bound for an exceptional $H$ decreases to $262{,}656$. Thus only finitely many quadruples $(p,i,j,k)$ can admit a counterexample at any outer shift. The finite interval between the known small-span theorem and the upper bounds has not been exhaustively checked.
 
-**Bounded column span.** For $0<i<j\le48$ the conjecture holds for every prime and all positive integers $a,b,k$ at
+**Bounded column span.** For $0<i<j\le100$ the conjecture holds for every prime and all positive integers $a,b,k$ at
 $$1+p^a(1+B^i+B^j)(1+B^k),\qquad B=p^b.$$
 The translation $k$, outer shift $a$ and dilation $b$ are unrestricted. The [arithmetic-progression theorem](geometric_product_weights.md) handles $j=2i$ without a bound on $j$.
 
@@ -110,11 +110,11 @@ Take $l$ such that $q^l\le L<q^{l+1}$, allowing $l=0$. Among the $q^l$ residue s
 
 ## The bounded column span calculation
 
-The [span-100 theorem](seven_span_and_gaps.md) covers normalized $j+k\le100$ with arbitrary dilation. For $k>j$ its gap bound at the gap $k-j$ requires $B^{2k-12j}\le41472$, so $k\le6j+7$ in any exception. Binary coincidences at any dilation have been handled above. It suffices to test the 26 prime powers $B<64$, $1\le i<j\le48$, and $\max(1,101-j)\le k\le6j+7$.
+The [span-100 theorem](seven_span_and_gaps.md) covers normalized $j+k\le100$ with arbitrary dilation. For $k>j$ its gap bound at the gap $k-j$ requires $B^{2k-12j}\le41472$, so $k\le6j+7$ in any exception. Binary coincidences at any dilation have been handled above. It suffices to test the 16 prime powers $B<31$ by the [base-31 theorem](seven_base31.md), $1\le i<j\le100$, and $\max(1,101-j)\le k\le6j+7$.
 
 In each of the 36 remaining labelled allocations the two blocks and the singleton are linear in $T=B^k$. For two blocks $f=f_0+f_1T,g=g_0+g_1T$ a nonzero determinant $f_0g_1-f_1g_0$ bounds their gcd away from $p$. A one-term block supplies its coefficient after removing a unit power of $T$. Powers of $2$ and $p$ can be removed from all caps. The verifier first applies these caps to the three pairs for $U,A,C$, and directly tests the remaining integers using $U$ bounded by the part of $\gcd(x_0,y_0)$ coprime to $2pm$ and $AC$ bounded by the odd part of $\gcd(m,x_0y_0)$.
 
-At normalized width 48, 2,148,696 numerical size tests remain with a sufficiently large scale. None requires a companion search. An earlier run preserving all 60 allocations and retaining the base factors in the determinant caps also excluded every case.
+At normalized width 100, 22,617,503 numerical size tests remain with a sufficiently large scale. None requires a companion search. As a control at width 48, an earlier run preserving all 60 allocations and retaining the base factors in the determinant caps also excluded every case.
 
 ## Independent column and layer spacings through five
 
@@ -133,6 +133,6 @@ lean TranslatedTripleGaps.lean
 python3 check_translated_triple_lines.py
 c++ -O3 -std=c++17 check_translated_triple_lines_cross.cpp -o /tmp/translated-triple-check
 /tmp/translated-triple-check
-python3 check_translated_triple_columns.py
+python3 check_translated_triple_columns.py --jobs 4
 python3 check_translated_triple_ratios.py
 ~~~
