@@ -12,6 +12,9 @@ The full assertion is proved here for every $N=5\cdot2^k+1$, for every weight wi
 
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. For all sufficiently large $X$, at least $cX/(\log X)^2$ pairs of consecutive weights in $[X,2X]$ have minimum certificate size exactly four at both weights.
 
+- [A predecessor prime power bounds all six parts, with infinite families at arbitrary binary prefixes and two large weight certificates](two_power_cut_windows.md)
+- [Every pair of central cuts in an explicit square-root window, with all trinomial refinements in a wider window below $2^{4096}$ and an eventual fixed-gap criterion](central_square_windows.md)
+- [Two cuts near arbitrary rational proportions, with an exceptional-weight count for pairs of full trinomial rows](rational_cut_windows.md)
 - [The same four primes certify every three-row choice at $2^{76}$ distinct weights](fixed_four_primes.md)
 - [Three primes for two rows when one power is close to the product of two others, including 122,070 multipliers](powers_near_a_product.md)
 - [A digit test for any two prime powers, with three-prime certificates for products of any fixed number of factors and 120,663 multipliers in a five-prime example](signed_power_pairs.md)
