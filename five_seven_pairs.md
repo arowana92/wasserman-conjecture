@@ -7,6 +7,8 @@ Let $\mathcal T$ consist of the products $t=p^a q^b$ of two prime powers, with $
 
 The first assertion uses residues modulo 3 and 4. The second uses all three necessary prime bases and the higher-dimensional slicing theorem of Corso and Shmerkin. The latter bound allows $t$ and both of its prime bases and exponents to vary.
 
+The [factor-nine extension](factor_nine_pairs.md) gives at least two valid weights among $5t+1$, $7t+1$ and $9t+1$, and an explicit test to identify them for even $t$.
+
 ## Incompatible residues
 
 Suppose $5t+1$ is exceptional. The [factor-five proof](predecessor_five_seven.md#full-factor-five) gives $t=2^k u$, $k\ge3$, $u$ odd, $3\mid 5t+1$, and a binary carry-free cut $3t,2t+1$. In particular $t\equiv1\bmod3$. The bits of $3u$ and $2u$ are disjoint, so $u\equiv3\bmod4$. Indeed $2u$ has its bit at position 1 set, forcing $3u\equiv1\bmod4$.

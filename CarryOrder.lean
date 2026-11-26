@@ -104,4 +104,33 @@ theorem five_seven_clash (t v u z : Nat)
     (seven_shape : (7*v+1)%3 = 0 ∨ (5*z)%4+(2*z)%4 < 4) : False := by
   omega
 
+/-- Two necessary binary layers after removing the common power of two. -/
+abbrev lowCut (u a b : Nat) : Prop :=
+  (a*u)%4+(b*u)%4 < 4 ∧ (a*u)%8+(b*u)%8 < 8
+
+abbrev fivePossible (t u : Nat) : Prop :=
+  (3*t)%5 = 1 ∧ (5*t+1)%3 = 0 ∧ lowCut u 3 2
+
+abbrev sevenPossible (t u : Nat) : Prop :=
+  ((3*t)%7 = 1 ∧ (7*t+1)%3 = 0 ∧ lowCut u 3 4) ∨
+  ((6*t)%7 = 1 ∧ (7*t+1)%3 = 0 ∧ lowCut u 6 1) ∨
+  ((5*t)%7 = 1 ∧ (7*t+1)%5 = 0 ∧ lowCut u 5 2)
+
+abbrev ninePossible (t u : Nat) : Prop :=
+  ((5*t)%9 = 1 ∧ (9*t+1)%5 = 0 ∧ lowCut u 5 4) ∨
+  ((7*t)%9 = 1 ∧ (9*t+1)%7 = 0 ∧ lowCut u 7 2)
+
+abbrev compatibleAtMostOne (t u : Nat) : Prop :=
+  ¬(fivePossible t u ∧ sevenPossible t u) ∧
+  ¬(fivePossible t u ∧ ninePossible t u) ∧
+  ¬(sevenPossible t u ∧ ninePossible t u)
+
+set_option maxRecDepth 16000 in
+set_option maxHeartbeats 2000000 in
+/-- The admissible residue pairs for the three families are pairwise disjoint. -/
+theorem three_families_table :
+    (List.range 315).all (fun t => [1,3,5,7].all (fun u =>
+      decide (compatibleAtMostOne t u))) = true := by
+  decide
+
 end Wasserman

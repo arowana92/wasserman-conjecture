@@ -12,6 +12,7 @@ The full assertion is proved here for every $N=5\cdot2^k+1$, for every weight wi
 
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. For all sufficiently large $X$, at least $cX/(\log X)^2$ pairs of consecutive weights in $[X,2X]$ have minimum certificate size exactly four at both weights.
 
+- [At least two of $5t+1$, $7t+1$ and $9t+1$ for every product of two prime powers, with a residue test and bounds for factor nine](factor_nine_pairs.md)
 - [At least one of $5t+1$ and $7t+1$ at every product of two prime powers, and a uniform subpower bound for each family](five_seven_pairs.md)
 - [Every exponent of $5Q2^k+1$ for odd prime powers $Q<2^{23}$ except two progressions, both checked through $k=10^{128}$](factor_five_exponents.md)
 - [Binary order obstructions for $dQ=2^h+1$, with every exponent checked through $d=2^{52}$ or radical 400,000](factor_five_order.md)

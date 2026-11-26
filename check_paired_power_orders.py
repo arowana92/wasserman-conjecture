@@ -3,7 +3,7 @@
 from fractions import Fraction
 from math import comb, gcd
 
-from flint import fmpz_mat
+from flint import fmpz, fmpz_mat
 
 from carry_blocks import CarryGraph
 
@@ -52,6 +52,36 @@ def check_three_base_dimensions():
         print('Factor, multiplier, bases, dimension hundredths:',w,a,bases,bounds)
 
 
+def check_factor_nine():
+    families = {5:((3,3),), 7:((3,3),(6,3),(5,5)), 9:((5,5),(7,7))}
+    residue_sets = []
+    for w,shapes in families.items():
+        allowed = set()
+        for t in range(315):
+            for u in (1,3,5,7):
+                for a,scale in shapes:
+                    if a*t%w==1 and (w*t+1)%scale==0 and not (a*u & (w-a)*u & 7):
+                        allowed.add((t,u))
+        residue_sets.append(allowed)
+    five,seven,nine = residue_sets
+    assert (len(five),len(seven),len(nine)) == (21,63,19)
+    assert not (five&seven or five&nine or seven&nine)
+
+    for a,base,limit in ((5,2,59),(5,3,56),(5,5,71),(7,2,58),(7,3,50),
+                         (7,7,77),(8,2,71),(8,3,7)):
+        graph = CarryGraph(base,(a,9-a),(0,1))
+        assert graph.block_bound(256)**100 <= base**(256*limit)
+    assert CarryGraph(2,(1,2,4),(0,0,0)).block_bound(256)**100 <= 2**(256*56)
+    for base,limit in ((2,5737),(3,5453)):
+        paths = fmpz(CarryGraph(base,(4,5),(0,1)).block_bound(4096))
+        assert paths**10000 <= fmpz(base)**(4096*limit)
+    # (x+3)/x^(22/25) increases for x>=22. This covers the larger primes.
+    assert 100003**25 < 4**25 * 100000**22
+    assert all((1+(p-1)//4)**25 <= p**22 for p in (5,7,11,13,17,19))
+    print('Pairwise disjoint residues for factors 5, 7 and 9:',tuple(map(len,residue_sets)))
+    print('Verified the factor-nine bounds, including prime divisors through 100,000.')
+
+
 def check_binomial_layers():
     cases = orders = gaps = carry_free = 0
     for p in (2,3,5,7,11):
@@ -97,4 +127,5 @@ def check_binomial_layers():
 if __name__=='__main__':
     check_counts()
     check_three_base_dimensions()
+    check_factor_nine()
     check_binomial_layers()
