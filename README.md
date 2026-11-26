@@ -12,6 +12,7 @@ The full assertion is proved here for every $N=5\cdot2^k+1$, for every weight wi
 
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. For all sufficiently large $X$, at least $cX/(\log X)^2$ pairs of consecutive weights in $[X,2X]$ have minimum certificate size exactly four at both weights.
 
+- [The full conjecture for six prime exponent positions at every base, mixed prime and power-of-two positions at odd bases, and exact outer-shift congruences](seven_outer_pair.md)
 - [Only finitely many one-parameter families of possible seven-unit patterns at all odd predecessor primes, with an almost linear logarithmic count of the weights](ternary_seven_lines.md)
 - [At most a quadratic logarithmic count of exceptional seven-unit weights across all odd predecessor primes](odd_seven_count.md)
 - [The unique binary family attaining the two-thirds trinomial gcd exponent, and a common-scale constraint on three gaps at bases 2 and 3](sharp_trinomial_gcd.md)
