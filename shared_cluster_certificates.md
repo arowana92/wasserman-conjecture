@@ -4,6 +4,8 @@ For every fixed positive integer $D$, there are $\gg_D X^{2/3}/(\log X)^3$ disti
 
 There is a version with a growing number of consecutive multipliers. Fix $\epsilon>0$. Uniformly for $1\le D\le X^{31/1269-\epsilon}$ there are $\gg_\epsilon X^{2/3}/(D\log^3 X)$ products $M\le X$ with shared four-prime certificates for every $1\le d\le D$. For these same products, both minimum sizes equal four at every $d\equiv1\bmod4$ in the range. The certificates prove the full conjecture directly at the indicated weights.
 
+A [sieve estimate for the minimum size](cluster_certificate_minima.md) gives optimal lists at both weights for every multiplier through $c\log X$, and for all but $O_\epsilon(D/\log X)$ multipliers in longer ranges.
+
 ## Adding a fourth prime
 
 Use the [three incompatible base primes](clustered_predecessors.md) at $n=dM$ and $n+1$. If a prime $\ell\le n$ satisfies $2\ell>n+1$ and $n+1-\ell\le P$, then $\{P,Q,R,\ell\}$ certifies **both** weights (with $P,Q,R$ prime). At either weight a row avoiding $\ell$ has two positive parts whose sum is at most $n+1-\ell$. At $n$ a row avoiding a core prime $W\in\{P,Q,R\}$ has all parts divisible by $W$. At $n+1$ at least one of the two small parts is divisible by $W$. Either possibility violates the sum bound. Thus all four primes are pairwise incompatible at each weight; three rows can avoid at most three of the four.
