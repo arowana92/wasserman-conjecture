@@ -38,6 +38,8 @@ For arbitrary positive parts $x,y,z$ of sum $N$, put $K=N!/(x!y!z!)$ and $H_K=N(
 $$H_K\mid L(x,y),\qquad L(x,y)=\gcd(x,y)\gcd(x,y-1)\gcd(x-1,y).$$
 Indeed $Kxy/[N(N-1)]$ is the trinomial coefficient after deleting one unit from each chosen part. Deleting two units from the same part gives the same integrality for $x(x-1)$ and $y(y-1)$, including zero if that part is one. The gcd of these three numerators before multiplication by $K$ equals $L(x,y)$. Prime by prime, a divisor of $xy$ divides at least one of $x,y$. If it divides both, the gcd takes their minimum valuation. A prime dividing $x$ alone contributes the minimum valuation of $x$ and $y-1$, and the other case is symmetric.
 
+The divisibility $H_K\mid L(x,y)$ is also [formalized in Lean](PairDivisor.lean). The proof starts from Pascal’s recurrence, proves the factorial formula for the resulting trinomial coefficient, and then deletes units and proves the gcd divisibility within Lean. It checks with Lean 4.12.0 using `lean PairDivisor.lean`.
+
 In particular, if $x,y$ have the same prime support, then $H_K\mid\gcd(x,y)$. For the equal-gap parts above we obtain $H_K\mid p^aF$, even though their common factor is $p^{\min(i,j)}F$: $p^a$ is the full power of $p$ in $N(N-1)$. This strengthens the bound on avoided prime powers to one that retains partial valuations of $K$ as well.
 
 For any other row of the same weight with chosen parts $v,w$ and coefficient $J$,
