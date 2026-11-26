@@ -90,3 +90,5 @@ To check the assignments take $S=V-1$, $T=2V+1$. They are coprime since $3\mid V
 ## Reproduction
 
 Use `python3 check_proportional_part_pairs.py` with python-flint installed. The verifier uses exact trinomial coefficients for the quantitative minor bounds, independently tests the square-root sign argument with modular triples, and factors the endpoints in samples from the explicit progression. It verifies the tables of low residues and checks the actual parity by factorial valuations.
+
+A further explicit progression passes every lowest-layer check and has an odd coefficient in one row for every permitted exponent. In the other row the first ternary carry occurs at 9. [Full binary carry example](binary_admissible_endpoint_rows.md)
