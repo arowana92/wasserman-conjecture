@@ -4,6 +4,8 @@ Let $p\ge11$ be a prime divisor of $N-1$ with $s_p(N)=7$. Write the six positive
 
 **If $H\ge10^8$, every three positive trinomial coefficients of weight $N$ have a common prime divisor.** At $p\ge29$ the [base-27 theorem](seven_base27.md) proves this for every $H$. Consequently only finitely many choices of $(p,h_2,\ldots,h_6)$ with $p\ge11$ can fail at any outer shift. The six positions here are arbitrary. The proof does not require them to come from a product or an arithmetic progression.
 
+The [small-prime extension](seven_small_prime_span.md) also covers 5 and 7 for $H\ge10^{16}$.
+
 Assume $11\le p\le29$. Use the [seven-unit reduction](seven_span_and_gaps.md#which-allocations-need-checking) at $B=p$. Write the binomial as $x=X^i F$ with $F=1+X^d$, the trinomial as $y=X^j(1+X^e+X^f)$, $0\le e\le f$, and write $z=X^s$. The assigned divisors require
 $$U\mid F(p),y(p),\quad A\mid F(p),(y+z)(p),\quad C\mid y(p),(x+z)(p),\qquad 27p^{2H}\le U^3 A^2 C^2. \tag{1}$$
 Pure-power block cases are already excluded in the reduction.
