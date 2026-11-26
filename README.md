@@ -12,6 +12,7 @@ The full assertion is proved here for every $N=5\cdot2^k+1$, for every weight wi
 
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. For all sufficiently large $X$, at least $cX/(\log X)^2$ pairs of consecutive weights in $[X,2X]$ have minimum certificate size exactly four at both weights.
 
+- [Exponent spacing for two digit blocks and an exceptional-set bound for three free powers](two_block_spacing.md)
 - [Three independently placed prime powers, with complete results for five small offsets](two_high_powers.md)
 - [Density one of two-prime-power cofactors at every exponent, and an exhaustive binary check through factor 1,000](binary_two_factors.md)
 - [A sharp count for binary carry-free affine parts and bounds at every prime-power cofactor](binary_affine_counts.md)
