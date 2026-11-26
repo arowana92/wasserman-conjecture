@@ -1,5 +1,7 @@
 # Successor weights with the two exponents in either order
 
+The [cofactor-1651 theorem](cofactor_1651.md) now resolves the first three rays below at every exponent, extending the consecutive offset bound to 248.
+
 Let $N=p^a(p^j+d)+1$, where $p$ is prime and $a,j,d$ are positive integers. Wasserman's three-row conjecture holds for **all $a,j$ and every $1\le d\le191$**. More precisely, through $d=256$ it holds with the same unrestricted exponents except possibly on the four rays below, and it holds on those rays as well for **every $a\le10^{24}$**.
 
 | $d$ | $p$ | $j$ | Necessary exponent class |
