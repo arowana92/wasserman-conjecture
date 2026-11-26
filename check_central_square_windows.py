@@ -127,6 +127,8 @@ def algebra_controls():
             common = gcd(n*(n-1), gcd(bins[a], bins[b]))
             if x*x <= 5*n:
                 assert common > 1
+            if x*x <= 6*n and common == 1:
+                assert n > 36 and n%16 == 9 and b-a == 2 and 4*b*(n-a) == n*(n-1)
             if common != 1:
                 continue
             t, rem = divmod(x*y, n)

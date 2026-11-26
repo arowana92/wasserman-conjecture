@@ -26,6 +26,45 @@ For $t=4$ this forces $\delta=0$ and $x-y=3$, impossible since the offsets have 
 
 For $t=2$, the bound gives $\delta\le1$. The offsets are even, so $\delta=0$ would require $x-y=1$. If $\delta=1$, (1) gives $(x-y)^2=N$ and $(x+y)^2=9N$. Thus $x=2y$ and $N=y^2$. At a square $N=y^2$, the cut with offset $my$ is even in coefficient whenever $m$ is a power of two and $y>m$. Indeed its two sides, doubled, are $y(y-m),y(y+m)$. Scaling both summands by two preserves binary carries. If $v_2(y)\ne v_2(m)$ their valuations agree, forcing a carry. Otherwise divide out the common power from $y,m$ and cancel the common square factor of two, leaving $z(z-1),z(z+1)$ for an odd $z>1$. Choose $\sigma=\pm1$ with $h=v_2(z-\sigma)\ge2$. Modulo $2^{h+1}$ the two products are $2^h$ and $2+2^h$, in some order. Both use bit $h$. Apply this with $m=1,2$ to finish the proof.
 
+## The next interval and the binary assignment at a power-of-two gap
+
+If $\max(x^2,y^2)\le6N$ and two interior cuts have endpoint gcd one, then the only possibility is
+$$b-a=2,\qquad 4b(N-a)=N(N-1),\qquad N\equiv9\pmod{16}.$$
+In a trinomial counterexample with these cuts, the row at $a$ must avoid 2 and have $N-a$ as a single part.
+
+First verify $N\le36$ directly. Above this threshold $t<6$. The treatment of $t=0,1$ is unchanged since the next odd $k$ is seven. For $t\ge2$,
+$$0\le\delta=k-4t,\qquad \delta M+(t-1)^2\le(6-t)^2N/6.$$
+For $t=2$ we have $\delta\le2$ and $\delta$ must be odd, so the square case already excluded is the only one. At $t=4,5$ we get $\delta=0$. Parity excludes four, and five gives the displayed gap and product identity. For $t=3$ the bound gives $\delta\le1$ and the adjacent case excludes zero.
+
+In fact $t=3,\delta=1$ is impossible at every weight. Put $s=(x-y)/2$ and $d=(x+y)/2$. Then $N=4s^2-3$ and $d^2=13s^2-9$. Reduction modulo four forces $s$ odd and modulo eight gives $d=2D$ with $D$ odd. Also $s>1$. Choose $\sigma=\pm1$ with $h=v_2(s-\sigma)\ge2$. Since $4(D^2-1)=13(s^2-1)$, we have $v_2(D^2-1)=h-1$, forcing $h\ge4$. Choose $\tau=\pm1$ with $v_2(D-\tau)=h-2$. Now
+$$x,y=d\pm s\equiv 2\tau\pm\sigma+2^{h-1}\pmod {2^h}.$$
+Neither residue is $\pm1$ since $2\tau\pm\sigma$ lies in $\{-3,-1,1,3\}$. But $N\equiv1\bmod 2^h$ and one of the cuts must be carry-free at 2, forcing its offset to be $\pm1\bmod 2^h$. This is the contradiction.
+
+More generally consider any positive gap $s=b-a$ in the fixed-gap equality $4b(N-a)=NM$, with endpoint gcd one. Here $xy=(2s+1)N$, so $N$ is odd by the parity of $t$. Put $\ell=v_2(M)\ge2$. Neither $b$ nor $N-a$ is divisible by $2^\ell$ by the product identity. An odd cut coefficient requires a side divisible by $2^\ell$, so $2^\ell\mid a$ or $2^\ell\mid N-b$. In the former case $b\equiv s\bmod 2^\ell$ and $N-a$ is odd. In the latter $N-a\equiv s\bmod 2^\ell$ and $b$ is odd. Taking the valuation of the product gives
+$$v_2(M)=2+v_2(s).$$
+Also $\gcd(M,a)\mid4s$ and $\gcd(M,N-b)\mid4s$ by reducing the same identity modulo the respective gcds. At $s=2$ this proves $N\equiv9\bmod16$.
+
+Suppose now $s$ is a power of two and these are cuts of the nonendpoint rows $A,B$ of a counterexample. Assign the prime powers of $N$ with products $U,V$ and of $M$ with products $S,T$ to $A,B$ respectively. Recall that exactly one of $S\ge V$ or $T\ge U$ holds. In the row satisfying this inequality every one of its three positions must receive an exceptional residue 1 at some assigned predecessor prime power. Otherwise that positive normalized part would be a multiple of the entire assigned predecessor product, although it is less than the normalized row sum. [Endpoint assignment](endpoint_reduction.md)
+
+At any assigned odd predecessor power, the cut at $a$ must be 1 and the cut at $b$ must be 0 modulo the respective powers, by the two gcd divisibilities above. Thus all odd exceptional positions lie in the side of size $a$ for row $A$ and in the side of size $N-b$ for row $B$. The row satisfying the inequality must receive 2, and its opposite side must be a singleton receiving the exceptional residue at $2^\ell$. If this were $B$, its singleton would be $b<N/2$. Each part in the other side would be a multiple of $2^\ell V$. One of them must contain the highest binary bit of $N$, which is strictly larger than $N/2$ since $N$ lies below the next power of two. This leaves less than $(N-2b)/2$ for its companion. But $x=iU$ and $y=jV$ for positive integers $i,j$ with $ij=2s+1$, and hence $y/2\le(2s+1)V/2<2^\ell V$. This excludes $B$.
+
+Consequently $A$ satisfies $S\ge V$, avoids 2 and has singleton $N-a$. All odd powers of $S$ divide $N-a$ and all of $T$ divide $b$. In fact
+$$N-a=US/2^\ell,\qquad b=sVT.$$
+The respective integer quotients by $US/2^\ell$ and $VT$ multiply to $2^{\ell-2}=s$ by the product identity. The first quotient is odd since $a\equiv0\bmod2^\ell$ and $N$ is odd, giving both exact values. These constraints hold at every weight and every power-of-two gap in that equality family.
+
+An explicit size bound follows for every such power-of-two gap. The two parts in $a$ are $4sUf,4sUg$ for positive $f,g$. Set $m=f+g$ and $S'=S/2^\ell$. The cut identities give
+$$V=i+8sm,\qquad S'=(V+i)/2=i+4sm,\qquad S'\mid fg.$$
+For the last divisibility, at each odd full power of $S'$ at least one of the first two parts is zero modulo that power, and $4sU$ is a unit. Thus $m^2/4\ge fg\ge S'>4sm$ and $m>16s$. Since $U=(jV+2s)/i>V/(2s+1)$ and $V>128s^2$, this gives the all-weight restriction
+$$N>\frac{16384s^4}{2s+1}.$$
+
+**Enumeration over every power-of-two gap.** Put $d=(x+y)/2$ and $t=2s+1$. The preceding formulas give $d=jV+s\equiv3s+1\bmod 8s$. The leading binary bit requires $H\le N+d+s$ for the next power of two $H>N$. The equalities $d^2=tN+s^2$ and $t(N+d+s)=(d+s)(d+s+1)$ give
+$$\lfloor\sqrt{tH}\rfloor-s\le d\le\lfloor\sqrt{tH+s^2-1}\rfloor.$$
+The width is less than $2s+1$ since $H>2s$ and $\sqrt{tH+s^2}-\sqrt{tH}<s$. Thus only the largest integer in the required class up to the upper endpoint can work. Sweeping from the lower endpoint gives a second reconstruction using the exact quadratic inequality $(d+s)(d+s+1)\ge tH$.
+
+Below $2^{4096}$ this excludes the trinomial equality case at **every** power-of-two gap. Through 512 bits the two sweeps agree on 123 triples before the binary and low-power tests. None survive those tests in the full 4,096-bit range. A positive control at weight 8,416,233 has rows satisfying every assigned lowest layer, and the full binary addition has a carry. The verifier also checks the quadratic lifting obstruction above on 100 nontrivial positive solutions of $d^2-13s^2=-9$.
+
+For a general gap write $s=qw$ with $q$ a power of two and $w$ odd. Already at the binomial level the exact valuation and the two possible sides divisible by $4q$ give $d\equiv\pm(3s+1)\bmod 8q$. Indeed $N\equiv1+4q\bmod8q$, and $d=N-2a-s=2(N-b)-N+s$. The same short interval for $d$ now contains $O(w+1)$ representatives. For every gap with odd part at most 15 and all weights below $2^{512}$ the enumeration finds 18 cut pairs after the low-power and binary tests. Seventeen have common endpoint primes. The one binomial exception is $(32477,15886,15893)$ and all its trinomial refinements are covered. An independent fixed-gap enumeration agrees throughout their common range of gaps through 512 and weights below $2^{128}$. Reproduce both unbounded-gap searches with `python3 check_binary_central_gaps.py`.
+
 ## Counting weights and recovering them exactly
 
 Let $x^2\le cN$ and $H$ be the smallest power of two strictly greater than $N$. At least one cut must have odd coefficient. Its larger side must contain the leading bit $H/2$, whence
