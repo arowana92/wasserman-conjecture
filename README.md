@@ -12,6 +12,7 @@ The full assertion is proved here for every $N=5\cdot2^k+1$, for every weight wi
 
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. For all sufficiently large $X$, at least $cX/(\log X)^2$ pairs of consecutive weights in $[X,2X]$ have minimum certificate size exactly four at both weights.
 
+- [Six powers of an odd prime at any positions in a 21-term arithmetic progression, and an optimal four-prime certificate](seven_progressions.md)
 - [The conjecture at one plus six powers of a prime on any three positive exponent positions](seven_digit_units.md)
 - [A binomial–trinomial gcd bound and a spacing test for seven digit units at an odd predecessor prime](seven_pair_gaps.md)
 - [A binary offset criterion uniform in two exponents, including 997,012 offsets through one million and 225 small offsets at every exponent](binary_offset_shapes.md)
