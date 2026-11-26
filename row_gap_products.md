@@ -49,7 +49,7 @@ A smaller value would make the nonzero multiple of $M$ in (2) strictly between $
 
 ## When the right-hand side of (2) vanishes
 
-Resume the order $d\le e$ and suppose $e=d+t-1$. Two factorizations follow:
+Resume the order $d\le e$ and suppose $e=d+t-1$. The two products factor as
 $$tM=(d-1)(d+t)=(e-t)(e+1),\qquad M=(V-x)(U+y).$$
 Both factors of the last product are positive. Substituting $d\equiv-1\bmod s_2$ and $e\equiv1\bmod w_1$ in the first products gives $s_2,w_1\mid2(t-1)$. Also $s_1\mid V-x$ and $w_2\mid U+y$, by $UV\equiv1\bmod M$. Define
 $$b=(V-x)/s_1,\quad c=(U+y)/w_2,\quad bc=s_2s_3w_1w_3.$$
@@ -97,7 +97,7 @@ A second digit test handles a prime divisor of a variable factor $F$ with unknow
 
 If $p\mid F$ and $p^a\parallel F$, the digits at position $a$ are the three residues $(F/p^a)v_i\bmod p$. Here $a\ge1$, so the offset digit contributes only at position zero. If every nonzero multiplier modulo $p$ gives digit sum at least $p$, that entire residue class fails at its first nonzero scale digit. Every coordinate of $v\bmod p$ is determined by the two bin residues modulo $p$. The second implementation obtains $v$ by exact division at a positive lift on (5); the table proves independence of that lift.
 
-The remaining 114 choices give unbounded progressions. Every one is excluded by these tests at one prime. The second implementation uses the finite moduli 81, 25, 361 and 8192, together with the first-nonzero-digit test at their prime bases. Both programs raise an error on an unresolved case. The cutoff 2,660 is computational. At $t=2661$, for example, the current tests leave the shape $(x,y,b,c,m,h,n,j)=(2661,1,20,42,3,14,1,40)$ with $(s_2,s_3,w_1,w_3)=(7,3,40,1)$ unresolved. This specifies a progression on which higher carry conditions still have to be tested.
+The remaining 114 choices give unbounded progressions. Every one is excluded by these tests at one prime. The second implementation uses the finite moduli 81, 25, 361 and 8192, together with the first-nonzero-digit test at their prime bases. Both programs raise an error on an unresolved case. The cutoff 2,660 is computational. At $t=2661$, for example, the current tests leave the shape $(x,y,b,c,m,h,n,j)=(2661,1,20,42,3,14,1,40)$ with $(s_2,s_3,w_1,w_3)=(7,3,40,1)$ unresolved. The [binary-power calculation](row_gap_powers.md) excludes this progression and the other one at 2661 for all weights through $2^{1{,}000{,}001}$. It also improves the logarithmic count of equality cases at each fixed multiplier.
 
 ## Counting the possible weights
 

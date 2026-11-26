@@ -133,10 +133,10 @@ def finite_bins(params,first):
                 yield S,T
 
 
-def audit(limit):
+def audit(limit, first_t=2, check_remaining=None):
     counts = Counter()
     maximum = 0
-    for t in range(2,limit+1):
+    for t in range(first_t,limit+1):
         for x,y,r,z,s,w,b,c in bin_systems(t):
             for m,h in rows(b,s,r):
                 for n,j in rows(c,w,z):
@@ -150,8 +150,12 @@ def audit(limit):
                             # A fixed list suffices for the reported interval.
                             if not any(test_modulus(params,bins,p,q)
                                        for p,q in ((3,81),(5,25),(19,361),(2,8192))):
-                                raise ArithmeticError(('unresolved progression',params,bins))
-                            counts['unbounded'] += 1
+                                if check_remaining is None:
+                                    raise ArithmeticError(('unresolved progression',params,bins))
+                                check_remaining(params,bins)
+                                counts['checked to exponent bound'] += 1
+                            else:
+                                counts['unbounded'] += 1
                             continue
                         for S,T in finite_bins(params,first):
                             U,V,A,C = numeric(*params,S,T)
