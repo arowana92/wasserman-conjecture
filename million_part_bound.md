@@ -8,6 +8,8 @@ satisfies the conjecture at weights at least three.
 
 Indeed, a nonendpoint row avoiding $p$ must allocate the digit units without a carry. At least one of its three positive parts receives neither deleted unit and is at most $r$. Apply the new lower bound or the [individual-part inequality](endpoint_factors.md). For the interval claim, carrying in an expression as a sum of powers replaces several units by their sum. It never decreases the sum of the two largest units, padding with zeros when necessary. Thus at $N=2^i+2^j+d$ the remainder is at most $d$, even for repeated powers or overlapping low digits.
 
+The [refined part bound](extremal_parts.md) also gives a growing additive increase over the analytic threshold and larger constants in specified residue classes.
+
 ## Enumeration without a cutoff on the weight
 
 Let $a$ be any part of row $A$. In a counterexample assign the full prime powers of $N$ and $N-1$ as $UV=N$ and $ST=N-1$, with $U,S$ assigned to $A$ and $V,T$ to row $C$. The coefficients avoid every prime assigned to their row. Every part of $A$ is a multiple of $U$, and the three positive parts of $C/V$ sum to $U$. Thus $U\ge3$ and $a=Ux$ for some positive $x$.
