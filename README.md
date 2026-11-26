@@ -12,6 +12,7 @@ The full assertion is proved here for every $N=5\cdot2^k+1$, for every weight wi
 
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. For all sufficiently large $X$, at least $cX/(\log X)^2$ pairs of consecutive weights in $[X,2X]$ have minimum certificate size exactly four at both weights.
 
+- [Two cuts against the same trinomial and a minimum five-prime certificate at 4,218,421,148, with a cube-root bound for exceptional cuts at every weight](common_companion_cuts.md)
 - [At almost every weight, every pair of interior binomial coefficients shares a prime dividing the weight or its predecessor](binomial_endpoint_density.md)
 - [The first failure of the single-cut relaxation at 5,752 and the complete set of 20 exceptional cuts through one million](cut_relaxation.md)
 - [An integral quadratic form for a single cut, with infinite families of consecutive weights near two binary units and prime cubes](small_cut_forms.md)

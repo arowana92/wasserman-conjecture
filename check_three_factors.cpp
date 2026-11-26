@@ -1,5 +1,5 @@
 // Enumerate the necessary row when N-1 has three prime-power factors.
-// Usage: check_three_factors [largest prime power], default 20000.
+// Usage: check_three_factors [largest prime power [--cut-pairs]], default 20000.
 #include <algorithm>
 #include <array>
 #include <cstdint>
@@ -56,10 +56,11 @@ bool avoids(Row row, int prime) {
     return true;
 }
 
-Integer avoided_part_of_weight(Row row, Integer n, int common_factor) {
+template <typename Predicate>
+Integer avoided_part_of_weight(Integer n, int common_factor, Predicate avoids_base) {
     Integer product = 1;
     auto include = [&](int p) {
-        if (avoids(row, p)) {
+        if (avoids_base(p)) {
             while (n % p == 0) {
                 product *= p;
                 n /= p;
@@ -75,7 +76,52 @@ Integer avoided_part_of_weight(Row row, Integer n, int common_factor) {
     return product;
 }
 
-void check(int bound) {
+bool cut_avoids(Integer n, Integer a, int p) {
+    if (p == 2) return !(a & (n-a));
+    while (a) {
+        if (a % p > n % p) return false;
+        a /= p;
+        n /= p;
+    }
+    return true;
+}
+
+struct PairCounts {
+    Integer two_cuts = 0;
+    Integer candidates = 0;
+};
+
+void check_pairs(Integer n, Row residues, const std::array<PrimePower, 3>& atoms,
+                 PairCounts& counts) {
+    if (residues[2] < 0) residues[2] += n-1;
+    std::array<bool, 3> good;
+    for (int i = 0; i < 3; ++i) {
+        good[i] = std::all_of(atoms.begin(), atoms.end(), [&](PrimePower atom) {
+            return cut_avoids(n, residues[i], atom.prime);
+        });
+    }
+    if (std::count(good.begin(), good.end(), true) < 2) return;
+    ++counts.two_cuts;
+    for (int i = 0; i < 3; ++i) {
+        for (int j = i+1; j < 3; ++j) {
+            if (!good[i] || !good[j]) continue;
+            Integer x = residues[i], y = residues[j];
+            // gcd(n,x) divides the inverse multiplier at i and fits in int.
+            int g = static_cast<int>(std::gcd(std::gcd(n, x), y));
+            if (g < 3) continue;
+            Integer u = avoided_part_of_weight(n, g, [&](int p) {
+                return cut_avoids(n, x, p) && cut_avoids(n, y, p);
+            });
+            if (u < 3) continue;
+            ++counts.candidates;
+            std::cout << n << ' ' << u << ' ' << x << ' ' << y;
+            for (auto atom : atoms) std::cout << ' ' << atom.power;
+            std::cout << '\n';
+        }
+    }
+}
+
+void check(int bound, bool cut_pairs) {
     auto atoms = prime_powers(bound);
     int size = static_cast<int>(atoms.size());
     // inv[i][j] is the inverse of power j modulo power i, or 0 for shared bases.
@@ -87,6 +133,7 @@ void check(int bound) {
         }
     }
 
+    PairCounts pairs;
     Integer weights = 0, correct_sum = 0, common_factor = 0, avoids_shift = 0, eligible = 0;
     for (int i = 0; i < size; ++i) {
         for (int j = i + 1; j < size; ++j) {
@@ -99,6 +146,10 @@ void check(int bound) {
                 Integer x = Integer(inv[i][j])*inv[i][k] % a;
                 Integer y = Integer(inv[j][i])*inv[j][k] % b;
                 Row row = {b*c*x, a*c*y, n - b*c*x - a*c*y};
+                if (cut_pairs) {
+                    check_pairs(n, row, {atoms[i], atoms[j], atoms[k]}, pairs);
+                    continue;
+                }
                 // The third value has the prescribed residues. Its positivity
                 // puts it in the required interval (0,N-1).
                 if (row[2] <= 0) continue;
@@ -110,7 +161,7 @@ void check(int bound) {
                 if (!avoids(row, atoms[i].prime) || !avoids(row, atoms[j].prime)
                     || !avoids(row, atoms[k].prime)) continue;
                 ++avoids_shift;
-                Integer u = avoided_part_of_weight(row, n, g);
+                Integer u = avoided_part_of_weight(n, g, [&](int p) { return avoids(row, p); });
                 if (u >= 3) {
                     ++eligible;
                     std::cout << "Eligible N " << n << " row " << row[0] << ' '
@@ -118,6 +169,11 @@ void check(int bound) {
                 }
             }
         }
+    }
+    if (cut_pairs) {
+        std::cerr << "weights " << weights << "\nweights with two predecessor-admissible cuts "
+                  << pairs.two_cuts << "\ncandidate pairs " << pairs.candidates << '\n';
+        return;
     }
     std::cout << "prime-power bound " << bound << "\nweights " << weights
               << "\ncorrect sum " << correct_sum << "\ngcd >= 3 " << common_factor
@@ -128,9 +184,10 @@ void check(int bound) {
 int main(int argc, char** argv) {
     // The bound keeps products of three powers inside a signed 64-bit integer.
     int bound = argc == 1 ? 20000 : std::stoi(argv[1]);
-    if (argc > 2 || bound < 2 || bound > 2000000) {
-        std::cerr << "Supply one prime-power bound from 2 to 2000000.\n";
+    bool cut_pairs = argc == 3 && std::string(argv[2]) == "--cut-pairs";
+    if (argc > 3 || (argc == 3 && !cut_pairs) || bound < 2 || bound > 2000000) {
+        std::cerr << "Supply one prime-power bound from 2 to 2000000, optionally followed by --cut-pairs.\n";
         return 2;
     }
-    check(bound);
+    check(bound, cut_pairs);
 }
