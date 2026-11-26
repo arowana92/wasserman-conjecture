@@ -5,6 +5,8 @@ Let $Q$ denote a prime power greater than 1 and let $1\le d\le1000$ with $\gcd(Q
 1. **The full conjecture holds at every $N=dQ+1$ with $Q\le10^{1000}$.** Over unbounded $Q$, the number of possible exceptions $N\le X$ in the union of all these families is $O_\epsilon(X^\epsilon)$ for each $\epsilon>0$.
 2. **The full conjecture holds at every $N=5p^a q^b+1$ through $5\cdot10^{1000}+1$, and at every $N=7p^a q^b+1$ through $7\cdot10^{1000}+1$.** Here $p,q$ are primes and $a,b\ge1$. Over unbounded weights the numbers of possible exceptions up to $X$ in these two families are $O(X^{0.101})$ and $O(X^{0.212})$, respectively.
 
+The [three-base argument](five_seven_pairs.md) strengthens both exceptional-set bounds in item 2 to $O_\epsilon(H^\epsilon)$ in every interval of length $H$.
+
 The two finite bounds in item 2 concern the product $p^a q^b$ with both factors free to vary. The [elementary digit arguments](predecessor_five_seven.md) also give independent finite checks and an $O((\log X)^6)$ exceptional-set bound in the even factor-seven family. All conclusions use the [all-weight reduction](all_weights_endpoint_reduction.md).
 
 ## Necessary additions
