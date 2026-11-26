@@ -13,6 +13,7 @@ The full assertion is proved here for every $N=5\cdot2^k+1$, for every weight wi
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. For all sufficiently large $X$, at least $cX/(\log X)^2$ pairs of consecutive weights in $[X,2X]$ have minimum certificate size exactly four at both weights.
 
 - [Only finitely many normalized seven-unit patterns at all predecessor primes at least 5 can fail at any shift](seven_small_prime_span.md)
+- [A two-thirds bound for the gcd of two trinomials and three explicit tests for large seven-unit patterns in bases 2 and 3](two_trinomial_cuts.md)
 - [Four-term gcds at 2 and 3 from 68 and 26 explicit exponent offsets, with all exceptional phases classified](quadrinomial_small_bases.md)
 - [A binomial and a sparse sum at primes exceeding the term count, with a sharp threshold for separation of radical heights](binomial_sparse_gcd.md)
 - [Seven-unit patterns at predecessor primes at least 11 for all spans from 100 million upward, at every shift](seven_large_span.md)
