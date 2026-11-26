@@ -8,6 +8,8 @@ $$G=\gcd\left(NM,\binom Na,\binom Nb\right).$$
 * Suppose $a\ge b>1$, and their reduced fractions of $N$ have respective numerators $r,t$. Then $M<4G^4r^6t^5$. In a counterexample, one of the two rows must have **every proper cut** of reduced numerator greater than $(M/4)^{1/11}$. All such cuts exceed one by the [nonendpoint part bound](million_part_bound.md).
 * At a positive limit of $M/G^4$ for divisor cuts with $a,b>1$ and unbounded $N$, the limiting value must be $1/j$ for an integer $j\ge2$. A family attains $1/2$ for the explicit divisor furnished by the factorial identities below.
 
+Bergman’s Theorem 2 bounds the full gcd of two binomial coefficients, with no prescribed set of prime factors. Cui and Yang’s November 2026 preprint counts a single coefficient with specified gcd with its upper index. The factor $N(N-1)$ in the assertions above selects the primes that can divide the endpoint trinomial. [Bergman](https://arxiv.org/abs/0806.0607) · [Cui and Yang](https://arxiv.org/abs/2611.25794)
+
 ## Factorial identities for a cut
 
 Write $a/N=r/s$ and $b/N=t/u$ in lowest terms, put $g=\gcd(s,u)$, $m=N/\operatorname{lcm}(s,u)=\gcd(N,a,b)$, and $F=r(s-r)$, $H=t(u-t)$. Then
@@ -41,6 +43,16 @@ This follows by expanding $(ks-G)(ku-G)$ and substituting $k=W-mh$ with $W=G$. F
 In particular, along a family with $M\ge cG^4$ for fixed $c>0$, (2) and $s<2G/k$, $m<G/h$ give $g h k^2 x<4/c$. These four positive integers are bounded. On a subsequence fix all four and let $G$ tend to infinity. Then $m=(G-k)/h$, $s=(G+x)/k$, and (2) gives $M/G^4\longrightarrow 1/(g h k^2 x)$. If the denominator were one then $g=h=k=x=1$, yielding $s=G+1$ and $u=G^2-1$, contrary to $\gcd(s,u)=1$.
 
 To see the scope of the factorial bound in (1), take $w\ge5$ coprime to 6, $s=w+1$, $u=w^2-2$ and $m=(w-1)/2$. Then $g=\gcd(s,u)=1$, $N=msu$ and $M=w^2(w^2-3)/2$. Here $\gcd(s-1,u-1)=1$ and $\operatorname{lcm}(s-1,u-1)=w(w^2-3)$. The divisor on the left of (1) is exactly $w$, and $M/w^4\to1/2$. The actual binomial gcd may include additional factors.
+
+## How many weights can have a small gcd?
+
+Across all weights, the number of pairs of cuts $a,b>1$ with reduced numerators at most $A$ and endpoint gcd at most $B$ is
+$$O_\epsilon\big(A^4 B^2 (AB)^\epsilon\big) .$$
+In particular, for each $0<\delta<1/2$ and each $\epsilon>0$, at most $O_{\delta,\epsilon}(X^{1-2\delta+\epsilon})$ weights through $X$ admit two nontrivial proper divisor cuts with endpoint gcd at most $N^{1/2-\delta}$. This conclusion applies to arbitrary multinomial rows possessing such cuts.
+
+For the count, retain $r,t,R,W,k,g,m,h$ as above. With $x=ks-Wr$ and $y=ku-Wt$ both positive, expanding their product gives
+$$xy=h(mWrt-kg).$$
+For fixed $r,t,G$ there are at most $O_\epsilon((AB)^\epsilon)$ choices of $R\mid\operatorname{lcm}(r,t)$ and $g\mid G$. After choosing $1\le k<W\le Grt$, factor the positive integer $W-k=mh$, and then factor $h(mWrt-kg)=xy$. All factored integers are polynomially bounded in $AB$. The divisor bound shows that the choices other than $k$ cost $O_\epsilon((AB)^\epsilon)$ altogether. Each choice specifies $s=(Wr+x)/k$, $u=(Wt+y)/k$, $N=msu/g$, and the two cuts. Summing $Grt$ over $G\le B$ and $r,t\le A$ proves the bound. For the divisor-cut consequence take $A=1$ and $B=X^{1/2-\delta}$.
 
 ## Reproduction
 

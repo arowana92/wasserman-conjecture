@@ -93,6 +93,13 @@ def rational_cuts(bound):
             assert w > n//lcm(s,u)
             if min(a,b) >= 2:
                 assert n-1 < 4*w**4*rr**2*tt
+                g = gcd(s,u)
+                m = n//lcm(s,u)
+                h, rem = divmod((w//g)*(s-r)*(u-t),n-1)
+                k = w-m*h
+                dx, dy = k*s-w*r, k*u-w*t
+                assert rem == 0 and min(h,k,dx,dy) > 0
+                assert dx*dy == h*(m*w*r*t-k*g)
             tested += 1
     return tested
 
