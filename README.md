@@ -12,6 +12,8 @@ The full assertion is proved here for every $N=5\cdot2^k+1$, for every weight wi
 
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. For all sufficiently large $X$, at least $cX/(\log X)^2$ pairs of consecutive weights in $[X,2X]$ have minimum certificate size exactly four at both weights.
 
+- [Shared optimal four-prime lists at consecutive weights and 2,551,020 certified pairs](shared_cluster_certificates.md)
+- [Three prime powers certifying pairs of coefficients at entire ranges of consecutive multipliers](clustered_predecessors.md)
 - [Cross-row part products, with a search at all weights through normalized product 32,768](cross_parts.md)
 - [Two-prime carry obstructions near cubes and fourth powers, including all four endpoint residue classes](cross_prime_power_gaps.md)
 - [A common-prime test from the row scale, an infinite semiprime family, and an optimal four-prime certificate](scaled_row_blocks.md)
