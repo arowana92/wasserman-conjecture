@@ -6,6 +6,8 @@ In particular, in a counterexample every such pair of sums from the two rows oth
 $$(a+a')(b+b')\ge4N\sqrt{N-1}. \tag{2}$$
 Indeed, in the [retained factor assignment](endpoint_pair_bound.md), $U^2V^2$ divides $aa'bb'$. Each power assigned from $N-1$ divides one of the two entries selected from its row, since only one entry can have residue 1. Thus $ST$ divides $aa'bb'$ and is coprime to $UV$. Use $DUV=N$, $JST=N-1$ for (1). The [endpoint theorem](all_weights_endpoint_reduction.md) gives $D=J=1$ in the counterexample. Two applications of AM–GM give (2).
 
+The [two-row divisibility theorem](two_row_sums.md) strengthens the exponent in (2) to $20/13$ and gives intervals at every degree from five upwards.
+
 ## A criterion using two bases
 
 Suppose $P=p^i$, $Q=q^j$ with $p,q$ distinct primes, $i,j\ge1$, and $PQ\mid N$. Choose powers $P_*=p^u$ and $Q_*=q^v$ in $(N/2,N]$. Put $h=N-P_*$, $k=N-Q_*$ and $g=\min(h,k)$. If
