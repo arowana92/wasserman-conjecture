@@ -12,6 +12,7 @@ The full assertion is proved here for every $N=5\cdot2^k+1$, for every weight wi
 
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. For all sufficiently large $X$, at least $cX/(\log X)^2$ pairs of consecutive weights in $[X,2X]$ have minimum certificate size exactly four at both weights.
 
+- [The binary and odd seven-unit case through one million binary digits, with an absolute upper cutoff](seven_binary_mixed_range.md)
 - [Every weight with two odd predecessor primes of digit sum at most seven, and a mixed weight-prime obstruction](seven_mixed_primes.md)
 - [The exact binary alignment forced by a triple containing 1, and seven-bit weights on every exponent step of eight or more](seven_binary_alignment.md)
 - [All seven-unit weights at predecessor primes at least 257, with unrestricted exponents, and a forced digit pair at every odd prime](seven_large_bases.md)
