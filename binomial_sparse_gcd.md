@@ -10,6 +10,8 @@ $$
 $$
 In particular the logarithm to base $p$ of the quotient is $O_s(H^{1-1/s})$, uniformly in the prime and all positions. Every binomial–quadrinomial pair at $p\ge5$ is included. For $s=4$, $H\ge16$ the quotient is at most $p^{7H^{3/4}}$. For $s=3$ the same proof gives $p^{6H^{2/3}}$ for $H\ge8$, for either sign of the binomial. Constant or small heights can always be bounded by $p^H+1$. The [trinomial formula](binomial_trinomial_gcd.md) identifies $J$ explicitly for the plus binomial and also describes additional factors at 2 and 3.
 
+For four terms at the remaining primes, the [small-base classification](quadrinomial_small_bases.md) gives an integer divisor using 68 offsets at 2 or 26 at 3, with a subexponential bound for the quotient.
+
 ## Separating the absolute values in a vanishing sum
 
 Suppose $\sum_{j=1}^s p^{b_j}\xi_j=0$ for rational $b_j$ and roots of unity $\xi_j$. Under the prime hypothesis above, the terms at each fixed $b_j$ sum to zero.
