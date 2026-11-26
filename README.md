@@ -12,6 +12,7 @@ The full assertion is proved here for every $N=5\cdot2^k+1$, for every weight wi
 
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. For all sufficiently large $X$, at least $cX/(\log X)^2$ pairs of consecutive weights in $[X,2X]$ have minimum certificate size exactly four at both weights.
 
+- [A prime-power part forces its full weight power above 5,000, and bounds for any part coprime to the predecessor](singleton_scales.md)
 - [Every weight with five or fewer base-$p$ digit units and a full weight factor $p^a$ through 200 million](sparse_weight_factors.md)
 - [A common divisor for rows sharing a part ratio, and a displacement bound for any potential counterexample](row_line_obstructions.md)
 - [Optimal shared four-prime lists at every multiplier through a logarithmic bound, and an explicit run of 1,123](cluster_certificate_minima.md)

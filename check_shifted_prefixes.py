@@ -126,13 +126,13 @@ def candidate_rows(direction, factors, counts):
         yield row, prime_list, residue, stride
 
 
-def floor_cover(slopes, bases, modulus, residue, limit):
+def floor_cover(slopes, bases, modulus, residue, limit, offsets=(0, 0, 1)):
     """Cover the progression by intervals on each of which one factorial layer carries."""
     powers = []
     for p in bases:
         layers = []
         w = p
-        while w <= sum(slopes)*limit+1:
+        while w <= sum(slopes)*limit+sum(offsets):
             layers.append(w)
             w *= p
         powers.append(layers)
@@ -140,7 +140,7 @@ def floor_cover(slopes, bases, modulus, residue, limit):
     survivors = []
     t = residue + max(0, (2-residue+modulus-1)//modulus)*modulus
     while t <= limit:
-        parts = [a*t+(i == 2) for i, a in enumerate(slopes)]
+        parts = [a*t+b for a, b in zip(slopes, offsets)]
         n = sum(parts)
         skip = -1
         for layers in powers:
