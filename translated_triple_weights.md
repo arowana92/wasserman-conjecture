@@ -2,7 +2,7 @@
 
 Let $p$ be prime, $a,k\ge1$, and $0<i<j$. Put
 $$N=1+p^a(1+p^i+p^j)(1+p^k),\qquad H=j+k.$$
-**The full three-row conjecture holds if $H>11{,}197{,}440$.** At $p\ge5$ the upper bound for an exceptional $H$ decreases to $262{,}656$. Thus only finitely many quadruples $(p,i,j,k)$ can admit a counterexample at any outer shift. The finite interval between the known small-span theorem and the upper bounds has not been exhaustively checked.
+**The full three-row conjecture holds if $H>414{,}720$.** At $p\ge5$ the upper bound for an exceptional $H$ decreases to $262{,}656$. Thus only finitely many quadruples $(p,i,j,k)$ can admit a counterexample at any outer shift. The finite interval between the known small-span theorem and the upper bounds has not been exhaustively checked.
 
 **Bounded column span.** For $0<i<j\le48$ the conjecture holds for every prime and all positive integers $a,b,k$ at
 $$1+p^a(1+B^i+B^j)(1+B^k),\qquad B=p^b.$$
@@ -96,9 +96,9 @@ Here $h+1\le p^h$, $6^h\le p^{3h}$, $6^{3h}\le p^{8h}$. For $p\ge5$ the constant
 
 Choose the approximation in the original coordinates $e=(i,j,k)$ and put $K=\max(j,k)$. For an integer $Q\ge2$, there are $1\le q\le Q^2$ and an integer vector $v_0$ of norm $q$ satisfying $\|qe/K-v_0\|_\infty\le1/Q$. One coordinate of $e/K$ is 1. Put the fractional parts of $0,1,\ldots,Q^2$ times the other two coordinates in $Q^2$ square boxes and subtract two in the same box. The maximal coordinate is represented exactly. Write $v_0=g v'$ with $v'$ primitive and set $\alpha=gK/q$. The column spread plus the absolute layer difference of $e-\alpha v'$ is at most $2K/(qQ)$. If the exact coordinate is $j$ the column spread is at most $K/(qQ)$. If it is $k$ the layer difference is zero. Relabelling columns relative to the singleton and reversing layers if needed is an integral unimodular change of coordinates, preserving this height for real vectors. It takes $v'$ to a primitive $v$ in the coordinates of (2). Thus $D\le2\alpha/Q$.
 
-On a homogeneous line $e=bv'$ with $b$ integral. Then $K\le5q$ or $|b|\ge6$. In the latter case all relative positions are multiples of $|b|$ and the [effective-base theorem](seven_refined_cutoffs.md) applies since $p^{|b|}\ge64$. Otherwise use (1) and (3), giving $\alpha\le90+48D\le90+96\alpha/Q$. Take $Q=144$ to get $\alpha\le270$, hence
-$$ H\le2K\le2\alpha Q^2\le11{,}197{,}440. $$
-For $p\ge5$, (1) gives the stronger margin $h$. Hence $\alpha\le19+16D\le19+32\alpha/Q$. Taking $Q=48$ gives $\alpha\le57$ and $H\le262{,}656$. Finally all primes $p\ge67$ are already covered at every span by the effective-base theorem.
+On a homogeneous line $e=bv'$ with $b$ integral. Then $K\le5q$ or $|b|\ge6$. In the latter case all relative positions are multiples of $|b|$ and the [effective-base theorem](seven_refined_cutoffs.md) applies since $p^{|b|}\ge64$. For nonhomogeneous lines take $Q=48$. When the first three common-root systems in the table are empty on this line, $d_u=d_l=d_c=0$, giving a margin of at least $h$ even in the small bases. Hence $\alpha\le30+16D\le30+32\alpha/Q$, so $\alpha\le90$. This proves $H\le2K\le2\alpha Q^2\le414{,}720$ in this case. At $p\ge5$ these systems are always empty on a nonhomogeneous line and the constant 19 gives $H\le2\cdot57\cdot48^2=262{,}656$.
+
+If one system has a common root, the nonhomogeneous line passes through one of the listed offsets $t$. Their heights are at most 3, as verified from the same character matrices. Write $E=t+\beta v$. In original coordinates the component attaining $K$ has positive slope and the corresponding offset coordinate has absolute value at most 3, since column differences and the layer spacing are each bounded by the offset height. Thus $\beta>0$ for $K>3$. Apply (3) with this exact offset to get $\beta(2h-3d_u-2d_s)\le78h$. If $h\le48$, (1) gives $H\le234h+3\le11{,}235$. Otherwise the degree bounds from the table give margin at least $h-24$. In the original coordinates all entries of $v_0$ are in $[0,q]$, so $h\le2q\le4608$. Since $h^2/(h-24)\le h+48$ for $h\ge48$, we obtain $H\le78(h+48)+3\le363{,}171$. This proves the uniform bound in all cases. Finally all primes $p\ge67$ are already covered at every span by the effective-base theorem.
 
 ## Counting the remaining outer shifts
 

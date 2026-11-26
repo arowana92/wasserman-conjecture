@@ -109,6 +109,7 @@ def main():
     duplicate_lines = 0
     for p, shape in product((2, 3), range(3)):
         points = offsets(shape, p)
+        assert max(max(0,x,y)-min(0,x,y)+abs(z) for x,y,z in points) <= 12
         for v, height in rays:
             seen = set()
             if height > (36 if shape == 0 else 21):
