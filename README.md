@@ -12,6 +12,7 @@ The full assertion is proved here for every $N=5\cdot2^k+1$, for every weight wi
 
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. For all sufficiently large $X$, at least $cX/(\log X)^2$ pairs of consecutive weights in $[X,2X]$ have minimum certificate size exactly four at both weights.
 
+- [The first failure of the single-cut relaxation at 5,752 and the complete set of 20 exceptional cuts through one million](cut_relaxation.md)
 - [An integral quadratic form for a single cut, with infinite families of consecutive weights near two binary units and prime cubes](small_cut_forms.md)
 - [A two-thirds window for rational row shapes and at least 115,025,906,735,751,296 certified 118-digit weights](mixed_row_minors.md)
 - [Exact part ratios near prescribed proportions, a three-fifths bound at $1:2:4$, and 40 million weights near two and three prime-power blocks](proportional_part_pairs.md)
