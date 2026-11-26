@@ -14,6 +14,7 @@ The full assertion is proved here for every $N=5\cdot2^k+1$, for every weight wi
 
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. For all sufficiently large $X$, at least $cX/(\log X)^2$ pairs of consecutive weights in $[X,2X]$ have minimum certificate size exactly four at both weights.
 
+- [A power saving for exceptional orders of two unrestricted prime-power factors, with runs of at least $10^{28}$ certified binary orders](three_base_orders.md)
 - [Uniform bounds on exceptional orders of magnitude for every prime-power cofactor through 1000](logarithmic_intervals.md)
 - [A recurring interval of 16,384 binary orders for prime powers and products of two unrestricted prime powers](recurring_intervals.md)
 - [Common exponent classes for every prime base and every cofactor through 1000, including all multiples of 21, 51 or 595](common_power_exponents.md)
