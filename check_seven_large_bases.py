@@ -95,10 +95,11 @@ def four_term_checks():
     print('Polynomial matching controls:', dict(counts))
 
 
-def actual_row_checks():
+def actual_row_checks(bases):
     counts = Counter()
-    for p, step in ((3, 6), (5, 4), (17, 2), (257, 1)):
-        for tail in combinations_with_replacement(range(5), 5):
+    for p, step in bases:
+        tails = combinations(range(1, 9), 5) if p == 2 else combinations_with_replacement(range(5), 5)
+        for tail in tails:
             shape = (0,) + tail
             if max(shape.count(e) for e in set(shape)) >= p:
                 continue
@@ -109,7 +110,7 @@ def actual_row_checks():
                 for row in free_rows(n, p):
                     counts['rows'] += 1
                     u = gcd(*row)
-                    if u < 7:
+                    if u < (3 if p == 2 else 7):
                         continue
                     s = 1
                     for first, second in combinations(row, 2):
@@ -141,5 +142,6 @@ if __name__ == '__main__':
     bounds()
     common_trinomials()
     four_term_checks()
-    actual_row_checks()
+    actual_row_checks(((3, 6), (5, 4), (17, 2), (257, 1)))
+    actual_row_checks(((2, 8), (2, 9)))
     location_checks()
