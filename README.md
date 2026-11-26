@@ -14,6 +14,7 @@ The full assertion is proved here for every $N=5\cdot2^k+1$, for every weight wi
 
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. For all sufficiently large $X$, at least $cX/(\log X)^2$ pairs of consecutive weights in $[X,2X]$ have minimum certificate size exactly four at both weights.
 
+- [The minimum primitive denominator rises to 380, and every prime-power cofactor through 1000 except possibly 986 works at all cubed exponents](denominator_residue_hulls.md)
 - [Four of five related weights whenever one full prime-power factor is at most 500,000, with the other factor unrestricted](paired_fixed_factor.md)
 - [At least three of four related weights for every product of two prime powers, and at least four of five through a thousand-digit input bound](five_related_weights.md)
 - [All exponents for two-prime cofactors dividing a power minus one, including repeated and complementary blocks, bounded quotients and spacing between possible exceptional exponents](inverse_residue_cofactors.md)

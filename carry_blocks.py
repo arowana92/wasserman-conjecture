@@ -121,3 +121,43 @@ def intersection(graphs, limit, modulus=1, residue=0):
             children = cells[:i]+(replacement,)+cells[i+1:]
             stack.append((max(lo, start), min(hi, start+width-1), children))
     return sorted(survivors), nodes, tested
+
+
+def accepted_hull(graph):
+    """Return (an accepted input, gcd of all input differences), or None.
+
+    At each state the suffix integers have an affine hull in Z. A zero
+    difference gcd means that this language represents just one integer.
+    """
+    from collections import deque
+    from math import gcd
+
+    parents = [[] for _ in graph.edges]
+    hulls = [None]*len(graph.edges)
+    queued = set()
+    for i, edges in enumerate(graph.edges):
+        if graph.accept >> i & 1:
+            hulls[i] = (0, 0)
+            queued.add(i)
+        for digit, child in edges:
+            parents[child].append((i, digit))
+    todo = deque(queued)
+    while todo:
+        child = todo.popleft()
+        queued.remove(child)
+        value, step = hulls[child]
+        for parent, digit in parents[child]:
+            translated = digit+graph.base*value
+            period = graph.base*step
+            current = hulls[parent]
+            if current is None:
+                merged = translated, period
+            else:
+                reference, old_period = current
+                merged = reference, gcd(old_period, period, translated-reference)
+            if current != merged:
+                hulls[parent] = merged
+                if parent not in queued:
+                    todo.append(parent)
+                    queued.add(parent)
+    return hulls[0]
