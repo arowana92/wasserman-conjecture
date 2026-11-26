@@ -74,6 +74,20 @@ The minimum of the reduced vector is its first coordinate $a'$, since the positi
 
 For $R\le H<2R$ outside the codimension-three inner spaces there are consequently $O_{p,s}(R^{s-4})$ possible patterns, each admitting at most $O_{p,s}(1+L/R)$ shifts. Summing over dyadic $R\le L$ gives $O_{p,s}(L^{s-4})$, since $s\ge7$. Including the codimension-three contribution already counted and the finitely many label assignments completes the proof.
 
+## An explicit shift bound for seven units
+
+For **every** prime $p$, fix six positions $0=h_1\le\cdots\le h_6=H$ of multiplicities less than $p$, and put $m=\sum p^{h_i}$. Among $N_a=1+p^a m$ for shifts $a\ge1$ in any real interval of length $H/9$, at most **315** can fail the conjecture. For each fixed allocation of the units, at most **three** shifts can support that allocation in a counterexample. Both constants are absolute. For example, at span at least 2,835, every 316 consecutive shifts include a weight satisfying the conjecture.
+
+To prove this, retain the notation of (2) and (3), put $m'=m/D$, and set
+$$K=m'\gcd(x/D,y/D),\qquad G_a=\gcd(K,1+p^a z).$$
+For any number of digit units, a counterexample with this allocation requires $G_a^3\ge27(m')^2$. Indeed $U$ is coprime to $D$, while $S_x S_y$ divides $1+p^a z$, which is coprime to $D$ since $D\mid z$. Thus $U\mid\gcd(x/D,y/D)$ and $S_x S_y\mid m'$. By (3), $U S_x S_y\mid G_a$. Since $S_{xy}\le D$, the claim follows from (2).
+
+Suppose $a_1<a_2<a_3<a_4$ all pass this necessary test and let $w=a_4-a_1$. Their pairwise gcds satisfy $\gcd(G_{a_i},G_{a_j})\mid p^{a_j-a_i}-1$ for $i<j$. The sum of the six differences is $3w+(a_3-a_2)\le4w$. Since $K\le(m')^2$, the lcm inequality from (4) gives
+$$(m')^2\ge K\ge \frac{81(m')^{8/3}}{p^{4w}},\qquad
+w\ge\log_p 3+\tfrac16\log_p m'.$$
+
+For seven units, $D=1$ if $z$ is a singleton. Otherwise the three inner sums are pairs. As proved above, every feasible such allocation has $D\le p^{H/3}+1$. It follows that $m'\ge p^{2H/3}/2$, so $w>H/9$. Finally there are at most $\binom{6}{2}\cdot3=45$ choices if $z$ is a pair, and $6\binom{5}{2}=60$ choices if $z$ is a singleton. These counts use labelled units and unordered unshifted pairs of equal size. The union bound gives $3(45+60)=315$.
+
 ## When the sparse prime divides the weight
 
 A related statement applies at $p\mid N$. Fix $p$, $s\ge7$ and $0<\rho<2$. Write $a=v_p(N)$ and $H$ for the span of the $s$ labelled base-$p$ digit positions, so their minimum is $a$. Among $N<p^{L+1}$ with $s_p(N)=s$ and $a\le(2-\rho)H$, at most $O_{p,s,\rho}(L^{s-3})$ weights can fail. More precisely their $s$ exponents lie in a finite union of rational affine subspaces of codimension at least three.

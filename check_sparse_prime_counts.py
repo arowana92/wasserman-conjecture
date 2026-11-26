@@ -104,6 +104,50 @@ def spacing_checks():
     print('Large-divisor spacing:', dict(totals))
 
 
+def seven_shift_controls():
+    shapes = ((2, (0, 1, 2, 6, 7, 8)), (3, (0, 0, 2, 2, 4, 4)),
+              (5, (0, 0, 1, 1, 2, 2)), (2, (0, 1, 2, 100, 101, 3000)))
+    counts = Counter()
+    for p, shape in shapes:
+        powers = tuple(p**e for e in shape)
+        m, span = sum(powers), max(shape)
+        possible = set()
+        allocations = 0
+        for pair in combinations(range(6), 2):
+            remain = tuple(i for i in range(6) if i not in pair)
+            x = sum(powers[i] for i in pair)
+            for size in (2, 3):
+                for chosen in combinations(remain, size):
+                    if size == 2 and chosen < pair:
+                        continue
+                    allocations += 1
+                    y = sum(powers[i] for i in chosen)
+                    z = m-x-y
+                    scale = gcd(x, y)
+                    while gcd(scale, p*m) > 1:
+                        scale //= gcd(scale, p*m)
+                    if scale < 3:
+                        continue
+                    d = gcd(x, y, z)
+                    reduced = m//d
+                    assert (2*reduced)**3 >= p**(2*span)
+                    k = reduced * gcd(x//d, y//d)
+                    shifts = [a for a in range(1, 341)
+                              if gcd(k, 1+p**a*z)**3 >= 27*reduced**2]
+                    possible.update(shifts)
+                    for left, right in zip(shifts, shifts[3:]):
+                        assert 9*(right-left) > span
+                        assert p**(12*(right-left)) >= 3**12 * reduced**2
+                        counts['four-shift windows'] += 1
+                    counts['positive shift tests'] += len(shifts)
+        assert allocations == 105
+        counts['labelled allocations'] += allocations
+        ordered = sorted(possible)
+        assert all(9*(b-a) > span for a, b in zip(ordered, ordered[315:]))
+    assert min(counts.values()) > 0
+    print('Explicit seven-unit shift bound:', dict(counts))
+
+
 def positive_controls():
     count = 0
     for p, k, j in product((2, 3, 5, 7, 11), range(1, 31), range(1, 12)):
@@ -119,4 +163,5 @@ if __name__ == '__main__':
     local_assignments()
     period_checks()
     spacing_checks()
+    seven_shift_controls()
     positive_controls()
