@@ -11,6 +11,8 @@ All seven bits are distinct. The companion row must avoid every prime dividing t
 $$N=1+\sum_{i=1}^6 2^{a+b h_i}.$$
 This extends the [large-base theorem](seven_large_bases.md) to binary digit positions in a single residue class modulo $b$, including arbitrary outer shifts.
 
+The [refined cutoff](seven_refined_cutoffs.md) proves this consequence for every $b\ge6$.
+
 ## Excluding unequal unshifted gaps
 
 Use the [endpoint and prime-power assignment](endpoint_reduction.md), assigning 2 to the row in question. Its weight factor $U\ge3$ divides each part and is odd. Therefore no part can consist of a single binary bit. If the units-place bit lies in the triple, denote the gaps of the two unshifted pairs by $d\ge e>0$, the exponents of their lower bits by $i,j$, and put $g=\gcd(d,e)$, $F=2^g+1$. Both $d/g,e/g$ are odd and $U\mid F$. As in the odd-base proof let $S_0,S_d,S_e$ denote the factors from $m=\operatorname{odd}(N-1)$ assigned to the row with zero positions on both pairs, the first pair and the triple, or the second pair and the triple, respectively. Since $US_0\mid F$,

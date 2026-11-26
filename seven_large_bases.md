@@ -6,6 +6,8 @@ More generally let $p$ be odd and $a,b$ positive. For arbitrary nonnegative inte
 $$N=1+\sum_{i=1}^6 p^{a+b h_i}\qquad\text{if }B=p^b\ge256.$$
 Thus any six positive powers of 3 in one exponent class modulo 6, for example, give a family after adding 1. At any odd predecessor prime, including 3, an additional conclusion holds without a restriction on $B$. In a counterexample, a row avoiding $p$ must group the units-place 1 into a **pair**.
 
+The [refined cutoff](seven_refined_cutoffs.md) subsequently lowers the bound to $B\ge64$, including every predecessor prime $p\ge67$.
+
 ## Locating the units-place digit
 
 A counterexample contains the endpoint row. Assign $p$ to a nonendpoint row avoiding it. Write $U$ for its assigned weight factor and $S$ for the product of its assigned full predecessor powers after removing the full power of $p$. The [seven-unit reduction](seven_digit_units.md) gives $U\ge7$, both $U,S$ odd, and $27m^2\le U^3S^2$, where $m=(N-1)/p^{v_p(N-1)}$. If there is a carry among the six specified positive powers, then $s_p(N)\le5$ and the [five-unit theorem](six_digit_gaps.md) suffices. Otherwise the avoiding row partitions the seven units into two pairs and a triple.
