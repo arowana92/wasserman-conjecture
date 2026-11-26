@@ -8,6 +8,8 @@ $$N=1+p^a(H+J+c)$$
 $$ (5,3,1),\ (7,2,1),\ (7,2,2),\ (7,3,1),\ (7,5,1),\ (8,3,1),\ (8,5,1). $$
 In particular $c=1,2,3,4,6$ work at every prime, every $n>h\ge1$, and every outer exponent $a\ge1$.
 
+The [close-gap calculation](close_power_gaps.md) subsequently resolves offset $8$ at every size and restricts the cases at offsets $5,7$ to six explicit exponent families.
+
 ## The row forced by the prime $p$
 
 Write $D=H+J+c$. Take the [endpoint](all_weights_endpoint_reduction.md) in a hypothetical counterexample and assign $p$ to a row $A$ avoiding it. By Kummer its parts are $p^a x,p^a y,p^a z+1$ with $x+y+z=D$ carry-free at $p$. Write $UV=N$ for the assigned full powers from the weight, with $U$ assigned to $A$. The other row has three positive parts that are multiples of $V$, so $U\ge3$. Also $U\mid x,y$, $\gcd(U,pD)=1$ and $z\ge1$.
