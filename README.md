@@ -12,6 +12,8 @@ The full assertion is proved here for every $N=5\cdot2^k+1$, for every weight wi
 
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. For all sufficiently large $X$, at least $cX/(\log X)^2$ pairs of consecutive weights in $[X,2X]$ have minimum certificate size exactly four at both weights.
 
+- [A growing lower bound for the six-part product and an all-weight enumeration through normalized product 32](six_part_product.md)
+- [Degree-25 families at the six-part bound and exclusions for their limiting ratios](six_part_limits.md)
 - [Common endpoint divisors for binomial cuts, a fourth-root bound for divisor indices, and all pairs through gcd 512](divisor_cuts.md)
 - [A two-row divisibility bound, the exponent 20/13 for products of pair sums, and intervals above fifth and higher powers](two_row_sums.md)
 - [Binary incompatibility at sparse odd bases, with three-prime endpoint certificates at multiples of four](binary_sparse_incompatibility.md)
