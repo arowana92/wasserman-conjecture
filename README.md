@@ -12,6 +12,7 @@ The full assertion is proved here for every $N=5\cdot2^k+1$, for every weight wi
 
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. For all sufficiently large $X$, at least $cX/(\log X)^2$ pairs of consecutive weights in $[X,2X]$ have minimum certificate size exactly four at both weights.
 
+- [A growing common endpoint divisor for three or four rows with small valuations at different primes](several_carry_counts.md)
 - [A common divisor exceeding the eighth root of the weight for every pair of trinomials at almost all weights, and large individual common primes for rows with few binary carries](growing_endpoint_divisors.md)
 - [The global exceptional-weight bound of exponent 0.8946, uniform counts with prescribed high and low binary digits, and bounds for single cuts](common_factor_count.md)
 - [The full conjecture for six prime exponent positions at every base, mixed prime and power-of-two positions at odd bases, and exact outer-shift congruences](seven_outer_pair.md)
