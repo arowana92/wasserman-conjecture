@@ -6,7 +6,7 @@ Let $K_A=N!/\prod_i A_i!$ for a triple of positive parts of sum $N$. Write $s_b(
 $$
 \gcd\bigl(N(N-1),K_A\bigr)>2N.
 $$
-Consequently the full conjecture holds whenever two distinct primes dividing $N$ have digit sums at most five and six, respectively. If both digit sums are six, any counterexample must have a single row avoiding both primes.
+Consequently the full conjecture holds whenever two distinct primes dividing $N$ have digit sums at most five and six, respectively. If both digit sums are six, any counterexample must have a single row avoiding both primes. The [binary incompatibility and reciprocity criteria](binary_sparse_incompatibility.md) now exclude this at every multiple of four, whenever one prime is 2, and under additional order and cofactor hypotheses.
 
 **An even six-bit classification.** Suppose $N\equiv2\bmod4$ has exactly six ones in binary. If it admits a counterexample, it has the form
 $$
