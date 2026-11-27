@@ -14,7 +14,7 @@ The full assertion is proved here for every $N=5\cdot2^k+1$, for every weight wi
 
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. For all sufficiently large $X$, at least $cX/(\log X)^2$ pairs of consecutive weights in $[X,2X]$ have minimum certificate size exactly four at both weights.
 
-- [All nested prime powers at cofactors 5, 8, 9 and 10, with no exponent restriction, and one remaining row at cofactor 7](nested_predecessor_cofactors.md)
+- [All nested predecessor powers at every cofactor through ten, with unrestricted exponents and additional inverse-residue families](nested_predecessor_cofactors.md)
 - [One perfect power at cofactor ten, a one-sided exponent period at every prime-power or doubled odd prime-power cofactor, and a divisibility criterion for three predecessor powers](nested_power_residues.md)
 - [The full conjecture at $1+10PQ$ when $P$ divides $Q-1$ and $Q$ has at most four nonzero base-$P$ digits, or either prime power is even](ten_nested_powers.md)
 - [A square-root gap bound for two predecessor powers at every multiplier, linear windows at selected multipliers, and a count of possible exceptions at each gap](nearby_predecessor_pairs.md)

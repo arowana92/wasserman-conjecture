@@ -1,16 +1,12 @@
-# Four cofactors with unrestricted nested predecessor powers
+# Every cofactor through ten with unrestricted nested predecessor powers
 
 **Theorem.** Let $P<Q$ be powers of distinct primes with positive exponents and $P\mid Q-1$. Wasserman's full three-row conjecture holds at
 $$
-                 N=1+DPQ,\qquad D=5,8,9,10 .
+                 N=1+DPQ,\qquad 1\le D\le10 .
 $$
 There are no exponent or size restrictions. At $D=10$ this includes all the square and nonsquare outer powers left by the [earlier nested-power results](ten_nested_powers.md). For each fixed $P$, Dirichlet's theorem supplies infinitely many ordinary primes $Q$ in the indicated progression.
 
-At $D=7$ a possible counterexample requires $P\equiv55\bmod56$, $Q\equiv19\bmod56$ and the two nonendpoint rows
-$$
- (4PQ,(2P-1)Q+1,(P+1)Q),\qquad (N/4,N/4,N/2).
-$$
-In particular a square on either side or a cube on the $Q$ side certifies this cofactor as well.
+The [two-factor theorem](all_weights_endpoint_reduction.md) gives $D=1$. At $D=2,3,4$, the predecessor has at most two prime factors or has three including a full power at most four, covered by the [small-power theorem](three_factors_small_power.md). The [cofactor-six theorem](two_prime_powers.md) applies without the nesting condition. We prove $D=5,7,8,9,10$ below.
 
 ## The assigned row
 
@@ -40,7 +36,7 @@ The table lists all the nested possibilities and a prime and a value of $C$ givi
 |---:|---|---|
 | 5 | $(3,3,1,1)$ | $(2,4)$ |
 | 7 | $(3,3,3,1),(3,3,2,2),(5,5,1,1)$ | $(2,1),(2,1),(2,6)$ |
-| 7 | $(4,4,2,1)$ | Residual row |
+| 7 | $(4,4,2,1)$ | Binary subtraction |
 | 8 | $(3,3,4,1),(5,5,2,1)$ | $(2,1),(2,1)$ |
 | 9 | $(4,4,4,1),(5,5,3,1),(5,5,2,2)$ | $(2,1),(3,2),(2,4)$ |
 | 9 | $(7,7,1,1)$ | Repunit argument |
@@ -60,9 +56,9 @@ $$
 $$
 Assume the digits through $v_j$ are all one. Earlier raw coefficients are ordinary digits, so no multiplication borrow or carry enters this position. If $1<v_{j+1}<P-k$, the negative middle coefficient adds an extra $P$ upon reduction, pushing the digit sum above its budget. If $v_{j+1}=P-l$ with $1\le l\le k$, group the last two upper parts. At position $j+1$ the two numbers $xQ,(D-x)Q$ have residues $P-xl,P-(D-x)l$. Lower digits were all one, and $Dl<P$. The residues therefore force a carry. Consequently the next digit is zero or one. After a first zero, any next nonzero $v$ gives raw digits $0,-v,v$ and forces a carry. The digits hence form a repunit $Q=1+P+\cdots+P^n$. The second actual part is $(P-1)Q+1=P^{n+1}$, impossible because $U>1$ divides it and $(U,P)=1$.
 
-At nine, $63\mid P+1$ implies $P>9$. At ten, $35\mid2P+1$ leaves only $P=17$ at $P\le20$. Here $Q\equiv4\bmod5$, since $7PQ\equiv1\bmod5$. Write $Q=4+5v$. In the parts $119Q,16Q+1,35Q$ the second base-five digits are $4v,3+v,3$ reduced modulo five. Their sum is six or eleven. This proves the four unrestricted assertions.
+At nine, $63\mid P+1$ implies $P>9$. At ten, $35\mid2P+1$ leaves only $P=17$ at $P\le20$. Here $Q\equiv4\bmod5$, since $7PQ\equiv1\bmod5$. Write $Q=4+5v$. In the parts $119Q,16Q+1,35Q$ the second base-five digits are $4v,3+v,3$ reduced modulo five. Their sum is six or eleven. This disposes of both repunit entries.
 
-At seven the remaining scale is four, so the positive normalized companion is $(1,1,2)$. We have $28\mid P+1$ and $4PQ\equiv1\bmod7$, hence $Q\equiv5\bmod7$. Unitarity gives $4\parallel N$, so $PQ\equiv5\bmod8$. Both powers are odd: $P\equiv3\bmod4$ and $PQ\equiv5\bmod8$. If $P\equiv3\bmod8$, the parts $4PQ$ and $(P+1)Q$ have the same lowest binary one, impossible since $A$ avoids 2. Thus $P\equiv7\bmod8$ and $Q\equiv3\bmod8$, proving the stated residues.
+At seven the last row assignment has $U=x=4$. Thus $N$ is even, $W$ is odd, and $A$ must avoid 2. Its cut at $4W$ would make $4W$ and $3W+1$ disjoint in binary. For disjoint integers $h>l\ge0$, writing $s_2$ for the number of ones, one has $s_2(h-l)\ge s_2(h)$. Indeed, subtract the individual powers in $h-l$ from $h$ to obtain $l$. Each subtraction clears at most one occupied bit, while every bit originally occupied in $h$ must eventually be cleared. Here $h-l=W-1$ has $s_2(W)-1$ ones and $h=4W$ has $s_2(W)$, a contradiction. This is the [even-weight factor-seven obstruction](predecessor_five_seven.md#full-factor-seven-at-even-weights), and completes the theorem.
 
 ## Inverse residues beyond nesting
 
