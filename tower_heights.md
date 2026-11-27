@@ -57,3 +57,26 @@ In fact the numerator perturbation $f_i(1+d)/R$ lies in $[0,1)$ before division 
 There are $O(K)$ height choices at precision $K$. For $j$ through $\max(K+1,\lceil\log_2(D(D+1))\rceil)$ there are $O(K)$ choices with fixed offsets. Beyond this point there is a single $Z$ function per height and at most $D$ tuples for $C$, or one for $A$. Multiplying by the summed weights proves the second bound. In particular passing all low-digit tests was used only as a necessary condition for a counterexample.
 
 Run `python3 check_tower_heights.py` for independent modular tower evaluations, distance and stabilization checks, and comparisons of the high-digit formulas with integer parts and exact coefficients. The verifier makes 172,638 distance comparisons and checks 2,594 exact multinomial coefficients.
+
+## Every prime through 10,000
+
+For **every** prime $q\le10000$, every $1\le d,b\le1000$ and every $a\ge0$, the conjecture holds at
+$$
+                           N=1+d q^{\,bq^{q^a}}.
+$$
+Already at $N=1+d q^{\,bq^a}$ the only triples $(d,q,b)$ still possible are
+$$
+        (629,4943,97),\quad(629,4943,685),\quad
+        (986,2447,333),\quad(986,2447,687).
+$$
+In particular every $b\le96$ works at this level too. Setting $b=1$ proves the assertion at $1+dT_h(q)$ for all $h\ge1$ throughout this explicit prime range. The [square theorem](common_power_exponents.md) covers every further squaring.
+
+We use the [13 remaining small prime–cofactor pairs](prime_base_density.md#checking-all-small-prime-bases) and their [necessary row shapes and residues](shifted_directions.md). For each shape write $A=(s_1 W,s_2 W,s_3 W+1)$, $C=V(f_1,f_2,f_3)$ with $U=\sum f_i$ and $UV=1+dW$. The initial class $W\equiv r\pmod M$ and a list of primes that $A$ must avoid come with the shape. The two possible odd shapes at 986 are both tested. The prior square theorem handles even $b$, and its cube counterpart handles $3\mid b$ when $d\ne986$.
+
+At a tested layer $w=\ell^k$ the first row is determined modulo $w$. Set $v=\gcd(w,U)$ and take $w$ large enough that $\ell\mid w/v$ and $\ell\nmid U/v$. If $v\nmid1+dW$ the shape is impossible. Otherwise $V$ is determined modulo $w/v$ by dividing the congruence by $v$ and inverting $U/v$. If $\ell$ divides both $U$ and $V$, discard the input by coprimality. If $\ell\mid U$ or the first row must avoid $\ell$, a low carry in $A$ excludes the input. A low carry in $C$ excludes it if $\ell\mid V$. When $\ell\mid d$, both rows carrying excludes the input. Each rejection uses digits fixed by the chosen modulus.
+
+For each initial modulus or digit test modulus $w$, let $L$ be the order of $q$ modulo $w$ and $P$ the order of $q$ modulo $L$. All required coprimalities hold in the finite table. Use order one at modulus one. At $W=q^{bq^a}$ its residue is determined by $a\bmod P$, computed by two modular powers. At $W=q^{bq^{q^a}}$, one more power suffices and the period in $a$ divides the order of $q$ modulo $P$. These periods apply starting at $a=0$.
+
+For each $b$ the verifier discards its class if a test admits no index, or if two sets of indices are disjoint modulo the gcd of their periods. At $d=986,q=2447,b=891$ a third test is needed for the first row with slope 119. The moduli $4096,2401,24389$ have index periods $16,294,2436$ and direct enumeration of their common period $68,208$ leaves no index. The resulting four triples at the first level are all excluded by the second-level test.
+
+Run `python3 check_small_prime_towers.py`. For each encountered residue its congruence and carry decisions are compared with an independently chosen integral lift of $W$ and factorial floors on the two reconstructed rows. The program also compares all modular orbit entries with direct exponentiation.
