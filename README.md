@@ -14,6 +14,8 @@ The full assertion is proved here for every $N=5\cdot2^k+1$, for every weight wi
 
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. For all sufficiently large $X$, at least $cX/(\log X)^2$ pairs of consecutive weights in $[X,2X]$ have minimum certificate size exactly four at both weights.
 
+- [At static cofactor four times a composite prime power, only finitely many cofactors survive the high-exponent theorem. Every prime base through one million is covered for every exponent](four_times_sparse_powers.md)
+- [At cofactor 44, remainders through 6,586,647 between the two varying powers certify the high-exponent family](forty_four_power_remainders.md)
 - [Four prime-power factors with two independently varying exponents, including every twice or three times a prime power as static cofactor](static_power_transfer.md)
 - [One exponent period for any two prime bases at 1,341 of the first 1,500 cofactors, including every cofactor through 43](two_power_seed.md)
 - [Two low digit units at each of two weight primes force incompatible ratios of parts, and one such prime gives a quadratic cofactor bound](two_digit_weight_cuts.md)
