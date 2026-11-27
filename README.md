@@ -14,6 +14,7 @@ The full assertion is proved here for every $N=5\cdot2^k+1$, for every weight wi
 
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. For all sufficiently large $X$, at least $cX/(\log X)^2$ pairs of consecutive weights in $[X,2X]$ have minimum certificate size exactly four at both weights.
 
+- [Almost all cofactors work simultaneously at superpolynomial prime-power scales for every prime through 1249](growing_prime_power_steps.md)
 - [Uniform density one on every arithmetic progression of length at least $X^{0.7241}$, and at $X^{0.6501}$ in every odd-modulus class spanning a dyadic interval](arithmetic_progression_weights.md)
 - [One exponent progression works for every prime and every cofactor below one billion, with a transfer theorem for unbounded cofactors](small_weight_transfer.md)
 - [Polynomially many prime bases with a logarithmically growing cofactor range at every odd exponent, and a 447-digit prime working at every exponent for 2,026 cofactors](negative_scale_prime_bases.md)
