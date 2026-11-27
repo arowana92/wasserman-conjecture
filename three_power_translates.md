@@ -8,6 +8,8 @@ Consequently, outside $O(2^{0.982n})$ binary words of length $n$, one may first 
 $$ O\big(X\exp(-c_1\log X/\log(2P))\big) $$
 starting values can fail at even one prime $p\le P$, any choice of at most three powers of $p$, and any resulting $N\ge3$ with $p\mid N(N-1)$. This endpoint divisibility condition holds in particular if all added powers are multiples of $p$ and $C\equiv0,1\bmod p$.
 
+At a larger explicit height the [single large divisor argument](three_power_diagonals.md) forces all three added powers to have one of finitely many pairs of exponent differences, for every individual offset.
+
 ## Bounded heights
 
 Discard $C=1$. At a counterexample the [endpoint reduction](all_weights_endpoint_reduction.md) supplies a pair of rows $A,B$ and prime-power assignments from $N,N-1$. Choose $A$ to receive $p$. Its products $U\mid N,S\mid N-1$ satisfy
