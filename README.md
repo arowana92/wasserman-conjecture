@@ -16,6 +16,7 @@ The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. T
 
 - [Every weight when two rows have primitive sums at most 160,000. Six primes give a smallest certificate for all lowest-layer candidates in this range, with the lower bound checked in Lean](odd_direction_pairs.md)
 - [Higher carries restrict possible counterexamples to $O_\epsilon(X^{2.34713+\epsilon})$ primitive direction pairs of sums through $X$. Only five of the 551,062 lowest-layer pairs through 6,000 have an odd coefficient](direction_carry_counts.md)
+- [Every fixed primitive triple has $X^{1+o(1)}$ lowest-layer partners of sums through $X$. For the fixed direction $(1,2,4)$, 7 can be the only common prime below any chosen cutoff at a sharp power-law number of scales](fixed_odd_direction.md)
 - [Any prescribed small-prime part of the common gcd, at a power-law number of weights, with all first-layer tests passing](prescribed_common_prime.md)
 - [Only $O_\epsilon(X^{5/2+\epsilon})$ primitive pairs of sums through $X$ can pass their lowest-layer tests at even one scale, with all pairs checked through sums of 6,000](counting_primitive_directions.md)
 - [All 3,538,943 weights whose predecessor divides the lcm through 61, individual coefficient bounds through 53, and an exponent progression for every cofactor in the larger family](smooth_predecessor_weights.md)
