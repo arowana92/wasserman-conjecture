@@ -14,6 +14,7 @@ The full assertion is proved here for every $N=5\cdot2^k+1$, for every weight wi
 
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. For all sufficiently large $X$, at least $cX/(\log X)^2$ pairs of consecutive weights in $[X,2X]$ have minimum certificate size exactly four at both weights.
 
+- [The full conjecture at $1+21t^2$ and $1+33t^2$ for all $t$ with at most two prime factors, and at both cofactors with an arbitrary binary power times any prime fourth power](four_factor_squares.md)
 - [Every odd trinomial coefficient shares a prime with its weight minus one through two billion, with an all-weight divisibility bound for rows made of six powers](odd_coefficient_predecessor.md)
 - [Every binary exponent for at least 1,103,107 prime pairs, and every exponent through a trillion and every factorial exponent for all 1,103,805 pairs](odd_predecessor_prime_pairs.md)
 - [Two varying prime-power exponents in a three-factor predecessor, with a uniform bound on exceptional exponent pairs and explicit progressions working at every outer exponent](three_factor_exponent_rectangles.md)

@@ -20,6 +20,10 @@ Taking the binomial cut at this part preserves carry freedom. At base $q$ the co
 $$ x r^c+(D-x)r^c \quad\text{in base }q. \tag{2}$$
 At base $r$ the same argument gives $x q^b+(D-x)q^b$ without a carry. In particular, failure of (2) for every $x$ certifies the full conjecture for all $b$. This argument also certifies the weights with coincident prime bases by the earlier result for predecessors with at most two prime divisors.
 
+## Extension to four predecessor primes
+
+Both bounds, their sharper exponents when the base exceeds $D$, and the explicit progression construction below also hold when $D$ is twice an odd prime power, 12, 15, 21 or 33. Keep $q,r$ distinct and coprime to $D$. For the first three cases use the [two-power assignment criterion](two_prime_powers.md), and for 21 and 33 its [parity refinement](four_factor_squares.md#why-the-two-bases-must-be-assigned-to-the-same-row). In every case a counterexample assigns both $q,r$ to one row. Their zero positions overlap, giving a positive part $xq^br^c$ with $1\le x<D$. This gives exactly the two cuts in (2). The counting and construction use no coprimality between $x$ and $D$.
+
 ## How many exponent terms can pass a cut
 
 Fix positive $s,t$, a prime $p\nmid s+t$, and an integer $A>1$ coprime to $p$. Write $j=v_p(st)$. The number of exponents $e$ in any progression of $H$ positive terms such that $sA^e,tA^e$ add without a carry in base $p$ is
