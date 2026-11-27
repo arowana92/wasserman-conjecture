@@ -2,6 +2,8 @@
 
 Let $t=p^i q^j$ with $p,q$ prime and $i,j\ge1$, allowing $p=q$. Call a weight exceptional if three of its positive trinomial coefficients have gcd one.
 
+The [subsequent separation theorem](six_sevens_near_two.md) excludes simultaneous exceptions at 7 and 16 for every such $t$. The only pair left in this five-weight family is 9 and 16.
+
 * At least three of $5t+1,7t+1,8t+1,9t+1$ satisfy the full conjecture. At least one of $8t+1,16t+1$ satisfies it.
 * For $t\le10^{1000}$ at least **four** of the five weights satisfy it. This range was exhausted by two independent integer algorithms.
 * For unrestricted $t$ the only possible simultaneous exceptions are the pairs of multipliers $(7,16)$ and $(9,16)$. The first pair has only finitely many possible inputs, with an effective upper bound. The second requires $t\equiv1267\pmod{1584}$ and identical parts in its two distinguished rows. In every interval of $H\ge2$ consecutive inputs, only $O_\epsilon(H^\epsilon)$ inputs can have two exceptions, for every $\epsilon>0$.
