@@ -14,6 +14,7 @@ The full assertion is proved here for every $N=5\cdot2^k+1$, for every weight wi
 
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. For all sufficiently large $X$, at least $cX/(\log X)^2$ pairs of consecutive weights in $[X,2X]$ have minimum certificate size exactly four at both weights.
 
+- [Almost every binary integer remains good after inserting two zero gaps of completely unrestricted lengths, uniformly in every pair of cuts with low block at least two](unbounded_binary_insertions.md)
 - [Almost every binary word remains good after every allowed insertion of a growing number of zero gaps, with the output length allowed to grow faster than the input length](binary_digit_insertions.md)
 - [Two freely placed prime powers and an arbitrary shifted coefficient, with 453,582 all-exponent families across all primes and an explicit common-divisor bound](two_singleton_powers.md)
 - [Three binary blocks at every pair of shifts, with a power-saving bound on exceptional coefficient triples and uniformity in both outer coefficients](three_binary_blocks.md)
