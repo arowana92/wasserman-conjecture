@@ -21,7 +21,8 @@ The full assertion is proved here for every $N=5\cdot2^k+1$, for every weight wi
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. For all sufficiently large $X$, at least $cX/(\log X)^2$ pairs of consecutive weights in $[X,2X]$ have minimum certificate size exactly four at both weights.
 
 - [Nineteen exponent divisors certifying all 1,000 cofactors, six at cofactor 2278, and prime bases with a deliberately delayed common carry](cofactor_power_indices.md)
-- [A finite divisibility principle for bounded-digit tests at every fixed cofactor bound](cofactor_index_principle.md)
+- [Sharp first failure of bounded-digit endpoint tests at cofactor 247, with four exact exponent divisors](cofactor_first_local_failure.md)
+- [A decidable finite divisibility principle for bounded-digit tests at every fixed cofactor bound](cofactor_index_principle.md)
 - [Every successor $1+p^a(p^j+d)$ for $j\ge3$ and offsets through 1,000, with one possible family at $j=2$](higher_successors.md)
 - [One nonendpoint coefficient must have many carries in all four bases 2, 3, 5 and 7 outside $O(X^{0.8561})$ weights](four_digit_sums.md)
 - [The full bounded-cofactor quadratic family in intervals around smooth numbers, products of powers, and Fibonacci, Lucas and Pell numbers](quadratic_smooth_gaps.md)
