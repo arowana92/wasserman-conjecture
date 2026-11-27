@@ -7,6 +7,10 @@ from search_endpoint import atoms, smallest_factors
 
 DYADIC_LIMIT = 1_000_000
 KNOWN_SCALE = 200_000_000
+RESIDUAL_ROWS = [(616,77,128), (872,32,109), (1432,179,288),
+                 (1528,191,288), (1640,32,205), (1672,32,209),
+                 (1808,113,320), (2072,64,259), (2168,271,448),
+                 (2224,128,417), (2224,192,417), (2344,96,293)]
 
 
 def possible_leading_digits(slopes):
@@ -99,10 +103,7 @@ def odd_power_cofactors():
                 else:
                     survivors.append((d, i, j))
     assert (total, leading, cuts) == (62935, 24302, 24290)
-    assert survivors == [(616,77,128), (872,32,109), (1432,179,288),
-                         (1528,191,288), (1640,32,205), (1672,32,209),
-                         (1808,113,320), (2072,64,259), (2168,271,448),
-                         (2224,128,417), (2224,192,417), (2344,96,293)]
+    assert survivors == RESIDUAL_ROWS
     for d, i, j in survivors:
         assert d % 8 == 0
         modulus = {1432: 179, 2072: 7}.get(d, 8)

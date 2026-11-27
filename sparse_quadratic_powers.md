@@ -7,6 +7,8 @@ Let $P=p^a$ for a prime $p$ and $a\ge1$, and put $N=P(3P+2)$. Each of the follow
 * The odd part of $3P-1$ is at most **1,000,000**.
 * $3P-1=DQ$, where $Q$ is a prime power and $D\le615$. Up to $D\le2400$ the conclusion still holds if either $P$ or $Q$ is a square.
 
+The [leading-digit and exponent theorem](sparse_quadratic_exponents.md) settles all twelve remaining shapes through $P=10^{1000}$ and at unrestricted exponents when either prime base is at most one million.
+
 The last two conclusions are proved by finite carry certificates uniform in the size of the prime powers. The first two have elementary arithmetic proofs. For $D\le2400$ the table below restricts possible failures even when both powers are nonsquares.
 
 ## The forced row
