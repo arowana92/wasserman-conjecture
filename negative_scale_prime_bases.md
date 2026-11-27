@@ -41,4 +41,4 @@ Here is a short integer primality certificate. Set $m=q+1$ and $t=45{,}001{,}160
 
 For any prime divisor $r$ of $q$, take a root $z$ of $z^2-tz+1$ in $\mathbb F_{r^2}$. The trace equals 2 exactly when the corresponding power of $z$ is one. The checks force its order to be $m$. Frobenius either fixes $z$ or exchanges it with $z^{-1}$, so that order divides $r-1$ or $r+1$. Hence $q+1=m\le r+1$ and $r=q$. This proves primality.
 
-Run `python3 check_negative_scale.py` for the certificate and the independent small exact-binomial tests of the negative carry.
+Run `python3 check_negative_scale.py` for the trace certificate, an independent order calculation by polynomial multiplication modulo $z^2-tz+1$, and 4,793 exact-binomial checks among 70,466 forced carries.

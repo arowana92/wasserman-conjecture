@@ -36,6 +36,42 @@ def prime_certificate(initial):
     return all(gcd(trace(m//p, initial, q)-2, q) == 1 for p in powers)
 
 
+def check_quadratic_order(initial):
+    primes = list(prime_powers(2026))
+    m = 12*prod(prime_powers(2026).values())
+    q = m-1
+
+    # Pairs are coefficients of 1,z in the quotient by z²-initial*z+1.
+    def multiply(x, y):
+        a, b = x
+        c, d = y
+        return (a*c-b*d) % q, (a*d+b*c+initial*b*d) % q
+
+    def power(x, exponent):
+        result = (1, 0)
+        while exponent:
+            if exponent % 2:
+                result = multiply(result, x)
+            x = multiply(x, x)
+            exponent //= 2
+        return result
+
+    # On a group of primes the supplied element is z^(m/product(group)).
+    def check_group(element, group):
+        if len(group) == 1:
+            a, b = element
+            assert gcd(q, a-1, b) == 1
+            return
+        middle = len(group)//2
+        left, right = group[:middle], group[middle:]
+        check_group(power(element, prod(right)), left)
+        check_group(power(element, prod(left)), right)
+
+    z = (0, 1)
+    assert power(z, m) == (1, 0)
+    check_group(power(z, m//prod(primes)), primes)
+
+
 def carry_controls():
     cases = exact = 0
     for d in range(7, 101):
@@ -56,4 +92,5 @@ def carry_controls():
 if __name__ == "__main__":
     carry_controls()
     assert prime_certificate(45001160)
+    check_quadratic_order(45001160)
     print("Certified the 447-digit prime at cofactor bound 2026.")
