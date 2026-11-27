@@ -14,6 +14,7 @@ The full assertion is proved here for every $N=5\cdot2^k+1$, for every weight wi
 
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. For all sufficiently large $X$, at least $cX/(\log X)^2$ pairs of consecutive weights in $[X,2X]$ have minimum certificate size exactly four at both weights.
 
+- [Every prime-length repunit through length 31 at every prime-power base, with an explicit large-base theorem at all prime lengths](repunit_weights.md)
 - [Every outer exponent with a sturdy or near-sturdy two-prime cofactor, including a full range of prime-power partners of each Mersenne prime](sturdy_cofactors.md)
 - [Every square and cube exponent for all 32,768 odd binary cofactors through 65,535, and every exponent at 32,762 of those cofactors](binary_perfect_power_exponents.md)
 - [One exponent in every five-term arithmetic progression works for every odd cofactor through 65,535, with gaps above a quadrillion between possible failures at any one cofactor](binary_exponent_gaps.md)
