@@ -15,6 +15,7 @@ The full assertion is proved here for every $N=5\cdot2^k+1$, for every weight wi
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. For all sufficiently large $X$, at least $cX/(\log X)^2$ pairs of consecutive weights in $[X,2X]$ have minimum certificate size exactly four at both weights.
 
 - [One exponent progression works for every prime and every cofactor below one billion, with a transfer theorem for unbounded cofactors](small_weight_transfer.md)
+- [At cofactor 380, every exponent works for an explicit 99.85366% of prime bases, with at most one possible exponent class per base modulo 58,500](cofactor_380_prime_classes.md)
 - [Almost every prime $q$ works at every $1+dq^e$ with both $d$ and $e$ at most $q^{1/10}$](moving_power_bases.md)
 - [An explicit 99.9474% of prime bases working simultaneously for all cubic exponents and cofactors through 1000](cofactor_986_prime_classes.md)
 - [At most one failure among a billion weights in each cubic family, with no four failing exponents in arithmetic progression at cofactor 986](cofactor_986_powers.md)
