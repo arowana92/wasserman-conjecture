@@ -10,6 +10,8 @@ The conjecture holds at a set of weights of natural density one. The number of p
 
 At weights congruent to zero or one modulo three, the number of possible exceptions up to $X$ is $O(X^{0.8178})$. [Counts by prime residue class](prime_residue_counts.md)
 
+When $30$ divides $N(N-1)$, the exceptional count is $O(X^{0.7593})$. More generally, for every $\epsilon>0$ there is a fixed primorial $Q$ for which the count at $Q\mid N(N-1)$ is $O_\epsilon(X^{2/3+\epsilon})$. [Joint prime conditions and explicit moduli](joint_prime_counts.md)
+
 For almost all weights $N$, every three rows share an individual prime exceeding $\exp(\sqrt{\log N}/\log\log N)$. More generally the number of weights in $[X,2X)$ where some triple of rows has no common prime greater than $y$ is $O(X\log^2(2y)/\log X)$.
 
 The full assertion is proved here for every $N=5\cdot2^k+1$, for every weight with base-$p$ digit sum at most five for some prime $p\mid N-1$, and throughout growing intervals above powers of two.
