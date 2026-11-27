@@ -20,6 +20,8 @@ The full assertion is proved here for every $N=5\cdot2^k+1$, for every weight wi
 
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. For all sufficiently large $X$, at least $cX/(\log X)^2$ pairs of consecutive weights in $[X,2X]$ have minimum certificate size exactly four at both weights.
 
+- [Arbitrarily high common powers of two near almost every triple of limiting proportions, including one-sided odd-rational slices](binary_direction_measure.md)
+- [Cofactor five at 42 of the first 45 binary exponents, with three remaining residue classes and an unrestricted leading-digit test](five_leading_digits.md)
 - [At least 998 of the first 1,000 odd powers of each prime power certify cofactor five at every binary exponent](five_power_separation.md)
 - [At most one possible exception among 35 binary exponents and the first quintillion powers, with two fully checked ranges](five_fixed_binary_separation.md)
 - [Which monomial weight families can share one certifying prime, with exact densities and examples at 13 and 251](shared_weight_prime_levels.md)
