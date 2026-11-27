@@ -74,14 +74,14 @@ def normalize(x):
     return n,d,e
 
 
-def log_floor(x):
+def log_floor(x, bits=BITS):
     n,d,e = normalize(x)
-    precision = 3*BITS+32
+    precision = 3*bits+32
     while True:
         F = 1 << precision
         lo, hi = (F*n)//d, (F*n+d-1)//d
         word = 0
-        for _ in range(BITS):
+        for _ in range(bits):
             lo = lo*lo >> precision
             hi = (hi*hi+F-1) >> precision
             if lo < 2*F <= hi:
@@ -92,7 +92,7 @@ def log_floor(x):
                 hi = (hi+1)//2
             word = 2*word+bit
         else:
-            return e*SCALE+word
+            return (e << bits)+word
         precision *= 2
 
 
