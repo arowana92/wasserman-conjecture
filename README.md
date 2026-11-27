@@ -14,6 +14,7 @@ The full assertion is proved here for every $N=5\cdot2^k+1$, for every weight wi
 
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. For all sufficiently large $X$, at least $cX/(\log X)^2$ pairs of consecutive weights in $[X,2X]$ have minimum certificate size exactly four at both weights.
 
+- [A power saving for every quadratic family $MP^2+hP+1$ at prime powers, without restrictions on the factors of $MP+h$](quadratic_prime_power_density.md)
 - [Power-saving bounds in every progression of inputs or exponents for polynomially related predecessor powers, and an obstruction from a negative coefficient](polynomial_predecessor_pairs.md)
 - [A second-prime test for factorizable quadratic weights, with complete results for remainders 4 and 6 in its range](quadratic_predecessor_roots.md)
 - [Predecessor digit criteria at arbitrary cofactors, including a degree-independent polynomial test and a five-prime family with two free exponents](predecessor_digit_splits.md)
