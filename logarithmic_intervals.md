@@ -1,5 +1,7 @@
 # Whole orders of magnitude for prime-power cofactors
 
+The [two-scale counting theorem](two_scale_orders.md) improves the uniform asymptotic bound below to $O(H^{0.778})$, and to $O(H^{0.721})$ at cubes. The explicit finite bounds in the table below keep their stated constants.
+
 Write $W=q^e$ for a prime $q$ and $e\ge1$. Call the binary order $j$ exceptional if some $2^j\le W<2^{j+1}$ and some $1\le d\le1000$ give a counterexample at $N=1+dW$.
 
 **In every block of $H$ consecutive nonnegative binary orders, at most $O(H^{1-\delta})$ are exceptional, with $\delta=1/2500000$.** The implied constant is independent of the first order. The same bound holds when orders are taken on the weights $N$ themselves. In particular, every sufficiently long block contains a run of $\gg H^\delta$ consecutive orders in which the conjecture holds throughout this family.
