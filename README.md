@@ -14,6 +14,7 @@ The full assertion is proved here for every $N=5\cdot2^k+1$, for every weight wi
 
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. For all sufficiently large $X$, at least $cX/(\log X)^2$ pairs of consecutive weights in $[X,2X]$ have minimum certificate size exactly four at both weights.
 
+- [Every weight when two rows have primitive sums at most 160,000. Six primes give a smallest certificate for all lowest-layer candidates in this range, with the lower bound checked in Lean](odd_direction_pairs.md)
 - [Higher carries restrict possible counterexamples to $O_\epsilon(X^{2.34713+\epsilon})$ primitive direction pairs of sums through $X$. Only five of the 551,062 lowest-layer pairs through 6,000 have an odd coefficient](direction_carry_counts.md)
 - [Any prescribed small-prime part of the common gcd, at a power-law number of weights, with all first-layer tests passing](prescribed_common_prime.md)
 - [Only $O_\epsilon(X^{5/2+\epsilon})$ primitive pairs of sums through $X$ can pass their lowest-layer tests at even one scale, with all pairs checked through sums of 6,000](counting_primitive_directions.md)
