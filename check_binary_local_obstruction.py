@@ -1,5 +1,6 @@
 """Construct simultaneous low-digit witnesses on the cofactor 12031."""
-from math import gcd, lcm
+from fractions import Fraction
+from math import lcm
 
 from prime_certificates import primes_through
 
@@ -96,6 +97,22 @@ def check_witness(e, primes, depth):
     return active
 
 
+def leading_windows():
+    # The floor difference is periodic modulo one. Check the whole rational
+    # forward orbit, which certifies windows of every finite leading length.
+    witnesses = ((3, Fraction(423213851608691,2701703435345984178), 39),
+                 (53, Fraction(21,146068), 3), (227, Fraction(3,226), 1))
+    for p, t, orbit_size in witnesses:
+        assert 1 < D*t < p
+        seen = set()
+        y = t
+        while y not in seen:
+            assert (D*y)//1 == sum((s*y)//1 for s in SLOPES)
+            seen.add(y)
+            y = (p*y) % 1
+        assert len(seen) == orbit_size
+
+
 def first_full_predecessor():
     # At this exponent the odd row covers every prescribed lowest layer.
     q, n = 2**119, 1903*2**119+1
@@ -111,6 +128,7 @@ def first_full_predecessor():
 if __name__ == "__main__":
     check_seeds()
     first_full_predecessor()
+    leading_windows()
     for bound, depth in [(200, 32), (4096, 12)]:
         primes = list(primes_through(bound))
         a, h = witness(primes, depth)

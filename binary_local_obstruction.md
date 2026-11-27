@@ -41,4 +41,18 @@ It is the existing residue modulo $r$. Since $r$ is ordinary at base 2 and $r\nm
 $$N\equiv 3r\pmod {r^{L+1}},\qquad N/3\equiv r\pmod {r^{L+1}}.$$
 The prime $r$ is at least 5. Therefore $r\parallel N$ and the three equal parts of $C$ add without a carry through that layer. Processing a finite list leaves an infinite progression. This proves the theorem even when the depth is measured after stripping the forced factor $r$ out of each part of $C$.
 
+## The leading digits at one selected prime
+
+Fix any one of $p=3,53,227$ and any $J\ge1$, in addition to the preceding finite prime list and lower depth. Infinitely many exponents from the constructed progression also have **no carry in $A$ at any of the $J$ highest layers in base $p$**. The choice of the single leading base is made before choosing the exponents. Thus inspecting both ends in that base, together with the prescribed low digits in all the other bases, still leaves infinitely many exponents.
+
+Let $s=(681,9222,2128)$ and $F(x)=\lfloor dx\rfloor-\sum_i\lfloor s_ix\rfloor$. It is periodic modulo one. Each rational $x$ below satisfies $1<dx<p$ and $F(p^j x)=0$ for **all** $j\ge0$. The calculation is finite because the forward orbit of $x$ under multiplication by $p$ modulo one is eventually periodic.
+
+| $p$ | $x$ | distinct residues | eventual fixed residue |
+|---:|---:|---:|---:|
+| 3 | $423213851608691/2701703435345984178$ | 39 | $1/2$ |
+| 53 | $21/146068$ | 3 | $21/52$ |
+| 227 | $3/226$ | 1 | $3/226$ |
+
+For a fixed $J$, right continuity of the finitely many floor functions gives a small open interval immediately to the right of $x$ on which the same floors hold for $0\le j<J$. Take a closed subinterval of positive length in its interior, separated from every discontinuity and still satisfying $1<dy<p$. Along any arithmetic progression of exponents, $a\log_p 2$ is dense modulo one, since $2$ and $p$ are distinct primes. Hence infinitely often $q/p^n$ lies in this subinterval for some integer $n$ tending to infinity. Then $p^n\le N<p^{n+1}$. For division at the layer $p^{n-j}$ the shifted part and the total contribute additional real offsets $p^{j-n}$ in their floors. For large $n$ these offsets preserve every floor by the separation margin. The vanishing of $F$ proves the asserted upper-layer tests.
+
 Run `python3 check_binary_local_obstruction.py` to verify the seeds, the Wieferich scan through one million, and the example at cofactor 1903. The program constructs full progressions for all primes through 200 at depth 32 and for all primes through 4096 at depth 12. It checks actual row residues at two positive exponents in each resulting progression. At the latter cutoff the extra tested weight primes are 19 and 229, each dividing $N$ exactly once.
