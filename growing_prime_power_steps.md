@@ -18,7 +18,7 @@ $$
 $$
 Only the normalized complementary row and the scale congruence are needed here. To see this, group the prime powers of $T$ according to which part of $C$ has residue 1. The resulting three pairwise coprime products include a smallest one $d\le T^{1/3}$; empty products are allowed. Write $T=dt$. The designated normalized part is $zt$, and its two companions sum to $dy$, with $z,y>0$. Thus
 $$ U=zt+dy,\qquad UV=1+Bsdt,\qquad Bs d^2 y-z=(Bs d-Vz)U>0. $$
-Positivity follows from $(Bs d-Vz)t=Vdy-1>0$. Once $s,d,z,y$ are given, the positive divisor $U$ determines $t$ and $n$. This is the [one-bin divisor argument](common_factor_count.md#counting-small-assigned-moduli-using-one-predecessor-factor) with the known factor $B$ removed from the count of choices for $s$.
+Positivity follows from $(Bs d-Vz)t=Vdy-1>0$. The [Lean proof](ScaledCofactorBins.lean) verifies the identity and positivity in natural numbers. Once $s,d,z,y$ are given, the positive divisor $U$ determines $t$ and $n$. This is the [one-bin divisor argument](common_factor_count.md#counting-small-assigned-moduli-using-one-predecessor-factor) with the known factor $B$ removed from the count of choices for $s$.
 
 Put $U,s,d$ in dyadic ranges and use their size symbols on the right up to absolute constants. Since $T\asymp H/s$, $z\le Ud/T$ and $y\le U/d$, the number of parameter choices in a nonempty box is at most
 $$
