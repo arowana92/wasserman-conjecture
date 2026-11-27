@@ -94,7 +94,7 @@ at all 664,574 auxiliary primes. Three of the four primes of $S$ and 37 divide $
 
 ## Reproduction
 
-Run from the repository root with Python 3.9 or later and python-flint installed.
+The [Lean proof](HigherSuccessorBounds.lean) checks the deductions $27Q^2<d^5$ and $36Q\le d^2$ from their respective factor and part inequalities. Run it with Lean 4.36.0 using `lean HigherSuccessorBounds.lean`. The enumeration uses Python 3.9 or later and python-flint. Run the following from the repository root.
 
 ```sh
 python3 check_higher_successors.py --list-local
