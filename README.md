@@ -14,6 +14,7 @@ The full assertion is proved here for every $N=5\cdot2^k+1$, for every weight wi
 
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. For all sufficiently large $X$, at least $cX/(\log X)^2$ pairs of consecutive weights in $[X,2X]$ have minimum certificate size exactly four at both weights.
 
+- [Transfer from any good separated exponent to an arithmetic progression, with a quantitative gcd bound](digit_gap_transfer.md)
 - [Almost every pair of binary blocks works at every gap, with 64,198 explicit all-exponent families through block size 255](binary_gap_families.md)
 - [Every prime-power base at composite repunit lengths 10, 14, 22 and 26, and a large-base theorem for twice-prime lengths](double_repunit_weights.md)
 - [Every prime-length repunit through length 31 at every prime-power base, with an explicit large-base theorem at all prime lengths](repunit_weights.md)
