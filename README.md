@@ -14,6 +14,7 @@ The full assertion is proved here for every $N=5\cdot2^k+1$, for every weight wi
 
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. For all sufficiently large $X$, at least $cX/(\log X)^2$ pairs of consecutive weights in $[X,2X]$ have minimum certificate size exactly four at both weights.
 
+- [Every binary exponent for at least 1,103,107 prime pairs, and every exponent through a trillion and every factorial exponent for all 1,103,805 pairs](odd_predecessor_prime_pairs.md)
 - [Two varying prime-power exponents in a three-factor predecessor, with a uniform bound on exceptional exponent pairs and explicit progressions working at every outer exponent](three_factor_exponent_rectangles.md)
 - [In either nonendpoint row of any counterexample, a part equals the gcd of its companions or differs from it by more than 1,024. A fifth-root gap also holds at every fixed rational slope](part_gcd_gap.md)
 - [Shifting one part of a scaled prime-power triple by any nonzero integer from −512 to 512 excludes the row at every weight. The common gcd grows with the weight at each fixed positive shift greater than one](signed_prime_power_rows.md)
