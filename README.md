@@ -14,6 +14,8 @@ The full assertion is proved here for every $N=5\cdot2^k+1$, for every weight wi
 
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. For all sufficiently large $X$, at least $cX/(\log X)^2$ pairs of consecutive weights in $[X,2X]$ have minimum certificate size exactly four at both weights.
 
+- [Four prime-power factors with two independently varying exponents, including every twice or three times a prime power as static cofactor](static_power_transfer.md)
+- [One exponent period for any two prime bases at 1,341 of the first 1,500 cofactors, including every cofactor through 43](two_power_seed.md)
 - [Two low digit units at each of two weight primes force incompatible ratios of parts, and one such prime gives a quadratic cofactor bound](two_digit_weight_cuts.md)
 - [For almost every weight, two trinomials with few carries share distinct primes from the weight and its predecessor when every part is at least two](separate_endpoint_divisors.md)
 - [A digit-gap theorem for every cofactor, bounded gaps between certified exponents for every odd cofactor, and 100,000 consecutive weights above a trillion](predecessor_weight_gap.md)
