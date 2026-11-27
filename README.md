@@ -14,6 +14,7 @@ The full assertion is proved here for every $N=5\cdot2^k+1$, for every weight wi
 
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. For all sufficiently large $X$, at least $cX/(\log X)^2$ pairs of consecutive weights in $[X,2X]$ have minimum certificate size exactly four at both weights.
 
+- [Uniform bounds for rationally spaced exponents and arbitrary-height towers. All odd-prime-power cofactors through $K^{1/9}$ work together outside a power-saving set of indices](rational_exponent_counts.md)
 - [In any 28 binary exponents in arithmetic progression, one works for every odd cofactor through 65,535. At most 879 of a million terms can fail at any cofactor](binary_exponent_progressions.md)
 - [At one fixed cofactor, simultaneous Kummer carries can escape any prescribed digit depth at every prime below $6.7\times10^{15}$](binary_local_obstruction.md)
 - [Every exponent at 32,758 odd binary cofactors through 65,535 and every cofactor in that range through exponent $10^{24}$](binary_cofactor_rays.md)
