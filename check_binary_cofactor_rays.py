@@ -295,6 +295,52 @@ def check_range(shape, p, edges, limit):
     return leaves
 
 
+def positive_powers(base, modulus):
+    """The transient and cycle of base^j, j >= 1, including nonunit bases."""
+    seen = set()
+    value = base % modulus
+    while value not in seen:
+        seen.add(value)
+        value = value*base % modulus
+    return seen
+
+
+def structured_exponents(rows):
+    square, cube, prime_power = set(), set(), set()
+    for row in rows:
+        assert all(row.a % gcd(row.h, m) for m in (84, 140))
+        if row.d == 65095:
+            # On this progression the first four base-five layers force
+            # valuation exactly one at 5 in the exponent.
+            cycle = list(orbit(row.a, row.h, 625))
+            assert row.h*len(cycle) % 25 == 0
+            assert {(row.a+i*row.h) % 25 for i, q in enumerate(cycle)
+                    if passes_layers(row.slopes, 1, q, 5, 625)} == {15}
+            assert row.a % 2 == row.h % 2 == 0
+            continue
+        for degree, results in ((2, square), (3, cube)):
+            if any(pow(n, degree, row.h) == row.a for n in range(row.h)):
+                results.add(row.d)
+        common = factors(gcd(row.a, row.h))
+        if len(common) >= 2:
+            continue
+        if common:
+            p = common[0][0]
+            if row.a not in positive_powers(p, row.h):
+                continue
+            assert row.d == 62463 and p == 11 and row.u % p == 0
+            modulus = p**6
+            residues = positive_powers(p, p**5*(p-1))
+            assert not any(passes_layers(row.slopes, 1, pow(2, e, modulus), p, modulus)
+                           for e in residues)
+        else:
+            prime_power.add(row.d)
+            assert all(row.a not in positive_powers(p, row.h)
+                       for p in (2, 3, 5, 7, 11, 13, 17, 19))
+    assert square == cube == {62809} and prime_power == {12031}
+    print("Square or cube exponents leave only 62809. Prime-power exponents leave only 12031.")
+
+
 def read_templates(path):
     with open(path) as rows:
         return sorted(Shape(*map(int, row.split())) for row in rows)
@@ -328,6 +374,8 @@ def main():
         count = check_range(row, p, edges, args.exponents)
         leaves += count
         print(*row, "base", p, "percent", rate, "leaves", count, flush=True)
+    if args.limit == 65535:
+        structured_exponents(remaining)
     print(f"{len(remaining)} progressions at {len({r.d for r in remaining})} odd cofactors.")
     print(f"{leaves} terminal exponents tested through {args.exponents}, zero survive.")
 

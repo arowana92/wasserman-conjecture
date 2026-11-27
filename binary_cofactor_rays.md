@@ -20,7 +20,7 @@ The following are the only progressions left by the all-exponent proof. In every
 
 ## From binary digits to two prime-power assignments
 
-At a counterexample the endpoint row $E=(1,1,N-2)$ occurs, with coefficient $N(N-1)$. Exactly one of the two other rows need be chosen to avoid 2. Call it $A$. Its binary digits are disjoint, so its parts have the stated form with disjoint $x,y,z$ summing to $d$. The two unshifted slopes can be ordered $0<x<y$. Assign each full prime power of $N$ to a nonendpoint row avoiding its prime, giving $UV=N$ with $U$ assigned to $A$. Then $U\mid x,y$ since $q$ is a power of two, and the companion is $C=V(f,g,h)$ with $f+g+h=U\ge3$. The shifted part is divisible by $U$, so $z>0$. We have $\gcd(U,d)=1$. If $d$ has at most one distinct prime factor, the existing two-prime predecessor theorem applies. [Endpoint reduction and the two-prime theorem](all_weights_endpoint_reduction.md)
+At a counterexample the endpoint row $E=(1,1,N-2)$ occurs, with coefficient $N(N-1)$. Choose a nonendpoint row $A$ avoiding 2. Its binary digits are disjoint, so its parts have the stated form with disjoint $x,y,z$ summing to $d$. The two unshifted slopes can be ordered $0<x<y$. Assign each full prime power of $N$ to a nonendpoint row avoiding its prime, giving $UV=N$ with $U$ assigned to $A$. Then $U\mid x,y$ since $q$ is a power of two, and the companion is $C=V(f,g,h)$ with $f+g+h=U\ge3$. The shifted part is divisible by $U$, so $z>0$. We have $\gcd(U,d)=1$. If $d$ has at most one distinct prime factor, the existing two-prime predecessor theorem applies. [Endpoint reduction and the two-prime theorem](all_weights_endpoint_reduction.md)
 
 Write $d=ST$ as a product of full prime powers, assigned to $A$ and $C$ respectively. If $w=p^j\parallel S$, the actual parts of $A$ are $0,0,1$ in some order modulo $w$. At least one of $x,y$ is zero modulo $w$. If both are zero, there is no extra restriction. Otherwise the other slope $k$ is a unit and $kq\equiv1\pmod w$. At $w\parallel T$ a full prime power, the residues of $(f,g,h)$ are $0,0,U$ in some order, since $V$ is a unit and $UV\equiv1\pmod w$. Therefore
 $$2w+1\le U,\qquad T^2\mid fgh,\qquad 27T^2\le U^3.$$
@@ -39,6 +39,18 @@ $$P^{32}v\le p^{32\delta}v,$$
 where $\delta$ is the displayed count exponent. Iteration bounds the number of possible length-$j$ low prefixes by $O(p^{j\delta})$. Put $b=\operatorname{ord}_p(2)$ and $t=v_p(2^b-1)$. At $j\ge t$, the order modulo $p^j$ is $b p^{j-t}$, by the binomial expansion or lifting the exponent. Choosing $j=\log_p K+O_p(1)$ so the order is at least $K$ makes distinct exponents in an interval of length $K$ give distinct prefixes. Summing the eleven bounds proves the claim uniformly in the interval's location.
 
 For the finite exponent bound, refine each progression by the multiplicative order of its step $2^H$ at each next $p$-power, following only marked carry edges. Each child fixes one additional digit of $q$. Stop when the period exceeds $10^{24}$, at which point each class contains at most one positive exponent in range. This produces 6,244,206 terminal exponents counted across the tuples. For every one, some forced prime has a carry in its first 80 digits, checked with modular powers and factorial floors. All computations use integers.
+
+## Exponents that are multiples or powers
+
+The following hold throughout the cofactor range with **no bound on $a$**.
+
+- Every $d$ works if $84\mid a$ or $140\mid a$. For both values of $m$ every table entry has $\gcd(H,m)\nmid a_0$.
+- If $a$ is a square or cube, only $d=62809$ remains. If $a$ is a positive power of a prime, only $d=12031$ remains. Hence **every $d$ works for $a=\ell^{2j}$ and $a=\ell^{3j}$**, for all primes $\ell$ and all $j\ge1$.
+- Every $d$ also works for all $a=\ell^j$ with $\ell\le19$ prime and $j\ge1$. None of these eight primes has a positive power equal to 907 modulo 5876.
+
+For squares and cubes, checking all residues modulo each $H$ leaves only 62809 and, for squares, 65095. On the latter row the four low base-five layers require $a\equiv15\pmod{25}$. Indeed $5$ is assigned to $A$ and the orbit of $2^{312+644n}$ modulo 625 has 125 elements. Testing those four layers at each orbit element gives this single exponent residue modulo 25. Thus $v_5(a)=1$, and $a$ is also even, eliminating prime-power exponents there.
+
+For prime powers on the other progressions, if $g=\gcd(a_0,H)$ has two distinct prime factors, both divide every $a$. If it has just one, say $p$, enumerate $p^j$ modulo $H$ through its first repetition. The only case passing is $d=62463$, $p=11$. There $11\mid U$ forces the row $A$ to avoid 11. Every $e=11^j$ gives a carry in its first six base-11 layers, checked by enumerating $11^j$ modulo $10\cdot11^5$ and evaluating $2^e$ modulo $11^6$. The only table entry with $g=1$ is the one at 12031. These checks include the transient residues when the base and modulus share a factor.
 
 ## The first cofactor where one odd row covers every lowest predecessor layer
 
