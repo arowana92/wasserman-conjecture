@@ -14,6 +14,8 @@ The full assertion is proved here for every $N=5\cdot2^k+1$, for every weight wi
 
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. For all sufficiently large $X$, at least $cX/(\log X)^2$ pairs of consecutive weights in $[X,2X]$ have minimum certificate size exactly four at both weights.
 
+- [All exponents at $1+7p^a q^b$ for odd primes through 47, and for almost every odd prime $q$ with every odd partner up to $\exp(q^{1/37})$](factor_seven_prime_bases.md)
+- [Eleven prime bases working with every odd prime partner at multiplier seven, and a density-one theorem for unrestricted partners with even exponent](factor_seven_residue_obstructions.md)
 - [At least one of $7t+1$ and $16t+1$ always works for a product of two prime powers, from a sharp cutoff for six powers of seven near a power of two](six_sevens_near_two.md)
 - [Growing prime bases and superpolynomial scales for almost all cofactors having no three large pairwise coprime divisors, including semiprimes](cofactors_with_two_large_factors.md)
 - [Almost every term of any exponent progression works simultaneously for growing ranges of primes and cofactors, including base two](simultaneous_exponent_intervals.md)
