@@ -42,4 +42,12 @@ When $r=3$ or $5$, use the carry-free pair $V,V$ one more time at the low layer 
 
 All three lower bounds also hold when $k\ge M$. In particular $T'\ge289{,}812{,}500$. Since $E$ is divisible by the order $2^{14}$ of 5 modulo $2^{16}$, both powers exceed $11\cdot289{,}812{,}500$. If either ordinary remainder is at most 6,586,647, multiplying it by 44 gives at most 289,812,468. In the $T'$ orientation this contradicts its lower bound. In the $T$ orientation it gives $11T<Q$ and $7T<15M$, contradicting (2). The two orientations cover either choice of assignment.
 
+## Replacing the large exponent period
+
+The remainder theorem also holds when each varying exponent is a positive multiple of **$6{,}706{,}706{,}688{,}000{,}000$**. In fact it suffices that for each of $2^{16},11^4,3^{10},5^7$ each varying power coprime to that modulus is one modulo it. The displayed period is the least common multiple of the four unit-group exponents.
+
+Here the grouped and split arguments in the [product-congruence theorem](static_product_congruence.md) apply just using the first two layers, both larger than $44\cdot45$. At a shared base use the shifted cut in its polynomial-period proof. A grouped assignment must have $U\mid c$ or $U\mid d$, where both $c,d$ are 3; hence $U=3$. If 3 is a varying base, $3\nmid N$. Otherwise both powers are one modulo 9, so $9\mid N$ and 3 is not a unitary divisor. This rules out grouping. In a split the ratio projection gives the same rows as above. Both varying powers are one modulo $M$ and at least one of $3^{10},5^7$ as well, so each exceeds $11\cdot289{,}812{,}500$. This also guarantees $r^d\mid R$ at the layer used when $r=3,5$. The rest of the remainder proof uses exactly the four given layers.
+
+In particular there are families with both varying exponents equal to one at this surviving cofactor. Put $J=2^{16}11^4 3^{10}5^7$. Choose any prime $R\equiv1\bmod J$ and then any prime $Q\equiv1\bmod JR$. Both exist in infinite arithmetic progressions, and the remainder on division of $Q$ by $R$ is one.
+
 Run **lean FortyFourPowerRemainders.lean** with Lean 4.36. The formal lemmas check the integer intervals in (2) and (3) and the three Chinese remainder bounds. [Lean verification](FortyFourPowerRemainders.lean)
