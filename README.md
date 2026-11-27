@@ -20,6 +20,8 @@ The full assertion is proved here for every $N=5\cdot2^k+1$, for every weight wi
 
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. For all sufficiently large $X$, at least $cX/(\log X)^2$ pairs of consecutive weights in $[X,2X]$ have minimum certificate size exactly four at both weights.
 
+- [Exact divisors forced near every rational trinomial direction, including 40 near (1,3,7)](rational_proportion_divisors.md)
+- [Neighborhoods forcing prescribed powers of any prime, with a complete classification near (1,1,m) through m+1 of one million](equal_part_cones.md)
 - [A square-root bound on the number of possible binary exponent classes at each cofactor-five prime power, and a sieve bound for their sum](five_mask_periods.md)
 - [At most one failure in any 1,356 consecutive binary exponents at cofactor five, with four possible gaps through 4,000](five_exponent_gaps.md)
 - [Arbitrarily high common powers of two near almost every triple of limiting proportions, including one-sided odd-rational slices](binary_direction_measure.md)
