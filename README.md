@@ -15,6 +15,7 @@ The full assertion is proved here for every $N=5\cdot2^k+1$, for every weight wi
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. For all sufficiently large $X$, at least $cX/(\log X)^2$ pairs of consecutive weights in $[X,2X]$ have minimum certificate size exactly four at both weights.
 
 - [All nested predecessor powers at every cofactor through ten, with unrestricted exponents and additional inverse-residue families](nested_predecessor_cofactors.md)
+- [Simultaneous extensions of any binary prefix for arbitrary bounded cofactors, with explicit common power-of-two divisibility for row pairs](cofactor_binary_prefix_extensions.md)
 - [Cofactor five for every odd prime power at binary exponents through 30, at 33 and 35, and outside three residue classes through 35](factor_five_binary_exponents.md)
 - [Exact carry counts at paired prime-power layers and odd-exponent progressions at cofactor five for every possible odd base](complementary_carry_layers.md)
 - [A factor of 2 or 3 for rows close to the proportions $(1,3,6)$ or $(2,3,5)$, with explicit error bounds](two_prime_ray_gaps.md)
