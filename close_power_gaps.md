@@ -52,3 +52,23 @@ With python-flint installed, run
 python3 check_close_power_gaps.py
 python3 check_close_power_gaps_cross.py
 ```
+
+## A short progression at every inner exponent
+
+In each of the six remaining families put $m=(a+v)/H$, an odd positive integer, and keep $L=(k+1)s$. Let $W$ be the product of the full prime powers in $G$ whose base primes divide $(k+1)(tm-L)$. If the latter integer is zero, take $W=G$. A counterexample requires
+$$
+                      (G/W)^3\ge27D^2. \tag{2}
+$$
+In particular, let $R$ be the largest divisor of $G$ coprime to $k+1$, and let $R_0$ be its radical (the product of its distinct primes, with empty product one). **All odd $m$ satisfying $tm\equiv L\pmod{R_0}$ give the full conjecture**, at every $H$ with $a=mH-v\ge1$. These give one class modulo $2R_0$ with $R_0\le G$, and $R$ itself can replace $R_0$ without factoring. The classes lie inside the previously necessary odd-multiple condition. At $(c,p,d)=(7,2,1)$ the candidate shapes have disjoint exponent classes because the first requires $a\equiv h\pmod2$ and the second $a\equiv h-1\pmod2$. Thus eliminating the resonant shape suffices at each weight. No bound on either exponent enters the proof.
+
+Indeed $N/G=V=Lp^a+F_m$ where $F_m=(X^m+1)/(X+1)$. The polynomial quotient evaluated at $X=-1$ equals $m$ for odd $m$, so $tV\equiv tm-L\pmod G$. For a prime $q\mid G$ dividing $tm-L$, we have $q\mid V$ since $t$ is a power of $p$ and $p\nmid G$. Then $v_q(N)>v_q(G)$, whereas the unshifted part $sp^aG$ has valuation exactly $v_q(G)$. A row avoiding $q$ would have all parts divisible by the full $q$-power of $N$. This prevents assignment of $q$ to $U$. The pair of unshifted parts already prevents assignment of every prime of $k+1$. Hence $U\mid G/W$ and (2) follows from $U^3\ge27D^2$. In the indicated class $W=G$. The modulus $R_0$ is odd because either $G$ is odd or $k+1$ is even. It is coprime to $t$, which proves the assertion about the class.
+
+For example the offset-five family at $p=3$ has $H=h$, $G=3^h+1$, $L=4$ and $t=1$. For **every** $h\ge1$, write $g$ for the odd part of $3^h+1$. Every positive odd $m\equiv4\pmod g$ works at $N=1+3^{mh}(4\cdot3^h+5)$. As a binary example, in the family with $t=4$ take $h\ge3$ and $m=2^{h-2}+1$, so $4m-3=2^h+1$. This proves the full conjecture at every $1+2^{h(2^{h-2}+1)-2}(3\cdot2^h+7)$. The [arithmetic verifier](check_inverse_scale.py) compares the quotient congruence and the excluded assignments with valuations of the actual integer parts.
+
+### A square-root bound for the modulus
+
+In five families one can always certify a whole odd class with modulus at most $2\sqrt G$. The sixth, $(p,k,s,t)=(2,2,1,4)$, has the same conclusion unless $G$ has a prime divisor $q>G^{2/3}$. In this last case put $g=G/q$. Among the $q$ odd classes modulo $2q$, at least $3(q-g)/4$ are certified when $H\ge2$. This is a proportion of at least $(3/4)(1-G^{-1/3})$.
+
+To prove the modulus bound, suppose first that every full prime power of $G$ is at most $G^{2/3}$. There is a unitary divisor $B$ between $G^{1/3}$ and $\sqrt G$. Indeed if a full prime power lies in $[G^{1/3},G^{2/3}]$ take it, and otherwise multiply full prime powers until first reaching $G^{1/3}$. The chosen product and its complement are both in that interval. Take the smaller. Exclude the prime bases of $B$ using (2), imposing a congruence on $m$ only at the primes not already excluded by $k+1$. Its odd modulus is at most $B$ and $G/W\le G^{2/3}$, contradicting (2). If a full prime power $q^e>G^{2/3}$ has $e\ge2$, the same argument needs only $q\le\sqrt G$. In the five families with $t\mid ks$, the [square-root bound on prime powers](scaled_row_blocks.md#two-square-root-restrictions-in-the-close-gap-families) gives $q^{2e}\le LG$, so a full prime power exceeding $G^{2/3}$ is impossible for $G\ge L^3$ in a counterexample. Smaller $G$ are in the checked finite range above.
+
+It remains to justify the proportion for $t=4$. The large prime must be assigned to $A$, since otherwise $U\mid g$ contradicts the size bound. Here $g<q$ and $g\equiv q\pmod4$ since $G\equiv1\pmod4$. Put $z=(q-g)/4$. Divide the three parts of $A$ by $q$ and reduce modulo $q$. The residues are $2z,z,[mg]_q$, respectively, using $4p^a\equiv-1\pmod q$ and $F_m\equiv m\pmod q$. A carry is forced whenever $[mg]_q\ge q-3z$. The odd classes visit every residue once and exactly $3z$ meet this inequality. The proportion bound follows from $g/q=G/q^2<G^{-1/3}$.

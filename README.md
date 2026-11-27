@@ -14,6 +14,9 @@ The full assertion is proved here for every $N=5\cdot2^k+1$, for every weight wi
 
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. For all sufficiently large $X$, at least $cX/(\log X)^2$ pairs of consecutive weights in $[X,2X]$ have minimum certificate size exactly four at both weights.
 
+- [Every finite power-tower height and every iterated squaring simultaneously at almost every prime base, with growing cofactors](tower_heights.md)
+- [An explicit factorial progression at arbitrary cofactors, where every multinomial avoiding the base prime is divisible by its whole weight](inverse_scale_exponents.md)
+- [Certified outer exponents at every inner exponent in all six remaining small-offset families](close_power_gaps.md#a-short-progression-at-every-inner-exponent)
 - [Every weight $1+2^a(2^n+2^h+c)$ for offsets 83 and 2579 and all three exponents $a\ge1$, $n>h\ge1$](two_free_binary_powers.md)
 - [Two digit blocks with disjoint part ratios, including arbitrarily many digit units at every prime and all exponents for 1,674 binary block pairs](distinct_block_ratios.md)
 - [Cubic spacing of exceptional outer exponents, and every $1+p^a(11p^h+17)$ at primes $p\ge191$, $h\ge600$, $a\le h^2/100$](block_exponent_orders.md)
