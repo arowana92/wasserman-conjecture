@@ -14,6 +14,7 @@ The full assertion is proved here for every $N=5\cdot2^k+1$, for every weight wi
 
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. For all sufficiently large $X$, at least $cX/(\log X)^2$ pairs of consecutive weights in $[X,2X]$ have minimum certificate size exactly four at both weights.
 
+- [Shifting one part of a scaled prime-power triple by any nonzero integer from −512 to 512 excludes the row at every weight. The common gcd grows with the weight at each fixed positive shift greater than one](signed_prime_power_rows.md)
 - [Every translate of 785 by up to three arbitrarily placed powers of two, and a necessary shape at every prime and every exponent for offsets through 63](three_power_offset_range.md)
 - [An explicit common-divisor bound for every companion of a scaled prime-power triple with one added unit](shifted_power_rows.md)
 - [For three separated blocks at every prime, a counterexample requires proportional digit columns or exponents near a ratio of two. Sparse individual columns also exclude that last ratio](three_block_exponent_ratios.md)
