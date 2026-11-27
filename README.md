@@ -14,6 +14,9 @@ The full assertion is proved here for every $N=5\cdot2^k+1$, for every weight wi
 
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. For all sufficiently large $X$, at least $cX/(\log X)^2$ pairs of consecutive weights in $[X,2X]$ have minimum certificate size exactly four at both weights.
 
+- [The full conjecture at $1+10PQ$ when $P$ divides $Q-1$ and $Q$ has at most four nonzero base-$P$ digits, or either prime power is even](ten_nested_powers.md)
+- [A square-root gap bound for two predecessor powers at every multiplier, linear windows at selected multipliers, and a count of possible exceptions at each gap](nearby_predecessor_pairs.md)
+- [A bound on gaps between occupied digits of one predecessor power in the prime base of another](predecessor_inverse_digit_gaps.md)
 - [Square exponents at fifteen cofactors, including 10, 18, 22, 37 and 58, and the cube family at ten](static_square_cofactors.md)
 - [A single binomial cut certifies two varying prime powers at 274,863 of the 288,726 two-prime cofactors through one million, and at relative density one among all such cofactors](canonical_cofactor_cut.md)
 - [A polynomial exponent period for these families, a product congruence for ordinary prime factors, and a four-prime certificate at 2,100,875,036](static_product_congruence.md)
