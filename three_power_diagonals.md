@@ -10,6 +10,8 @@ Moreover, for $l=(C-\delta)/s$, the three components of $l(p^{a-c},p^{b-c},1)+e$
 
 In particular, **at every offset** the conjecture holds throughout the indicated height range whenever $p^{a-c}>C$. Even at small spacings there are at most $\tau(C)+\tau(C-1)$ possible difference pairs $(a-c,b-c)$ at all these heights combined. Indeed $s-1$ determines the two powers uniquely, including the case of equal powers. For example, at binary offset 29 the only possible pair is $(2,1)$, since the only eligible divisor of 28 or 29 is 7. All other pairs work above the given height.
 
+The [sharper height theorem](three_power_offset_range.md) removes the shifted case and gives the unshifted conclusion already for $a>90n+9$.
+
 ## Only one of the four divisors can be large
 
 Use the [three-power allocation](three_power_translates.md#what-three-very-high-powers-force). Write $a_1=a,a_2=b,a_3=c$. In the binary or base-$p$ carry-free row the parts are $p^{a_i}+c_i$, where the $c_i$ add freely to $C$, and $a_3>4n$. These facts follow by the individual-part bound, independently of any spacing comparison. If $p=2$ any two equal high units merge before they are distributed, contrary to each of the three parts needing a unit of its own.
