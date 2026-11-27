@@ -56,3 +56,49 @@ Let $s=(681,9222,2128)$ and $F(x)=\lfloor dx\rfloor-\sum_i\lfloor s_ix\rfloor$. 
 For a fixed $J$, right continuity of the finitely many floor functions gives a small open interval immediately to the right of $x$ on which the same floors hold for $0\le j<J$. Take a closed subinterval of positive length in its interior, separated from every discontinuity and still satisfying $1<dy<p$. Along any arithmetic progression of exponents, $a\log_p 2$ is dense modulo one, since $2$ and $p$ are distinct primes. Hence infinitely often $q/p^n$ lies in this subinterval for some integer $n$ tending to infinity. Then $p^n\le N<p^{n+1}$. For division at the layer $p^{n-j}$ the shifted part and the total contribute additional real offsets $p^{j-n}$ in their floors. For large $n$ these offsets preserve every floor by the separation margin. The vanishing of $F$ proves the asserted upper-layer tests.
 
 Run `python3 check_binary_local_obstruction.py` to verify the seeds, the Wieferich scan through one million, and the example at cofactor 1903. The program constructs full progressions for all primes through 200 at depth 32 and for all primes through 4096 at depth 12. It checks actual row residues at two positive exponents in each resulting progression. At the latter cutoff the extra tested weight primes are 19 and 229, each dividing $N$ exactly once.
+
+## Prime exponents with individually prescribed first carries
+
+The common prime divisors can themselves be located on this ray. Fix $L,J,m\ge1$ and integers $H_3,H_{53},H_{227}\ge\max(45,L+3)$. Choose any one of the three bases for a leading window of $J$ layers. There are **arbitrarily long arithmetic progressions of prime exponents** with all of the following properties at every term.
+
+- The full conjecture holds at $N=12031\cdot2^a+1$. For the displayed triple $E,A,C$, all of $3,53,227$ are common divisors, each of exact valuation one in the common gcd.
+- For each $p=3,53,227$ the **first** carry in $A$ occurs precisely at $p^{H_p}$. At each of $p^{H_p+8},\ldots,p^{H_p+7+m}$ the factorial-floor contribution is two. In the chosen leading base, all $J$ highest layers of $A$ have zero contribution.
+- The lower-window assertions above still hold simultaneously at every tested prime below $6.7\times10^{15}$, or for any admissible finite set as in the theorem.
+
+Consequently the three first carries can be placed at the same arbitrarily prescribed index $H\ge\max(45,L+3)$ in their respective bases. The positive conclusion for **all** triples at those weights follows from the bounded-cofactor classification. Any counterexample at 12031 would have the specific row $A$ and require it to avoid 3. Since 12031 is the only remaining odd cofactor through 65535 at prime exponents, each term of these progressions also proves the conjecture simultaneously at every weight $1+d2^a$ for odd $d\le65535$. [Necessary row at 12031](binary_cofactor_rays.md)
+
+**Prescribing the middle digits.** Use $b=265327$ in the initial progression with the same $D=22211280$. Now $\gcd(b,D)=1$. In the order $5,7,13,113,1093,3511$ the six protected residues of $12031\cdot2^b+1$ are $4,4,2,84,1085,3254$. The three local witnesses still match their initial moduli. After matching through at least $p^6$, the exponent residues modulo $3,53,227$ are respectively $1,31,3$, all units.
+
+For the ternary prime put $t=H_3-2$, and at the other two primes put $t=H_p-1$. Impose
+$$2^a\equiv t_p-p^t\pmod {p^{H_p+8+m}}.$$
+This retains the witness's low digits and its nonzero exponent residue modulo $p$. Each $dt_p+1<p^t$ (at 3 already $dt_3+1<3^{43}$). The lower block therefore adds exactly without carries. At $p^{t+i}$, throughout the imposed range $i\ge1$, the contribution is exactly
+$$\left\lfloor\frac{\sum_{s\in\{681,9222,2128\}}((-s)\bmod p^i)}{p^i}\right\rfloor.$$
+Indeed a nonnegative representative for the scalar is $t_p+p^t(p^i-1)$, and the lower block has total below $p^t$. At 3 the contributions for $i=1,2$ are 0 and 1. At 53 and 227 the contribution at $i=1$ is 1. Whenever $p^i>d$ the three residues sum to $3p^i-d$, giving contribution two. This proves all the claimed middle layers. The endpoint has valuation one at each prime. The equal parts of $C$ give a ternary carry at the first occupied digit. At 53 and 227 they are units whose three equal residues sum to more than one and are 1 modulo $p$ in total.
+
+**Keeping a primitive progression.** When adjoining a further prime $r$, extend the current exponent class to a unit class modulo $\operatorname{lcm}(M,r-1)$. This is always possible by CRT, preserving the previous class and choosing a unit at new prime factors. If $r$ divides $N$ on this progression, use either $N/3\equiv r$ or $N/3\equiv 2r\pmod{r^{L+1}}$. Both targets give no carry through that layer, since $r\ge11$. At most one gives an exponent divisible by $r$: at the lift from $r$ to $r^2$ the two targets give distinct digits, and the exponent step is a unit modulo $r$. Choose the unit lift. Further lifts preserve it. This constructs a primitive progression of exponents with every prescribed finite congruence.
+
+Primes in this progression have positive relative density among all primes. For the chosen leading base $p$, the values $a\log_p2$ are uniformly distributed modulo one over the primes in the progression, by Vinogradov's theorem. Selecting the interior interval from the leading-window proof leaves a set of primes of positive relative density. Green and Tao's Theorem 1.2 gives arbitrarily long arithmetic progressions inside that set. [Vinogradov, distribution on primes in an arithmetic progression](https://www.mathnet.ru/php/archive.phtml?jrnid=im&option_lang=eng&paperid=3453&wshow=paper) · [Green and Tao, Theorem 1.2](https://annals.math.princeton.edu/wp-content/uploads/annals-v167-n2-p03.pdf)
+
+The same verifier constructs primitive progressions both with first layers $(45,45,45)$ and with $(60,53,71)$. In the second case it checks the low layers at every prime through 4096, the first carry at each of the three prescribed layers, and eight consecutive double contributions in each base, directly from the scalar residues.
+
+### An explicit prime exponent
+
+The following 1,694-bit prime $a$ is written in hexadecimal, most significant digits first. Join the lines to recover the integer.
+
+```text
+32e06c8f77e5efab07dc1f49fa23b1377d0fe98110ffa8ef122bd06a73fabad8d154710f
+ae6f359ac0f456938941f05d18a85a32c0db0e571b768bcda0e94290f8e089bb580a9e79
+284e20c68e9a4786aa80dce8bb4e2adcc06538425428b7dc6ad03b2be91ac6284d7cff52
+faa31cf040c6c78784f86fc291aa8f76ddcf1c1545edf9d12e8d6088de903bb41be13ec1
+2fb8ff1b6489beb648c0d42e9c5cd93a16d66622afc387cc474715a99d9973359bdf05c0
+f2d8944fbc4a24beed8240e114f2a8df43ab1845bd35019dd55b7a6b72fd6e8f
+```
+
+Here the first carry of $A$ occurs at layer 45 in each of the three bases. Layer 53 has contribution two in each base. The four highest ternary layers have contribution zero. The low-window construction with $L=2$ is verified through prime 19 for this particular exponent.
+
+For a primality certificate put $F=11^{246}$. Direct modular exponentiation gives
+$$F\mid a-1,\qquad F^2>a,\qquad 2^{a-1}\equiv1\pmod a,\qquad
+\gcd(2^{(a-1)/11}-1,a)=1.$$
+For every prime divisor $r$ of $a$, the multiplicative order of 2 modulo $r$ divides $a-1$ and does not divide $(a-1)/11$. Hence $F$ divides that order and $r-1$. Every prime divisor of $a$ exceeds its square root, proving primality.
+
+The verifier reconstructs the same integer from the exponent progression. It checks the low and middle layers by modular powers. For the four highest layers it encloses $2^a$ between integer mantissas times a common power of 3. Each binary exponent digit squares these bounds and multiplies by 2 if the bit is one. Rescaling rounds both endpoints outward. The upper and lower quotient bounds agree for all three parts and the total at each tested layer, including the unit offsets in the third part and the total. Thus computing the top layers needs no floating-point logarithm and never constructs $2^a$.
