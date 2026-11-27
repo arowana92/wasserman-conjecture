@@ -1,5 +1,7 @@
 # Exceptional orders with two unrestricted prime-power factors
 
+The [three-scale theorem](three_scale_orders.md) strengthens the uniform asymptotic exponent for the full collection below to $0.980$ and includes additional factor-nine cases at odd $t$.
+
 Let $t=p^a q^b$ for arbitrary primes $p,q$ and positive integers $a,b$. Call a binary order $j$ exceptional if some $2^j\le t<2^{j+1}$ gives a failure of Wasserman's full trinomial conjecture at $5t+1$, at $7t+1$, or at $9t+1$ with $t$ even.
 
 **Every interval of $H$ consecutive nonnegative binary orders contains at most $O(H^{1-1/10000000})$ exceptional orders, uniformly in the starting order.** The same statement holds if we also allow any failing weight $1+dt$ with $d\le1000$ and $t$ a prime power, by the [two-base theorem](logarithmic_intervals.md).

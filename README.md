@@ -14,6 +14,7 @@ The full assertion is proved here for every $N=5\cdot2^k+1$, for every weight wi
 
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. For all sufficiently large $X$, at least $cX/(\log X)^2$ pairs of consecutive weights in $[X,2X]$ have minimum certificate size exactly four at both weights.
 
+- [Uniform bounds on exceptional binary orders for $5p^a q^b+1$, $7p^a q^b+1$ and the factor-nine family outside one explicit condition](three_scale_orders.md)
 - [At most $O(H^{0.778})$ possible exceptional binary orders in any $H$ consecutive orders at primitive denominators through 1000, including every prime-power cofactor family in this range](two_scale_orders.md)
 - [A bound of $O(H^{5/38})$ candidate inputs in any $H$ binary orders for $10P+7=DR$ with $D\le10{,}000$ and $R$ a prime power, and the full assertion through $P=2^{10^{30}}$ in this family](seven_ternary_rotation.md)
 - [Weight-factor obstructions for the three remaining quadratic shapes, including two cofactors settled whenever $2P+1$ is a prime power](seven_quadratic_weight_factors.md)
