@@ -16,6 +16,7 @@ The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. T
 
 - [All nested predecessor powers at every cofactor through ten, with unrestricted exponents and additional inverse-residue families](nested_predecessor_cofactors.md)
 - [A factor of 2 or 3 for rows close to the proportions $(1,3,6)$ or $(2,3,5)$, with explicit error bounds](two_prime_ray_gaps.md)
+- [The exact least gap between parts of an odd coefficient and all limiting proportions with two equal components](binary_near_equal_parts.md)
 - [One perfect power at cofactor ten, a one-sided exponent period at every prime-power or doubled odd prime-power cofactor, and a divisibility criterion for three predecessor powers](nested_power_residues.md)
 - [The full conjecture at $1+10PQ$ when $P$ divides $Q-1$ and $Q$ has at most four nonzero base-$P$ digits, or either prime power is even](ten_nested_powers.md)
 - [A square-root gap bound for two predecessor powers at every multiplier, linear windows at selected multipliers, and a count of possible exceptions at each gap](nearby_predecessor_pairs.md)
