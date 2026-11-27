@@ -14,6 +14,7 @@ The full assertion is proved here for every $N=5\cdot2^k+1$, for every weight wi
 
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. For all sufficiently large $X$, at least $cX/(\log X)^2$ pairs of consecutive weights in $[X,2X]$ have minimum certificate size exactly four at both weights.
 
+- [Almost every prime $q$ works at every $1+dq^e$ with both $d$ and $e$ at most $q^{1/10}$](moving_power_bases.md)
 - [An explicit 99.9474% of prime bases working simultaneously for all cubic exponents and cofactors through 1000](cofactor_986_prime_classes.md)
 - [At most one failure among a billion weights in each cubic family, with no four failing exponents in arithmetic progression at cofactor 986](cofactor_986_powers.md)
 - [A power saving for exceptional orders of two unrestricted prime-power factors, with runs of at least $10^{28}$ certified binary orders](three_base_orders.md)
