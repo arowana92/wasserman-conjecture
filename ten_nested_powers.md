@@ -1,5 +1,7 @@
 # Cofactor ten when one varying power divides the other minus one
 
+The [leading-digit theorem](nested_predecessor_cofactors.md) now settles the full nested family at cofactor ten for all exponents.
+
 Let $P<Q$ be powers of distinct primes, with $P\mid Q-1$. **The full trinomial conjecture holds at $N=10PQ+1$ whenever $Q$ has at most four nonzero digits in base $P$. This includes every $Q\le P^4$. If either power is even, the conclusion holds for every $Q$ without an upper bound.** A [separate residue argument](nested_power_residues.md) removes the digit condition whenever $P$ is a square or $Q$ is a fourth power. Both varying powers can be ordinary primes. For fixed even $P$ there are, in particular, infinitely many ordinary primes $Q$ in the indicated class.
 
 ## Determining the candidate row

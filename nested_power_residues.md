@@ -1,5 +1,7 @@
 # A single perfect power when one predecessor power divides the other minus one
 
+The [leading-digit theorem](nested_predecessor_cofactors.md) now settles the full nested family at cofactor ten for all exponents.
+
 Let $P<Q$ be powers of distinct primes with $P\mid Q-1$. At $N=1+10PQ$, the full trinomial conjecture holds **if $P$ is a square or if $Q$ is a fourth power**. There is no bound on the other prime power or on the digits of either. This complements the [sparse and even cases](ten_nested_powers.md).
 
 More generally let $b$ be a prime power. At $N=1+bPQ$ it suffices that either $P$ or $Q$ is one modulo $b$. At $N=1+2bPQ$ with $b$ odd, it suffices that either varying power is itself a perfect $e$-th power for any positive multiple $e$ of
