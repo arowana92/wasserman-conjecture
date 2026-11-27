@@ -14,6 +14,7 @@ The full assertion is proved here for every $N=5\cdot2^k+1$, for every weight wi
 
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. For all sufficiently large $X$, at least $cX/(\log X)^2$ pairs of consecutive weights in $[X,2X]$ have minimum certificate size exactly four at both weights.
 
+- [One nonendpoint coefficient must have many carries in all four bases 2, 3, 5 and 7 outside $O(X^{0.8561})$ weights](four_digit_sums.md)
 - [The full bounded-cofactor quadratic family in intervals around smooth numbers, products of powers, and Fibonacci, Lucas and Pell numbers](quadratic_smooth_gaps.md)
 - [Binary order classes certifying the remaining quadratic cofactors at unbounded inputs, including four possible classes each at 4587 and 9453](seven_quadratic_middle.md)
 - [Uniform bounds on exceptional binary orders for $5p^a q^b+1$, $7p^a q^b+1$ and the factor-nine family outside one explicit condition](three_scale_orders.md)
