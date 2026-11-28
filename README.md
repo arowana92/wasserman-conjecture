@@ -22,7 +22,7 @@ The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. T
 
 In any counterexample, select a cut (one part or the sum of two) from each of the two nonendpoint rows. When the ratio of the cuts is reduced, its smaller term $x$ must exceed both 4096 and $(3125N/108)^{1/5}$. If $x\le 10^6$, the stronger bound $159375N<108x^5$ holds. [Proof and exhaustive split check](cross_cut_ratios.md) · [Near the fifth-root bound](cross_cut_critical.md)
 
-- [120 of 121 quadratic blocks at every exponent, with one possible ternary family, and arbitrary quadratic exponent ranges for every fixed monic quadratic](split_quadratic_shifts.md)
+- [120 quadratic blocks at every exponent, all 121 through outer exponent ten million, and bounds in every outer-exponent interval for a fixed monic quadratic](split_quadratic_shifts.md)
 - [Quadratic blocks at every prime in a quadratic range of outer exponents, and 100 families at every exponent](shifted_monic_blocks.md)
 - [Cofactor 35 at every fourth power with 3-free factor of ternary digit sum at most 16, and two complementary exponent ranges](fourth_power_cofactor_35.md)
 - [Exact valuation changes when gaps between prime powers are lengthened in rational polynomial row formulas](rational_polynomial_carries.md)

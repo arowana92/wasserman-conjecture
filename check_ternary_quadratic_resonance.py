@@ -173,11 +173,41 @@ def encode(a, groups):
     return " ".join([str(a), *(",".join(map(str, g)) or "-" for g in groups)])
 
 
+def check_outer_limit(limit, start):
+    primes = primes_through((limit + 1) // start)
+    a = start
+    while True:
+        bound = (limit + 1) // a
+        F = 3**a + 2
+        # The left side decreases with a and the right side increases.
+        if 1 << (2 * bound) <= 27 * F:
+            break
+        powers = []
+        for q in primes:
+            if q > bound:
+                break
+            if q == 2:
+                continue
+            w = q
+            while w * q <= bound:
+                w *= q
+            powers.append(w)
+        multiple = fmpz(prod(powers))
+        cap = (pow(fmpz(2), multiple, fmpz(F)) - 1).gcd(F)
+        if cap**2 > 27 * F:
+            raise ArithmeticError(("inconclusive aggregate gcd", a, cap))
+        a += 1
+    print(
+        f"Every outer exponent through {limit} certified; {a-start} aggregate gcds from a={start}."
+    )
+
+
 if __name__ == "__main__":
     cli = ArgumentParser(description=__doc__)
     cli.add_argument("--generate", type=int, metavar="LIMIT")
     cli.add_argument("--deep", action="store_true")
     cli.add_argument("--start", type=int, default=1)
+    cli.add_argument("--outer-limit", type=int)
     args = cli.parse_args()
     if args.generate:
         for a in range(args.start, args.generate + 1):
@@ -197,3 +227,5 @@ if __name__ == "__main__":
         print(
             f"All outer exponents certified for inner exponents 1 through {max(records)}: {dict(counts)}"
         )
+        if args.outer_limit is not None:
+            check_outer_limit(args.outer_limit, max(records) + 1)

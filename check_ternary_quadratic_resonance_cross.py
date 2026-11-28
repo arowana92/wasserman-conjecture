@@ -1,8 +1,9 @@
 """Verify ternary factor witnesses with factorial floors and CRT idempotents."""
 
+from argparse import ArgumentParser
 from collections import Counter
 from itertools import combinations, combinations_with_replacement
-from math import gcd, prod
+from math import gcd, isqrt, lcm, prod
 from pathlib import Path
 
 from flint import fmpz
@@ -78,7 +79,42 @@ def verify(index, factors, stats):
     stats["CRT"] += 1
 
 
+def verify_outer_limit(limit, last):
+    # n > a/2 since 2^(2n) > X=3^a. Work down in a so that all
+    # consecutive LCMs can be built incrementally without factorization.
+    multiple = 1
+    highest = 0
+    count = 0
+    for a in range(isqrt(2 * (limit + 1)), last, -1):
+        X = 3**a
+        F, M, s = X + 2, X + 4, X + 1
+        max_n = (limit + 1) // a
+        if max_n % 2 == 0:
+            max_n -= 1
+        if max_n < 1:
+            continue
+        upper = s // (s & -s)
+        threshold = 27 * (F * M) ** 2
+        if upper**3 * ((1 << max_n) - 1) ** 2 < threshold:
+            continue
+        for n in range(highest + 1, max_n + 1):
+            multiple = lcm(multiple, n)
+        highest = max_n
+        # Initially allow even orders too. Remove the 2-part only if needed.
+        for exp in (multiple, multiple // (multiple & -multiple)):
+            cap = gcd(F, int(pow(fmpz(2), fmpz(exp), fmpz(F))) - 1)
+            if upper**3 * cap**2 < threshold:
+                break
+        else:
+            raise ArithmeticError(("outer exponent bound", a, max_n))
+        count += 1
+    print(f"Verified every outer exponent through {limit} with {count} modulus checks.")
+
+
 if __name__ == "__main__":
+    cli = ArgumentParser(description=__doc__)
+    cli.add_argument("--outer-limit", type=int)
+    args = cli.parse_args()
     stats = Counter()
     last = 0
     for line in (
@@ -104,3 +140,5 @@ if __name__ == "__main__":
     if not last:
         raise ValueError("empty certificate")
     print(f"Independently verified indices 1 through {last}: {dict(stats)}")
+    if args.outer_limit is not None:
+        verify_outer_limit(args.outer_limit, last)

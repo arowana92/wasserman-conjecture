@@ -8,7 +8,7 @@ Even there any failure must include both the endpoint and the row
 $$
 (3Q(X+1),\ Q(X+1)(X+2),\ 3Q+1).
 $$
-The factor certificate below excludes every outer exponent for $1\le a\le300$. More generally, for **every fixed monic quadratic** with nonnegative integer coefficients and every $K>0$, all $e\le K a^2$ work once $p^a$ is sufficiently large, uniformly in $p$.
+The factor certificate below excludes every outer exponent for $1\le a\le300$. A second computation excludes every $e\le10{,}000{,}000$ for all $a$. More generally, for **every fixed monic quadratic** with nonnegative integer coefficients and every $K>0$, all $e\le K a^2$ work once $p^a$ is sufficiently large, uniformly in $p$.
 
 There is an unrestricted-exponent theorem for larger coefficients. If $d=p^m$ with $m\ge0$, $k\ge1$, $k\ne d$, $G=(X+d)(X+k)$, and $X>(3+d+k+dk)^{60}$, every possible failure has the form (3) below. In particular **$G=(X+1)(X+k)$ works for every outer exponent whenever $2\le k<2p+2$ and $X>(4+2k)^{60}$.**
 
@@ -68,6 +68,30 @@ If $U\le H^3$ along a subsequence, (1) gives $B\gg_H X^2$, hence $B_h,B_k\gg_H X
 
 Finally, for $U>H^3$ the common-root argument preceding (2) works for arbitrary positive $h,k$. It gives (2) with $d$ one of the two root parameters and $k$ there denoting the other. Indeed a common root $-r$ distinct from both factor roots is forced by the linear part. If neither factor divides the other unshifted polynomial, $B\le H^{12}$ contradicts (1) at large $X$. Hence that part is monic quadratic with roots $-r,-d$, making $r$ a positive integer. Here $d$ is an arbitrary parameter. Still $U\mid X+r,\ U\mid -(d-r)DQ-1$, and $U\gg_H X^{2/3}$ by (1) and $B\le L(X+d)$. Also $B_d\le |C|\gcd(X+d,CQ-1)$ gives $\gcd(X+d,CQ-1)\gg_H X^{1/2}$, where $C=\alpha(r-d)$. Apply the gcd lemma at $j=r$ and $j=d$. We obtain that $r,d$ and $|(d-r)D|$ are powers of $p$, hence so is $D$. As in (2), $x$ would have to take both digit units of $D(X+d)$, leaving $z=0$. This excludes the last case and proves the theorem.
 
+## Outer exponents in an interval starting anywhere
+
+**Theorem.** Fix $G=X^2+bX+c$ as above. There is a constant $C_G$ independent of $K,p,a$ such that, for every $K>0$ and all sufficiently large $X=p^a$ in terms of $G,K$, **any interval of length $Ka^2$ contains at most $C_G$ exceptional outer exponents**. One can take three times the number of labeled coefficient splits of $G$. In the sole residual ternary family from the coefficient box the bound is two. The interval may start arbitrarily far above zero.
+
+For a fixed positive integer $j$ that is not a power of $p$, uniformly for $1\le h\le Ka^2$ we claim
+$$
+\gcd(p^a+j,p^h-1)\le X^\epsilon                                           \tag{6}
+$$
+for all sufficiently large $X$, for every fixed $\epsilon>0$. For a fixed $p$, if $h/a\to\infty$, use the gcd lemma with $c_0=1$. On a sequence with bounded $h/a$, the heights of $-p^a/j,p^h$ are $O(a)$ and these two $S$-units are multiplicatively independent by the valuation at a prime $q\ne p$ dividing $j$. The same Proposition 2 proves (6). Together these two cases rule out an infinite sequence violating (6) for that $p$.
+
+For uniformity when $p$ grows, fix $T$ such that $1/(T+1)<\epsilon/2$. The $T+1$ residues $0,h,\ldots,Th$ modulo $a$ have a circular gap at most $a/(T+1)$, giving $1\le t\le T$, $\ell\ge0$ and $v=th-\ell a$ with $|v|\le a/(T+1)$. The gcd divides
+$$(-j)^\ell p^{\max(v,0)}-p^{\max(-v,0)}.$$
+If $\ell>0$, the prime $q\mid j$ with $q\ne p$ makes this nonzero. If $\ell=0$, then $v=th>0$. The magnitude is at most $2j^{TKa+1} X^{1/(T+1)}$, giving (6) for all sufficiently large $p$ in terms of $j,K,\epsilon$. The finitely many smaller primes have already been treated. There is also an effective version for one interval length proportional to $a^2$. With $T=32$, $K=1/(1024\log_2 H)$ and $1\le j\le H$, the displayed bound is at most $2H X^{1/16}$ at **every** prime for which $j$ is not a power of $p$.
+
+For the counting argument take $\epsilon=1/10$. Fix the split of the first row. For each exponent in the interval and fixed $c_0\ne0$, let $g_e=\gcd(X+j,c_0p^e-1)$. For $e_1<e_2$, $\gcd(g_{e_1},g_{e_2})$ divides $\gcd(X+j,p^{e_2-e_1}-1)$ by subtraction and cancellation of units. If $j$ is not a power of $p$, (6) bounds all pairwise gcds by $X^{1/10}$.
+
+In the case $U\le H^3$, both assigned portions $B_h,B_k$ are $\gg_H X$. The root analysis in the previous section gives, at some parameter $j$ which is not a power of $p$, a fixed nonzero evaluation $c_0$ with $g_e\gg_H X$. Indeed a parameter where all parts vanish can occur only if the other one is not a power of $p$, and when neither annihilates all parts the two parameters cannot both be powers of $p$. Both evaluations nonzero already bound $B_j$. There is at most one such exponent. The lcm of two $g_e$ divides $X+j$, so their gcd would be $\gg_H X$.
+
+For $U>H^3$ use (2). If $r$ is not a power of $p$, then $U\gg_H X^{2/3}$ divides $\gcd(X+r,-(d-r)DQ-1)$. Two such divisors would have gcd $\gg_H X^{1/3}$, so again at most one exponent survives. If $r$ is a power of $p$, the prime-power parameter theorem (3) forces $d$ to have a prime factor different from $p$ at large $X$. At $j=d$ with $c_0=C$ we have $g_e\gg_H X^{1/2}$. If three exponents survive, then
+$$
+\prod_{i=1}^3g_{e_i}\le(X+d)\prod_{i<j}\gcd(g_{e_i},g_{e_j})\ll_H X^{1+3/10},
+$$
+yet the left side is $\gg_H X^{3/2}$. Combining the at-most-one small-$U$ case and the at-most-two large-$U$ case gives the claimed bound. Squares, irreducibles and the zero-root case already hold at all sufficiently large $X$. The same argument with the effective bound after (6) gives effective thresholds at that stated interval length. For the ternary residual, apply the three-divisor argument directly to the $B$'s of (5), at $j=2,c_0=-3$.
+
 ## Exhaustion of the coefficient box
 
 The [irreducible and square cases](shifted_monic_blocks.md) cover 100 of the quadratics. The ten other cases with $c=0$ reduce to $1+p^{e+a}(p^a+b)$ and follow from the [successor theorem](successor_exponents.md). For the eleven distinct positive factor pairs $h<k$, label the shifted part and enumerate all nonzero coefficient splits of $(X+h)(X+k)$, identifying the two unshifted slots under exchange. There are 19,330 shapes. When $X\le\max(h+k,hk)$ the programs enumerate the actual digit allocations directly.
@@ -95,6 +119,10 @@ There are two exponent-independent carry tests. Throughout, $q^v\parallel h$ mea
 
 One quick consequence is that a full prime power $w\parallel s$ with $w^2\ge4s$ suffices to certify every outer exponent. Then $w\ge4t$ and the residues at level $w$ in test 1 are $w-t$ and at least $(w-t)/3\ge t$. Thus $U\le s/w$, contradicting (1) with $T\ge M$. Another consequence is that $M$ must have at least three distinct prime divisors, since every positive $z_i<M$ needs an exceptional slot.
 
+For a uniform *finite* bound on $e$, fix $E=10{,}000{,}000$. For $a\ge301$, put $R=\lfloor(E+1)/a\rfloor$ and let $L_R$ be the lcm of odd positive integers through $R$. Every possible $n$ divides $L_R$, so $B\mid\gcd(F,2^{L_R}-1)$. The computation checks that this gcd squared is at most $27F$ for all $301\le a\le3550$. All higher $a$ satisfy $2^{2R}\le27F$ by monotonicity. Equation (5) excludes every case. The independent calculation increases its lcm one integer at a time, initially allowing even integers, and uses $U\le s/2^{v_2(s)}$ directly in (1). Thus all 121 quadratics in the box satisfy the conjecture for every $e\le10{,}000{,}000$, at all positive inner exponents and every prime.
+
+The same bound on $U$ gives $B^2>27\,2^{3v_2(s)} F$. In particular every surviving exponent satisfies $e+1>\tfrac a2\log_2(27\,2^{3v_2(s)}F)$. For two survivors $n_1,n_2$ at the same $a$, their $B$'s have gcd greater than $27\,2^{3v_2(s)}$ since their lcm divides $F$. This gcd divides $2^{\gcd(n_1,n_2)}-1$. Thus $\gcd(n_1,n_2)\ge9$ for even $a$ and at least 11 for odd $a$, since each $n_i$ is odd and $v_2(s)$ is respectively 1 or 2.
+
 ## Reproduction
 
 Run the following commands in the repository's Python environment with python-flint and SymPy installed.
@@ -102,8 +130,8 @@ Run the following commands in the repository's Python environment with python-fl
 ```sh
 python check_split_quadratic_blocks.py
 python check_split_quadratic_blocks_cross.py
-python check_ternary_quadratic_resonance.py
-python check_ternary_quadratic_resonance_cross.py
+python check_ternary_quadratic_resonance.py --outer-limit 10000000
+python check_ternary_quadratic_resonance_cross.py --outer-limit 10000000
 ```
 
 The first two programs independently enumerate 19,330 shapes and return $(p,\alpha,r,d,k,c_0)=(3,3,1,2,4,-3)$ as the only residual shape. The first carries 4,455 numerical assignments to the existing companion tests. The second performs 172 direct companion tests and also verifies the signed gcd bounds by complete multiplicative orbits at five primes and 32 signed constants through inner exponent 15.
