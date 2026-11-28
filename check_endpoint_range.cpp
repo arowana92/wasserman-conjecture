@@ -1,42 +1,10 @@
 // Enumerate the row assigned S >= V in the endpoint factorization.
 // A surviving assignment is printed for exact complementary-row verification.
-#include "range_factors.hpp"
+#include "endpoint_splits.hpp"
 #include <algorithm>
 #include <cstdlib>
 #include <iostream>
 #include <string>
-
-using Wide = __int128_t;
-
-struct Split {
-    int product = 1, maximum = 0, mask = 0, count = 0;
-};
-
-std::vector<Split> splits(const Factors& f) {
-    std::vector<Split> list(1 << f.size);
-    for (int mask = 1; mask < int(list.size()); ++mask) {
-        int j = __builtin_ctz(unsigned(mask));
-        Split prev = list[mask & (mask-1)];
-        int w = f.atoms[j].power;
-        list[mask] = {prev.product*w, std::max(w, prev.maximum), mask, prev.count+1};
-    }
-    return list;
-}
-
-bool size_possible(const Split& s, int sum) {
-    return sum >= 3 && 2LL*s.maximum+1 <= sum &&
-           Wide(27)*s.product*s.product <= Wide(sum)*sum*sum;
-}
-
-int inverse(int a, int b) {
-    int64_t r = a, q = b, u = 1, v = 0;
-    while (q) {
-        int64_t k = r/q, nr = r-k*q, nu = u-k*v;
-        r = q; q = nr; u = v; v = nu;
-    }
-    if (r != 1) std::abort();
-    return int((u % b + b) % b);
-}
 
 bool avoids(std::array<int,3> row, int prime) {
     // Sum of the low residues at each place. The row need not be sorted.
