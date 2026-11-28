@@ -24,6 +24,7 @@ At weights 7,064,355,413,422,079 and 16,795,978,692,415,487 the smallest prime l
 
 In any counterexample, select a cut (one part or the sum of two) from each of the two nonendpoint rows. When the ratio of the cuts is reduced, its smaller term $x$ must exceed both 4096 and $(3125N/108)^{1/5}$. If $x\le 10^6$, the stronger bound $159375N<108x^5$ holds. [Proof and exhaustive split check](cross_cut_ratios.md) · [Near the fifth-root bound](cross_cut_critical.md)
 
+- [A 728-digit weight with sharp universal carry depth 130 and a minimum four-prime certificate](all_prime_depth_witness.md)
 - [A common carry within 128 digits for all triples at almost every weight, and sharp endpoint depths through 100 million](bounded_carry_depth.md)
 - [Positive-density progressions evading arbitrarily deep tests at any fixed prime list, with all listed primes present](fixed_prime_depth_obstruction.md)
 - [Common primes for matching weighted part ratios and for two rows on a plane with two coefficients of magnitude at most 211](matched_weighted_parts.md)

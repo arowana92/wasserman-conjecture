@@ -7,7 +7,7 @@ More precisely, put $L=\log X$, $\ell=\log L$, $Z=X^{1/(512\ell)}$. Fix any cuto
 * Test the units digit at the largest prime at most $N$ and at primes $p>y$ dividing any of $N,N-1,\ldots,N-5$.
 * At $y<p\le Z$ dividing $N(N-1)$, test the first 128 digits.
 
-For **any two rows**, the same conclusion holds using just the tests at primes dividing $N(N-1)$. All witnesses in these assertions exceed $y$ for sufficiently large $X$. The digit bound is absolute, even at primes appearing to high multiplicity in a shift. The theorem concerns almost every weight. The examples below give a separate, finite result and exhibit the difference between absolute depth and depth measured past a full endpoint power.
+For **any two rows**, the same conclusion holds using just the tests at primes dividing $N(N-1)$. All witnesses in these assertions exceed $y$ for sufficiently large $X$. The digit bound is absolute, even at primes appearing to high multiplicity in a shift. The [728-digit example with sharp depth 130](all_prime_depth_witness.md) shows that the 128-digit conclusion fails at some weights. The examples below give a separate, finite result and exhibit the difference between absolute depth and depth measured past a full endpoint power.
 
 Write $M=N-1$. A row passes a prime through depth $h$ when none of its first $h$ columns produces a carry. Equivalently its residues sum to $N\bmod p^j$ for each $1\le j\le h$. Thus if no common witness exists, each tested prime can be assigned to a row passing every column tested there.
 
