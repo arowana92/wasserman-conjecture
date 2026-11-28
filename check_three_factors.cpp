@@ -1,10 +1,13 @@
 // Enumerate the necessary row when N-1 has three prime-power factors.
-// Usage: check_three_factors [largest prime power [--cut-pairs]], default 20000.
+// The default power bound is 20000. Optional modes are --cut-pairs and
+// --primitive-scales MAX_SCALE.
 #include <algorithm>
 #include <array>
 #include <cstdint>
 #include <iostream>
 #include <numeric>
+#include <limits>
+#include <utility>
 #include <stdexcept>
 #include <string>
 #include <vector>
@@ -181,9 +184,73 @@ void check(int bound, bool cut_pairs) {
               << "\neligible " << eligible << '\n';
 }
 
+// List primitive rows of sum below the product of three specified powers.
+// Each power has a different exceptional coordinate, so each coordinate
+// is determined by its two vanishing residues and its one unit residue.
+void check_scales(int bound, int max_scale) {
+    const auto atoms = prime_powers(bound);
+    const int width = std::max(bound, max_scale);
+    std::vector<std::vector<int>> inverses;
+    for (auto atom : atoms) {
+        int m = atom.power;
+        std::vector<int> inv(width + 1);
+        for (int x = 1; x < m; ++x)
+            if (x % atom.prime) inv[x] = inverse(x, m);
+        for (int x = m; x <= width; ++x) inv[x] = inv[x-m];
+        inverses.push_back(std::move(inv));
+    }
+    Integer cases = 0, primitive = 0, hits = 0;
+    for (size_t i = 0; i < atoms.size(); ++i) {
+        Integer a = atoms[i].power;
+        for (size_t j = i+1; j < atoms.size(); ++j) {
+            Integer b = atoms[j].power;
+            if (!inverses[i][b]) continue;
+            for (size_t k = j+1; k < atoms.size(); ++k) {
+                Integer c = atoms[k].power;
+                if (!inverses[i][c] || !inverses[j][c]) continue;
+                Integer t = a*b*c;
+                Integer ia = Integer(inverses[i][b])*inverses[i][c] % a;
+                Integer ib = Integer(inverses[j][a])*inverses[j][c] % b;
+                Integer ic = Integer(inverses[k][a])*inverses[k][b] % c;
+                for (int v = 2; v <= max_scale; ++v) {
+                    int va = inverses[i][v], vb = inverses[j][v], vc = inverses[k][v];
+                    if (!va || !vb || !vc) continue;
+                    ++cases;
+                    Integer x = (ia*va % a)*b*c;
+                    Integer y = (ib*vb % b)*a*c;
+                    Integer z = (ic*vc % c)*a*b;
+                    if (x+y+z >= t || std::gcd(x,std::gcd(y,z)) != 1) continue;
+                    ++primitive;
+                    Row row = {v*x,v*y,v*z};
+                    if (avoids(row,atoms[i].prime) && avoids(row,atoms[j].prime)
+                            && avoids(row,atoms[k].prime)) {
+                        ++hits;
+                        std::cout << a << ' ' << b << ' ' << c << ' '
+                                  << x << ' ' << y << ' ' << z << ' ' << v << '\n';
+                    }
+                }
+            }
+        }
+    }
+    std::cerr << "unit scales " << cases << "\nprimitive rows below product "
+              << primitive << "\ncarry-free rows " << hits << '\n';
+}
+
 int main(int argc, char** argv) {
     // The bound keeps products of three powers inside a signed 64-bit integer.
     int bound = argc == 1 ? 20000 : std::stoi(argv[1]);
+    if (argc == 4 && std::string(argv[2]) == "--primitive-scales") {
+        int scale = std::stoi(argv[3]);
+        // Bound every intermediate product, including the sum of three residues.
+        if (bound < 2 || bound > 2000000 || scale < 2 ||
+            scale == std::numeric_limits<int>::max() ||
+            std::numeric_limits<Integer>::max()/std::max(3,scale)/bound/bound < bound) {
+            std::cerr << "Bounds exceed the supported integer range.\n";
+            return 2;
+        }
+        check_scales(bound, scale);
+        return 0;
+    }
     bool cut_pairs = argc == 3 && std::string(argv[2]) == "--cut-pairs";
     if (argc > 3 || (argc == 3 && !cut_pairs) || bound < 2 || bound > 2000000) {
         std::cerr << "Supply one prime-power bound from 2 to 2000000, optionally followed by --cut-pairs.\n";
