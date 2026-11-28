@@ -25,6 +25,14 @@ Thus any such plane works against every integer ratio and every [geometric-sum r
 
 More generally, if two planes have $\mu_1\mu_2>1$, a failure requires $N\le\mu_1\mu_2/(\mu_1\mu_2-1)$. This follows from $N\ge uv\ge\mu_1\mu_2 H_1H_2\ge\mu_1\mu_2(N-1)$.
 
+## A shared divisor on the two-term side
+
+Put $D=\gcd(r,s)$. The product $de$ in (1) divides $\operatorname{lcm}(r,s)=rs/D$. The arithmetic-geometric mean inequality consequently gives
+$$
+ \mu(r,s,t)\ge 2\sqrt{\frac{(t+r)(t+s)D}{t^2rs}}>\frac{2\sqrt D}{t}.
+$$
+The endpoint gcd against a row with any fixed part ratio $a:b$ therefore exceeds $2(a+b)\sqrt D/(t C(a,b))$. In particular it exceeds $2\sqrt R$ against every integer or geometric ratio whenever the companion has $z=R(x+y)$, for every positive integer $R$. If $R$ is a prime power, (2) below improves the plane factor to $R+2+1/R$.
+
 ## A closed form
 
 If $t$ is coprime to $rs$ then $q=1$ throughout and $i=k=1$ suffices. In particular for every $\gcd(R,t)=1$,
