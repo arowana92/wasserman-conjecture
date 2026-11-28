@@ -22,6 +22,7 @@ The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. T
 
 In any counterexample, select a cut (one part or the sum of two) from each of the two nonendpoint rows. When the ratio of the cuts is reduced, its smaller term $x$ must exceed both 4096 and $(3125N/108)^{1/5}$. If $x\le 10^6$, the stronger bound $159375N<108x^5$ holds. [Proof and exhaustive split check](cross_cut_ratios.md) · [Near the fifth-root bound](cross_cut_critical.md)
 
+- [Consecutive cuts in different rows force $a(a+1)>10^6N$, with 27 elliptic curves checked at all weights and an effective size bound for every fixed slope $b=sa+1$](consecutive_cuts.md)
 - [Any two cuts in different nonendpoint rows have least common multiple greater than both $1000N$ and $N^{8/7}$, with two independent enumerations and a seventh-power bound](cross_cut_quotients.md)
 - [The least common multiple of two parts in different nonendpoint rows must be a multiple of the weight, with a four-factor restriction on its quotient](opposite_part_lcm.md)
 - [Quadratic weights $P(3P+2)$ with $3P-1=DQ$ and prime powers $P,Q$. For $D\le2400$, verification through $P=10^{1000}$ and all exponents at prime bases through one million on either side](sparse_quadratic_exponents.md)
