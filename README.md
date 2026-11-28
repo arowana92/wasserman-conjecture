@@ -22,6 +22,8 @@ The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. T
 
 In any counterexample, select a cut (one part or the sum of two) from each of the two nonendpoint rows. When the ratio of the cuts is reduced, its smaller term $x$ must exceed both 4096 and $(3125N/108)^{1/5}$. If $x\le 10^6$, the stronger bound $159375N<108x^5$ holds. [Proof and exhaustive split check](cross_cut_ratios.md) · [Near the fifth-root bound](cross_cut_critical.md)
 
+- [At exponent $4096j$, every binary exponent below 72 and all but five residue classes modulo 2,097,184 for any fixed prime and index](fermat_half_exponent.md)
+- [Cyclic digit sums that certify two unrestricted exponents, including the primes $2^{31}-1$ and $2^{61}-1$ together](cyclic_cut_digits.md)
 - [Every binary exponent at $1+65537\,2^b q^{8192j}$ and a restriction to one weight prime at exponent $4096j$](independent_fermat_exponents.md)
 - [Two exponent intervals allowing all geometric multiples, with 99.985% of odd classes certified simultaneously at cofactors through 250 for an explicit prime](geometric_exponent_pairs.md)
 - [The base $2^{61}-1$ at all binary-power exponents and all odd prime powers $D\le2^{60}$, and a density-one theorem for varying prime bases](prime_bases_at_geometric_exponents.md)
