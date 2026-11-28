@@ -24,6 +24,7 @@ At weights 7,064,355,413,422,079 and 16,795,978,692,415,487 the smallest prime l
 
 In any counterexample, select a cut (one part or the sum of two) from each of the two nonendpoint rows. When the ratio of the cuts is reduced, its smaller term $x$ must exceed both 4096 and $(3125N/108)^{1/5}$. If $x\le 10^6$, the stronger bound $159375N<108x^5$ holds. [Proof and exhaustive split check](cross_cut_ratios.md) · [Near the fifth-root bound](cross_cut_critical.md)
 
+- [A square-root gap for three-factor predecessors, an exponent count uniform in a second prime power, and one possible block index class in a 150-billion-tail window](predecessor_cofactor_windows.md)
 - [120 quadratic blocks at every exponent, all 121 through outer exponent ten million, and bounds in every outer-exponent interval for a fixed monic quadratic](split_quadratic_shifts.md)
 - [Quadratic blocks at every prime in a quadratic range of outer exponents, and 100 families at every exponent](shifted_monic_blocks.md)
 - [Cofactor 35 at every fourth power with 3-free factor of ternary digit sum at most 16, and two complementary exponent ranges](fourth_power_cofactor_35.md)
