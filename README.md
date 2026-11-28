@@ -22,6 +22,7 @@ The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. T
 
 In any counterexample, select a cut (one part or the sum of two) from each of the two nonendpoint rows. When the ratio of the cuts is reduced, its smaller term $x$ must exceed both 4096 and $(3125N/108)^{1/5}$. If $x\le 10^6$, the stronger bound $159375N<108x^5$ holds. [Proof and exhaustive split check](cross_cut_ratios.md) · [Near the fifth-root bound](cross_cut_critical.md)
 
+- [Mixed relations of height twelve at every weight, with the larger class of bounded companion pair gcds checked through $10^{10000}$](mixed_relations_twelve.md)
 - [One part ratio against arbitrary primitive companions, with a sharp order of growth for the directions outside the test and an all-weight theorem for full relations with a unit coefficient](ratio_companion_divisor.md)
 - [Exact relations of height six on both rows through $10^{18}$, with all mixed relations settled at every weight and $O(X^{0.359})$ possible failures beyond the computation](six_coefficient_row_relations.md)
 - [A sharp predecessor divisor for any fixed part ratio, with independently chosen geometric-sum ratios certifying both rows at every weight](part_ratio_predecessor.md)
