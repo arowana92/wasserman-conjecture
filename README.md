@@ -22,6 +22,8 @@ The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. T
 
 In any counterexample, select a cut (one part or the sum of two) from each of the two nonendpoint rows. When the ratio of the cuts is reduced, its smaller term $x$ must exceed both 4096 and $(3125N/108)^{1/5}$. If $x\le 10^6$, the stronger bound $159375N<108x^5$ holds. [Proof and exhaustive split check](cross_cut_ratios.md) · [Near the fifth-root bound](cross_cut_critical.md)
 
+- [Cofactor 35 at every fourth power with 3-free factor of ternary digit sum at most 16, and two complementary exponent ranges](fourth_power_cofactor_35.md)
+- [Exact valuation changes when gaps between prime powers are lengthened in rational polynomial row formulas](rational_polynomial_carries.md)
 - [Cofactor 35 at every eighth power with up to two prime factors, and a 99.15% lower density with a free binary exponent](cofactor_35.md)
 - [A unique possible row when a normalized predecessor lies less than twice a prime-power divisor above a digit unit](leading_predecessor_assignment.md)
 - [Two infinite exponent families at $65537$, including all $169\mid b,j$, and a uniform count below exponent 0.759](fermat_exponent_digits.md)
