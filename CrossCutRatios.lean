@@ -48,4 +48,50 @@ theorem fifth_bound (c J m x y k h L N t : Nat)
     _ ≤ J^2*(108*(m+t)^5) := Nat.mul_le_mul_left _ (fifth_maximum m t)
     _ = _ := by rw [hsum]; ac_rfl
 
+/-- Fixing m converts the two denominator equations into a divisor equation. -/
+theorem quotient_product (u k m x y h L : Int)
+    (hu : u+k = m) (hx : L = u*x-m^2) (hy : L*y+h = m^2*(x-m)) :
+    L*(u*y-m^2)+u*h = k*m^3 := by
+  calc
+    _ = u*(L*y+h)-L*m^2 := by grind
+    _ = _ := by rw [hy, hx]; grind
+
+/-- The extremal ordering of two positive factors of F=(1+i)(1+j). -/
+theorem factor_bound (m i j : Nat) :
+    (m^2+(1+i))*(m^2+(1+j)) ≤ (m^2+1)*(m^2+(1+i)*(1+j)) := by
+  have h : (m^2+1)*(m^2+(1+i)*(1+j)) =
+      (m^2+(1+i))*(m^2+(1+j)) + m^2*i*j := by grind
+  omega
+
+/-- The strict numerical upper bound used to bound N by the seventh power. -/
+theorem quotient_size (m : Nat) (hm : 2 ≤ m) :
+    (m^2+1)*(m^2+(m-1)*m^3) < m^6 := by
+  have h1 : m-1+1 = m := by omega
+  have h2 : m-2+2 = m := by omega
+  have ident : m^6 = (m^2+1)*(m^2+(m-1)*m^3) + (m-2)*m^4+(m-1)*m^2 := by
+    grind
+  have hp := Nat.mul_pos (show 0 < m-1 by omega) (Nat.pow_pos (show 0 < m by omega) (n := 2))
+  omega
+
+/-- Bound the weight, retaining both positive losses h and u squared. -/
+theorem seventh_bound (m k h u N x y i j : Nat) (hm : 2 ≤ m)
+    (hk : 0 < k) (hkm : k ≤ m) (hN : h*N = k*x*y)
+    (hx : u*x = m^2+(1+i)) (hy : u*y = m^2+(1+j))
+    (hF : (1+i)*(1+j) ≤ (m-1)*m^3) :
+    h*u^2*N < m^7 := by
+  have hxy : u^2*(x*y) < m^6 := by
+    calc
+      _ = (u*x)*(u*y) := by grind
+      _ = (m^2+(1+i))*(m^2+(1+j)) := by rw [hx, hy]
+      _ ≤ (m^2+1)*(m^2+(1+i)*(1+j)) := factor_bound m i j
+      _ ≤ (m^2+1)*(m^2+(m-1)*m^3) :=
+        Nat.mul_le_mul_left _ (Nat.add_le_add_left hF _)
+      _ < _ := quotient_size m hm
+  calc
+    _ = (h*N)*u^2 := by ac_rfl
+    _ = k*(u^2*(x*y)) := by rw [hN]; ac_rfl
+    _ < k*m^6 := Nat.mul_lt_mul_of_pos_left hxy hk
+    _ ≤ m*m^6 := Nat.mul_le_mul_right _ hkm
+    _ = _ := by grind
+
 end Wasserman.CrossCutRatios

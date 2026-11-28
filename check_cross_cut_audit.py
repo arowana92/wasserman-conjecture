@@ -18,10 +18,22 @@ def binomial_valuation(n, a, p):
             - factorial_valuation(n-a, p))
 
 
+def proven_prime_factors(n):
+    factors = fmpz(n).factor()
+    remaining = n
+    primes = []
+    for p, e in factors:
+        assert p.is_prime()
+        remaining, rem = divmod(remaining, int(p)**e)
+        assert not rem
+        primes.append(int(p))
+    assert remaining == 1
+    return primes
+
+
 def common_primes(n, a, b):
     for endpoint in (n, n-1):
-        for prime, _ in fmpz(endpoint).factor():
-            p = int(prime)
+        for p in proven_prime_factors(endpoint):
             if binomial_valuation(n, a, p) and binomial_valuation(n, b, p):
                 yield p
 
@@ -95,8 +107,7 @@ def audit_extensions(pairs):
     for n, a, b in pairs:
         required_a, required_b, free = [], [], []
         for endpoint in (n, n-1):
-            for prime, _ in fmpz(endpoint).factor():
-                p = int(prime)
+            for p in proven_prime_factors(endpoint):
                 va = binomial_valuation(n, a, p)
                 vb = binomial_valuation(n, b, p)
                 assert min(va, vb) == 0
@@ -111,8 +122,7 @@ def audit_extensions(pairs):
             bases_b = required_b + [p for i,p in enumerate(free) if not (mask >> i & 1)]
             assert not (row_can_split(n, a, bases_a) and row_can_split(n, b, bases_b))
             assignments += 1
-    assert len(pairs) == 162 and max(pairs)[0] == 55784447
-    print("Unextendible cut pairs:", len(pairs), "endpoint-prime assignments:", assignments)
+    return assignments
 
 
 def divisors(n):
@@ -179,4 +189,8 @@ if __name__ == "__main__":
                      (23, 43, 989, 92, 172)]
     print("Endpoint-coprime pairs through reduced term 32:", pairs)
     if options.audit_log:
-        audit_extensions(audit_log(options.audit_log))
+        survivors = audit_log(options.audit_log)
+        assert len(survivors) == 162 and max(survivors)[0] == 55784447
+        assignments = audit_extensions(survivors)
+        assert assignments == 164
+        print("Unextendible cut pairs:", len(survivors), "endpoint-prime assignments:", assignments)
