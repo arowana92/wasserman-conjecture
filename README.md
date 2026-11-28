@@ -179,6 +179,7 @@ In any counterexample, select a cut (one part or the sum of two) from each of th
 - [Cubic spacing of exceptional outer exponents, and every $1+p^a(11p^h+17)$ at primes $p\ge191$, $h\ge600$, $a\le h^2/100$](block_exponent_orders.md)
 - [A zero gap that certifies individual weights and bounds on runs of exceptional exponents at every odd cofactor with at most two prime divisors](cofactor_block_inverses.md)
 - [A Fibonacci bound in every odd-step progression for odd exceptional weights with at most three predecessor primes, with fewer than three in a trillion odd classes still possible modulo $2^{128}$](inverse_digit_sieve.md)
+- [Three predecessor prime powers given by arbitrary linear forms have bounded companion proportions and at most $O(H^{0.551464}\log(2H))$ possible failures in every odd-step progression of $H$ parameters](affine_predecessor_triples.md)
 - [A bound of $O(X^{0.839})$ for possible failures when two prime powers account for all but a cofactor of at most $X^{1/16}$, with both primes and exponents unrestricted](two_large_predecessor_count.md)
 - [All odd prime bases when the two exponents share a prime through 47 at multiplier seven, and unrestricted partners for a growing range of exponents](factor_seven_perfect_powers.md)
 - [All exponents at $1+7p^a q^b$ for odd primes through 47, and for almost every odd prime $q$ with every odd partner up to $\exp(q^{1/37})$](factor_seven_prime_bases.md)
