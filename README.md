@@ -107,7 +107,7 @@ In any counterexample, select a cut (one part or the sum of two) from each of th
 - [A logarithmic bound on possible exceptions across cofactors $D\le10{,}000$ of $10P+7=DR$ with $R$ a prime power, with every eligible prime-power input through $2^{65536}$ checked](seven_quadratic_suffixes.md)
 - [Unbounded inputs at 9,997 of the first 10,000 cofactors of $10P+7$, with only three remaining row shapes](seven_quadratic_cofactors.md)
 - [The full conjecture at $(2P+1)(5P+1)$ for every prime power $P$ through one hundred million, with a factorization criterion at unrestricted inputs](seven_quadratic_family.md)
-- [A power saving for every quadratic family $MP^2+hP+1$ at prime powers, without restrictions on the factors of $MP+h$](quadratic_prime_power_density.md)
+- [At every positive quadratic $MP^2+hP+1$, at most $O_{M,h}(X^{0.898081}\log(2X))$ prime powers $P\le X$ can be exceptions, with a stronger odd-step progression bound for nonsquare discriminant](quadratic_carry_counts.md)
 - [Power-saving bounds in every progression of inputs or exponents for polynomially related predecessor powers, and an obstruction from a negative coefficient](polynomial_predecessor_pairs.md)
 - [A second-prime test for factorizable quadratic weights, with complete results for remainders 4 and 6 in its range](quadratic_predecessor_roots.md)
 - [Predecessor digit criteria at arbitrary cofactors, including a degree-independent polynomial test and a five-prime family with two free exponents](predecessor_digit_splits.md)

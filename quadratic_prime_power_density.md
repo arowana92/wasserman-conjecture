@@ -1,5 +1,7 @@
 # A power saving for every positive quadratic at a prime power
 
+The [sharper quadratic count](quadratic_carry_counts.md) uses the classification and derivative content bounds below to improve the global exponent to $0.89808\ldots$ with a logarithmic factor. For nonsquare discriminant it gives exponent $0.551463\ldots$ with a logarithmic factor in every odd-step progression.
+
 Fix positive integers $M,h$. Among prime powers $P\le X$, the number for which Wasserman's full three-row conjecture can fail at
 $$
                          N=MP^2+hP+1

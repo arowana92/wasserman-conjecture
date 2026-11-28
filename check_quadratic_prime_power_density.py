@@ -59,6 +59,52 @@ def assigned_groups(row, factorization):
     return bins
 
 
+def normalized_quadratic_balls():
+    shapes = [((1, 3, 5), (2, 4, 6)),
+              ((-3, 2, 5), (5, -8, 3)),
+              ((6, 0, 1), (0, 5, 1)),
+              ((1, -6, 10), (1, 6, 10))]
+    balls = words = surviving = 0
+    for pair in shapes:
+        for left, right in ((0, 0), (0, 3), (4, 1), (9, 0), (11, 13)):
+            parts = [tuple(c << scale for c in f) for f, scale in zip(pair, (left, right))]
+            polys = parts + [tuple(map(sum, zip(*parts)))]
+            contents = [v2(gcd(2*a, b)) for a, b, _ in polys]
+            for n in (5, 8, 10):
+                live = list(range(4))
+                for h in range(2, n + 1):
+                    split = []
+                    for x in live:
+                        slopes = [2*a*x+b for a, b, _ in polys]
+                        normalized = [s >> e for s, e in zip(slopes, contents)]
+                        if any(s % (1 << (h-1)) == 0 for s in normalized):
+                            split.append(x)
+                            continue
+                        valuations = [v2(s) for s in slopes]
+                        spread = max(valuations) - min(valuations)
+                        assert spread <= max(contents) - min(contents) + h - 2
+                        kept = 0
+                        for y in range(x, 1 << n, 1 << h):
+                            known = []
+                            for i, ((a, b, c), e) in enumerate(zip(polys, valuations)):
+                                fy = (a*y+b)*y+c
+                                z = y + (1 << n)
+                                assert v2((a*z+b)*z+c - fy) == n + e
+                                mask = (1 << (n+e)) - 1
+                                known.append((~fy if i == 2 else fy) & mask)
+                            keep = not ((known[0] & known[1]) or (known[1] & known[2])
+                                        or (known[0] & known[2]))
+                            kept += keep
+                        assert at_most_phi_power(kept, n-h+spread)
+                        balls += 1
+                        words += 1 << (n-h)
+                        surviving += kept
+                    assert len(split) <= 2 * len(polys)
+                    live = split + [x + (1 << h) for x in split]
+    print(f"Normalized quadratic derivatives: {balls} stopped balls, {words} prefixes, "
+          f"{surviving} without a determined collision.")
+
+
 def actual_rows():
     seen = legal = unit_bins = even_bins = extra = 0
     # Allow the positive input P to be composite, as the companion lemma
@@ -117,4 +163,5 @@ def actual_rows():
 
 if __name__ == "__main__":
     finite_windows()
+    normalized_quadratic_balls()
     actual_rows()
