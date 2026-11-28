@@ -2,7 +2,7 @@
 
 For each integer $h\ge1$, there are $\gg 6^{-h}X/(\log X)^2$ weights $N\le X$ with three positive rows whose first common carry, minimized over **all primes**, occurs at digit $h+1$. The implied constant is absolute and the threshold for $X$ may depend on $h$. Every weight counted satisfies Wasserman's conjecture for every choice of rows. Its predecessor has exactly two distinct prime factors.
 
-Digit one is the units digit. At a given prime the depth for three rows is the maximum of their first carry positions, or infinity if one addition is carry-free. The theorem gives an unconditional obstruction to any fixed absolute depth. The [128-digit theorem](bounded_carry_depth.md) holds on a set of density one. Depth measured *after* the full power dividing $N(N-1)$ is a separate question. The large powers at 2 and 3 below are essential to this construction. A [490-digit example](sharp_depth_513.md) has sharp depth 513 even after maximizing over all triples at its weight.
+Digit one is the units digit. At a given prime the depth for three rows is the maximum of their first carry positions, or infinity if one addition is carry-free. The theorem gives an unconditional obstruction to any fixed absolute depth. The 128-digit bound holds on a set of density one. Large powers at 2 and 3 enter the construction below. Another construction proves unbounded depth even when every prime occurs just once in $N(N-1)$. A 490-digit example has sharp depth 513 after maximizing over all triples at its weight. [Density-one theorem](bounded_carry_depth.md) · [Squarefree endpoints](squarefree_carry_depth.md) · [Sharp depth 513](sharp_depth_513.md)
 
 ## Choosing the rows
 
