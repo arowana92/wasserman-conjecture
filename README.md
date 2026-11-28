@@ -20,6 +20,8 @@ The full assertion is proved here for every $N=5\cdot2^k+1$, for every weight wi
 
 The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. Through 5,000 the table gives a smallest possible set of candidate common primes. The only weights through 5,000 requiring five primes are 699 and 717. For all sufficiently large $X$, at least $cX/(\log X)^2$ pairs of consecutive weights in $[X,2X]$ have minimum certificate size exactly four at both weights.
 
+At weights 7,064,355,413,422,079 and 16,795,978,692,415,487 the smallest prime list certifying every triple of rows has exactly eight members. Restricting the list to prime divisors of $N(N-1)$ raises the minimum to ten at both weights. [Proof, witnesses, and independent enumerations](eight_prime_certificates.md)
+
 In any counterexample, select a cut (one part or the sum of two) from each of the two nonendpoint rows. When the ratio of the cuts is reduced, its smaller term $x$ must exceed both 4096 and $(3125N/108)^{1/5}$. If $x\le 10^6$, the stronger bound $159375N<108x^5$ holds. [Proof and exhaustive split check](cross_cut_ratios.md) · [Near the fifth-root bound](cross_cut_critical.md)
 
 - [120 quadratic blocks at every exponent, all 121 through outer exponent ten million, and bounds in every outer-exponent interval for a fixed monic quadratic](split_quadratic_shifts.md)
