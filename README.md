@@ -22,6 +22,7 @@ The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. T
 
 In any counterexample, select a cut (one part or the sum of two) from each of the two nonendpoint rows. When the ratio of the cuts is reduced, its smaller term $x$ must exceed both 4096 and $(3125N/108)^{1/5}$. If $x\le 10^6$, the stronger bound $159375N<108x^5$ holds. [Proof and exhaustive split check](cross_cut_ratios.md) · [Near the fifth-root bound](cross_cut_critical.md)
 
+- [The sharp predecessor constant after splitting either side of a binomial cut, and infinite rays where the entire predecessor divides](sharp_cut_refinements.md)
 - [The exact gcd with the predecessor at every multiple of (2,3,6), and sharp logarithmic counts for equal-part rays](sparse_predecessor_scales.md)
 - [The exact predecessor loss on each primitive ray, with independent digit algorithms and a density-one divisibility theorem](sharp_direction_predecessor.md)
 - [A cubic weight bound for prime-power numerators in a part divided by the sum of the other two, against an arbitrary opposite row](part_against_pair_sum.md)
