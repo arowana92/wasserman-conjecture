@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <cstdint>
 #include <iostream>
+#include <sstream>
 #include <stdexcept>
 #include <string>
 #include <utility>
@@ -76,26 +77,51 @@ std::pair<Integer, Integer> find_row(Integer n, const std::vector<Integer>& prim
     return {0, 0};
 }
 
-int main(int argc, char** argv) {
-    if (argc < 6) throw std::invalid_argument("supply the weight and at least four primes");
-    Integer n = std::stoull(argv[1]);
-    std::vector<Integer> primes;
-    for (int i = 2; i < argc; ++i) {
-        Integer p = std::stoull(argv[i]);
+void check_input(Integer n, const std::vector<Integer>& primes) {
+    if (n < 3) throw std::invalid_argument("weight must be at least three");
+    for (auto it = primes.begin(); it != primes.end(); ++it) {
+        Integer p = *it;
         if (p < 2 || p > 1000000 || n % p > 1 ||
-            std::find(primes.begin(), primes.end(), p) != primes.end())
+            std::find(primes.begin(), it, p) != it)
             throw std::invalid_argument("expected distinct endpoint primes at most one million");
         for (Integer j = 2; j <= p / j; ++j)
             if (p % j == 0) throw std::invalid_argument("composite base");
-        primes.push_back(p);
     }
+}
+
+void print_row(Integer n, const std::vector<Integer>& group) {
+    auto [a, b] = find_row(n, group);
+    for (Integer p : group) std::cout << p << ' ';
+    std::cout << a << ' ' << b << '\n';
+}
+
+int main(int argc, char** argv) {
+    if (argc == 2 && std::string(argv[1]) == "--groups") {
+        // Each line contains a weight followed by one group of endpoint primes.
+        std::string line;
+        while (std::getline(std::cin, line)) {
+            std::istringstream input(line);
+            Integer n, p;
+            if (!(input >> n)) throw std::invalid_argument("missing weight");
+            std::vector<Integer> primes;
+            while (input >> p) primes.push_back(p);
+            if (!input.eof() || primes.size() < 2 || primes.size() > 5)
+                throw std::invalid_argument("supply between two and five primes");
+            check_input(n, primes);
+            print_row(n, primes);
+        }
+        return 0;
+    }
+    if (argc < 6) throw std::invalid_argument("supply the weight and at least four primes");
+    Integer n = std::stoull(argv[1]);
+    std::vector<Integer> primes;
+    for (int i = 2; i < argc; ++i) primes.push_back(std::stoull(argv[i]));
+    check_input(n, primes);
     for (std::size_t i = 0; i < primes.size(); ++i)
         for (std::size_t j = i + 1; j < primes.size(); ++j)
             for (std::size_t k = j + 1; k < primes.size(); ++k)
                 for (std::size_t l = k + 1; l < primes.size(); ++l) {
                     std::vector<Integer> group{primes[i], primes[j], primes[k], primes[l]};
-                    auto [a, b] = find_row(n, group);
-                    for (Integer p : group) std::cout << p << ' ';
-                    std::cout << a << ' ' << b << '\n';
+                    print_row(n, group);
                 }
 }

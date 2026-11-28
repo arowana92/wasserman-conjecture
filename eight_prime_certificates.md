@@ -43,6 +43,25 @@ A ten-subset of $D$ certifies triples precisely when no four of its members are 
 
 At the first large weight $G=254$. Each exterior prime $r>N/2$ in a minimum list therefore has $2\le N-r<254$. Every such prime in the interval has $N-r\ge3=h_2$. Consequently any seven eligible primes exclude 2 and certify pairs. Summing $\binom{\#\{p\in D:h_p>N-r\}}7$ over the interval gives exactly **4,631** minimum eight-prime lists with exterior prime above $N/2$, using **11** distinct exterior primes.
 
+## All minimum lists, including small exterior primes
+
+| Weight | Possible exterior primes from the falling-factorial bound | Exterior primes in a minimum list | Distinct minimum lists | Smallest possible largest prime |
+| ---: | ---: | ---: | ---: | ---: |
+| 7,064,355,413,422,079 | 520 | 50 | 24,589 | 900,032,540,887 |
+| 16,795,978,692,415,487 | 799 | 59 | 3,463 | 2,382,070,442,833 |
+
+For example, the first smallest largest prime occurs with $67,101,103,127,181,271,1627$. At the second weight it occurs with $53,71,101,127,409,2447,5147$. Increasing the list length from eight to ten allows all primes to be at most 271 and 6469, respectively. The first ten endpoint primes at the first weight work. At the second, take $2,53,71,101,127,193,409,691,2447,6469$. Each ten-set excludes every jointly avoidable four.
+
+The values of $G$ are 254 and 386. Factor the corresponding consecutive integers $N-j$, retain all their distinct prime factors exterior to $D$, and for each such $r$ form
+$$
+I(r)=\{p\in D:\text{ no positive row avoids both }p\text{ and }r\}.
+$$
+A witness search may reject $r$ once fewer than seven possible members of $I(r)$ remain. Each rejection uses positive rows checked by Legendre’s formula. For every other candidate, $N=hr+j$ with $h<r$ and $0\le j<r$. Any individual part of a row avoiding $r$ is $ir+y$ with $0\le y\le j$. Enumerate these parts up to $N/2$, retaining $a$ for which the digits of $a$ fit those of $N$ at $p$. Try all sorted pairs $a,b$ with $b\le N-a-b$. The exact two-digit test at $r$ is $(a\bmod r)+(b\bmod r)\le j$. Test all three parts at $p$ by digit addition. This determines the required membership in $I(r)$ without relying on a failed witness search.
+
+An independent check of negative pairs walks the sorted sets of base-$p$ and base-$r$ binomial-unit cuts. For any common cut $a\le N/3$, apply the same traversal to $N-a$ looking for a common cut $a\le b\le(N-a)/2$. To skip directly to a digitwise-admissible integer, read the proposed cut from its highest digit. At the first excessive digit, increment the nearest higher digit with room and set all lower digits to zero. When there is no such higher digit, the traversal of that base is exhausted.
+
+Finally, enumerate all seven-subsets $C\subseteq I(r)$. In a jointly avoidable five-subset every four-subset must be jointly avoidable. The four-subset profile leaves no candidate five at the first weight and one at the second, $\{97,101,193,691,5147\}$. Direct enumeration excludes this five as well. Thus two rows can avoid all of $C$ exactly when a jointly avoidable four in $C$ has a jointly avoidable complementary triple. The scanner tests those triples, and a reverse enumeration independently checks every negative outcome. Combining the surviving $C$ with each corresponding $r$ gives the totals in the table. [Complete classification verifier](check_all_eight_prime_lists.py)
+
 ## Exhaustive enumeration
 
 For each four-subset of $D$, the C++ scanner lists possible individual parts $a\le N/2$ by the Chinese remainder theorem. The allowed residues modulo $p$ are $0$ through $N\bmod p$. At each higher prime power $w$, a candidate with $a\bmod w>N\bmod w$ fails until the next multiple of $w$. This skips only forbidden candidates. Every row in increasing order has both first parts on the resulting list. For each admissible pair $a\le b\le N-a-b$ the test at every $w=p^i\le N$ is
@@ -57,4 +76,7 @@ From the repository root, with a C++17 compiler and Python with `python-flint` i
 python3 check_six_prime_minimum.py
 c++ -O3 -std=c++17 scan_endpoint_subset_rows.cpp -o /tmp/wasserman-four-subsets
 python3 check_eight_prime_minima.py --scanner /tmp/wasserman-four-subsets --cross-all
+python3 check_all_eight_prime_lists.py --scanner /tmp/wasserman-four-subsets
 ```
+
+The classification command accepts **--lists PATH** to write every minimum list in increasing order, preceded by its weight.
