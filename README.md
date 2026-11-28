@@ -200,6 +200,7 @@ In any counterexample, select a cut (one part or the sum of two) from each of th
 - [A recurring interval of 16,384 binary orders for prime powers and products of two unrestricted prime powers](recurring_intervals.md)
 - [Common exponent classes for every prime base and every cofactor through 1000, including all multiples of 21, 51 or 595](common_power_exponents.md)
 - [Every individual weight with a prime-power factor of unrestricted size and a cofactor $2^jP$ through 15,423, or through 40,000 for $j=3,4$](even_two_power_cofactors.md)
+- [An unrestricted third prime power at 4,369 of 4,372 even two-prime cofactors through 32,768, with all cofactors settled through a 10,000-digit scale bound](even_cofactor_partners.md)
 - [The minimum primitive denominator rises to 380, and every weight of the form $1+dq^{3e}$ for $d\le1000$ except possibly $d=986$](denominator_residue_hulls.md)
 - [Four of five related weights whenever one full prime-power factor is at most 500,000, with the other factor unrestricted](paired_fixed_factor.md)
 - [At least three of four related weights for every product of two prime powers, and at least four of five through a thousand-digit input bound](five_related_weights.md)
