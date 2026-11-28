@@ -1,6 +1,8 @@
 """Independent finite checks for the two bounded inverse lifts at 65537."""
 
 from fractions import Fraction
+from collections import defaultdict
+from itertools import combinations
 from math import gcd, isqrt, prod
 
 P = 65537
@@ -110,6 +112,57 @@ def check_spacing():
     return cases, sharp
 
 
+def smaller_exponent_companions():
+    u, a = 65281, 8192
+    prefix = pow(u, -1, a)
+    count = forward = reverse = 0
+    for i, j in combinations(range(1, u // a + 1), 2):
+        if (i + j) * a >= u:
+            continue
+        slopes = (i * a, j * a, u - (i + j) * a)
+        start = tuple(x * prefix // a for x in slopes)
+        todo = [start]
+        seen = {start}
+        while todo:
+            s = todo.pop()
+            x, y, z = s
+            assert (x & y) or (y & z) or (x & z)
+            for digit in (0, 1):
+                raw = tuple(c + digit * f for c, f in zip(s, slopes))
+                if sum(n % 2 for n in raw) > 1:
+                    continue
+                dest = tuple(n // 2 for n in raw)
+                if dest not in seen:
+                    seen.add(dest)
+                    todo.append(dest)
+        forward += len(seen)
+
+        # Independently enumerate rational cells, including the weight floor.
+        augmented = slopes + (u,)
+        cells = {tuple(x * n // den for x in augmented)
+                 for den in augmented for n in range(den)}
+        clear = {s for s in cells if sum(s[:3]) == s[3]}
+        parents = defaultdict(list)
+        for s in clear:
+            for digit in (0, 1):
+                dest = tuple((v + digit * x) // 2 for v, x in zip(s, augmented))
+                if dest in clear:
+                    parents[dest].append(s)
+        zero = (0, 0, 0, 0)
+        stack = [zero]
+        live = {zero}
+        while stack:
+            for src in parents[stack.pop()]:
+                if src not in live:
+                    live.add(src)
+                    stack.append(src)
+        assert start + (u * prefix // a,) not in live
+        reverse += len(cells)
+        count += 1
+    assert count == 9
+    return count, forward, reverse
+
+
 def check():
     assert factor(P) == {P: 1}
     for h, exponent, target in [
@@ -141,9 +194,16 @@ def check():
     assert factor(2 * P - 1) == {3: 1, 43691: 1}
     assert all(pow(2, (p - 1) // 2, p) == p - 1 for p in (3, 11, 331))
     assert all(p % 4 == 3 for p in (3, 43691))
+    candidates4096 = [(49153, (13,)), (65281, (97, 673)), (65533, (13,))]
+    assert candidates(1, 4096) == candidates_by_enumeration(1, 4096) == candidates4096
+    assert [x for x, _ in candidates4096 if (x % 16384) & ~(P % 16384) == 0] == [49153]
+    assert 49153 * 4 % P == 1 and (3 * P + 1) % 13 == 0
+    assert (49153 % 32768) & ~(P % 32768)
 
 
 if __name__ == "__main__":
     check()
     print("Companion graph transitions and forward states:", check_odd_companion())
     print("Spacing equivalences and sharpness witnesses:", check_spacing())
+    print("4096th-power companion directions, forward states, reverse cells:",
+          smaller_exponent_companions())

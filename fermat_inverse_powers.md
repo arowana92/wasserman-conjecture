@@ -67,6 +67,20 @@ If $a>0$ and $\delta=1$, the first and last coincide. If $\delta=0$, the highest
 
 When $h<2b$, the support of $S$ is $\{0\}\cup\{b,\ldots,h-1\}$. Its translate by $h-b$ is disjoint from it. Consequently $z=1+2^{h-b}$ makes the coefficient odd despite a distance smaller than $h$.
 
+## The smaller exponent 4096
+
+The full conjecture holds at $N=1+65537t^{4096}$ for every **odd** $t$ with at most two distinct prime divisors. It also holds for even $t$ in that class if its odd part is $1$ or $7$ modulo 8, or if $t$ is a cube. In particular every $1+65537t^{12288}$ works without a parity restriction.
+
+The odd-prime table at this exponent has exactly three entries,
+$$
+          (49153,\{13\}),\quad (65281,\{97,673\}),\quad(65533,\{13\}).
+$$
+All $x$ are odd. For odd $t$ the normalized companion must avoid 2 after removing the factor 2 in $V$. Since $N/2\equiv1\bmod8192$, at least two $f_i$ are multiples of $8192$. Thus $U>16384$, forcing $x=U=65281$. The two divisible parts are $8192i,8192j$, with $1\le i<j$ and $i+j\le7$. This gives nine directions. In each, $z=V/2\equiv U^{-1}\bmod8192$ is necessary. Forward binary searches from these prefixes visit 10,000 states in total, and none can end in a carry-free state.
+
+For an independent reverse check let $f$ be one direction and append its sum to obtain $g=(f_1,f_2,f_3,U)$. Enumerate the states $(\lfloor g_i v\rfloor)_i$ over $0\le v<1$ by evaluating at every left breakpoint $j/g_i$. Retain states whose first three coordinates sum to the fourth. All prefixes of a carry-free integer must satisfy this equality. A digit $d$ sends a state $s$ to $(\lfloor(s_i+d g_i)/2\rfloor)_i$. Working back from zero across the retained edges gives all possible states of completable prefixes. The nine enumerations inspect 1,093,118 cells in total and exclude every prescribed prefix.
+
+For even $t=2^s d$ with $d$ odd, the binary test on $xd^{4096}$ inside $P d^{4096}$, first taken modulo 16384, leaves only $x=49153$ and $U=13$. Thus $t^{4096}\equiv3\bmod13$ and $t^{4096}\equiv4\bmod65537$. The former is impossible for a cube $t$, since every unit raised to $3\cdot4096$ is 1 modulo 13. If $d\equiv\pm1\bmod8$, then $d^2\equiv1\bmod16$ and repeated squaring gives $d^{4096}\equiv1\bmod32768$. At this modulus $x\equiv16385$ and $P\equiv1$, again forcing a carry. These are conditions on any unresolved input at 4096.
+
 ## Two independent exponents at four fixed primes
 
 More generally take $N=1+2Pt$ with $t$ coprime to $P$ and having at most two distinct prime divisors. Suppose $t\equiv1$ or $-1\bmod P$ and $t$ is a nonzero quadratic residue at each of $3,11,331,43691$. Then both inverse lifts are coprime to $N$.
@@ -83,4 +97,4 @@ For $r=1$ the two-numerator reduction applies when $Dw$ has at most two distinct
 
 In particular for **any odd prime powers $P,Q$ of distinct bases** and $\kappa<2\sqrt{\log 2}$, the conjecture holds simultaneously at both $1+PQR$ and $1+2PQR$ outside a fraction $O_\kappa(\exp(-\kappa\sqrt{\log P}))$ of primes $R\in[P^2,2P^2]$, uniformly for unrestricted $Q$. This follows by adding the two one-cut bounds. If $R$ repeats a base, the doubled predecessor has at most three distinct primes including the full power 2, hence is covered by the [small-power theorem](three_factors_small_power.md).
 
-Run `python3 check_fermat_inverse_powers.py` to reproduce both lists and check the residue classes and prime factorizations.
+Run `python3 check_fermat_inverse_powers.py` to reproduce the inverse lists, both companion searches, the residue classes and the prime factorizations. Run `lean +leanprover/lean4:v4.36.0 FermatCompanion.lean` for the finite-state proof at exponent 8192.
