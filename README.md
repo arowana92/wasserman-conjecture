@@ -22,6 +22,7 @@ The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. T
 
 In any counterexample, select a cut (one part or the sum of two) from each of the two nonendpoint rows. When the ratio of the cuts is reduced, its smaller term $x$ must exceed both 4096 and $(3125N/108)^{1/5}$. If $x\le 10^6$, the stronger bound $159375N<108x^5$ holds. [Proof and exhaustive split check](cross_cut_ratios.md) · [Near the fifth-root bound](cross_cut_critical.md)
 
+- [The exact pair-gcd bound on every homogeneous plane and all-weight prime guarantees from the prime factors of its coefficients](plane_pair_gcd_minimum.md)
 - [Height-fourteen ratios and companion pair gcds through $10^{1000}$, with 40 residual families and a subpower exceptional count](fourteen_ratio_groups.md)
 - [Every integer or geometric part ratio against primitive companions of sum through 346 at all weights, and through 2,000 up to weight $10^{1000}$](avoided_predecessor_directions.md)
 - [Mixed relations of height twelve at every weight, with the larger class of bounded companion pair gcds checked through $10^{10000}$](mixed_relations_twelve.md)
