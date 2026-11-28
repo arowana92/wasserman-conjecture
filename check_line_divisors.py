@@ -1,4 +1,4 @@
-"""Compute the gcd of multinomials on r*x + s*y = t*z, for positive x,y,z."""
+"""Compute the gcd of multinomials on r*x + s*y - t*z = offset, for positive x,y,z."""
 
 import argparse
 from heapq import heappop, heappush
@@ -89,10 +89,18 @@ def minimum(r, s, t, p, offset=0):
     raise ArithmeticError("positive row unreachable")
 
 
-def line_gcd(r, s, t):
+def line_gcd(r, s, t, offset=0):
     if min(r, s, t) <= 0:
         raise ValueError("normal magnitudes must be positive")
-    witnesses = {p: minimum(r, s, t, p) for p in possible_primes(r, s, t)}
+    common = gcd(r,s,t)
+    if offset % common:
+        raise ValueError("the offset must be divisible by the gcd of the normal")
+    r, s, t, offset = r//common, s//common, t//common, offset//common
+    if offset==0:
+        candidates = possible_primes(r,s,t)
+    else:
+        candidates = [p for p in range(2,max(r,s)+t+1) if prime_factors(p)==[p]]
+    witnesses = {p: minimum(r,s,t,p,offset) for p in candidates}
     return prod(p**e for p, (e, row) in witnesses.items()), witnesses
 
 
@@ -100,8 +108,9 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     for name in ("r", "s", "t"):
         parser.add_argument(name, type=int)
+    parser.add_argument("--offset",type=int,default=0,help="right side of r*x+s*y-t*z")
     args = parser.parse_args()
-    divisor, certificates = line_gcd(args.r, args.s, args.t)
+    divisor, certificates = line_gcd(args.r, args.s, args.t,args.offset)
     for prime, (exponent, witness) in certificates.items():
         print(f"p={prime}  minimum={exponent}  witness={witness}")
     print(f"gcd={divisor}")
