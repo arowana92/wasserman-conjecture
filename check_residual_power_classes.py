@@ -159,6 +159,7 @@ def paired_binary_ternary_cofactors():
             if pow(E, 5, 11) == (-a_sign) % 11 and pow(E, 2, 5) == (a_sign*b_sign) % 5:
                 by_character.add(E)
     assert by_character == allowed and min(allowed) == 43 and len(allowed) == 40
+    return allowed
 
 
 def arbitrary_odd_base(D, J):

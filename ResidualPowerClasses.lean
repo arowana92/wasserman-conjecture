@@ -36,4 +36,21 @@ theorem companionAtSeven (i j k : Nat) (hi : 0 < i) (hj : 0 < j) (hk : 0 < k)
     (hs : i+j+k = 7) (di : 3 ∣ i) (dj : 3 ∣ j) :
     i = 3 ∧ j = 3 ∧ k = 1 := by omega
 
+/-- For the forced cut, d is the difference of the moving powers minus one.
+An exceptional residue at either of the two small parts determines which
+moving power the assigned modulus must divide. -/
+theorem forcedCutResidues (P Q d B C H : Int)
+    (power : P = Q+d+1) (cut : C = d*B+Q+1)
+    (residues : (H ∣ B-1 ∧ H ∣ C) ∨ (H ∣ B ∧ H ∣ C-1)) :
+    H ∣ P ∨ H ∣ Q := by
+  rcases residues with ⟨hb,hc⟩ | ⟨hb,hc⟩
+  · have h := Int.dvd_sub hc (Int.dvd_trans hb (Int.dvd_mul_left d (B-1)))
+    have eq : C-d*(B-1) = P := by
+      rw [Int.mul_sub, Int.mul_one]
+      omega
+    exact Or.inl (eq ▸ h)
+  · have h := Int.dvd_sub hc (Int.dvd_trans hb (Int.dvd_mul_left d B))
+    have eq : C-1-d*B = Q := by omega
+    exact Or.inr (eq ▸ h)
+
 end Wasserman.ResidualPowerClasses

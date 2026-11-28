@@ -111,7 +111,34 @@ $$
 $$
 Starting at $j=1$ and iterating $m$ times bounds $k_1$ by $O_{p,q,s}(\log(2E)(\log(2B))^m)$. Since $W+1\le s^{k_1}$, we have $a+b\ll_s k_1$ and $B\ll_s k_1$. To invert the bound, first use $(\log(2B))^m\le\sqrt B$ above an effective threshold depending on $m$. This gives $B\ll_{p,q,s}(\log(2E))^2$. Substitution into the logarithm now gives (2). [Matveev's theorem in rational form, Languasco, Luca, Moree and Togbé, Theorem 2.1](https://doi.org/10.1007/s12188-025-00293-9)
 
+More generally fix a finite set of primes $T$ and let $F$ be the part of $E$ left after removing all its prime factors in $T$ with multiplicity. Then
+$$
+        \log(2W)\ll_{p,q,s,T}\log(2F)\big(1+\log\log(3F)\big)^{d(r-1)}
+$$
+with an effective constant. In the same linear form, replace $wE/F_j$ by $wF/F_j$ and one fixed rational factor for each prime of $T$ occurring in $E$. Increase $B$ to include their exponents. They are all at most $\log_2 W\ll_s k_1$, so the iteration and inversion apply with $F$ in place of $E$. In particular there is an effective finite search even when the exponents of arbitrarily many prescribed prime bases in the cofactor vary simultaneously.
+
 For the finiteness claim, first bound $s$ for fixed $p,q$. In $w=p^i+p^j=q^k+q^l$, with $i\le j$, $k\le l$, put $H=\max(3,j,l)$. The [lifting argument for two sums](three_unit_layers.md#classification-at-all-54-primes-below-257) gives $p^i,q^k\le C_{p,q}H$, using the multiplicative orders at these two fixed primes. Thus $|p^j-q^l|\le C_{p,q}H$. At large $H$ both exponents are positive and the larger-exponent power is at least $2^H$. The same two-logarithm bound gives $H\log 2\ll_{p,q}1+\log H$, an effective upper bound for $H$. Enumerate these two-power sums, retain the prime-power values of $s=w+1$, and use $D=s$, $E=1$ in (2). This gives a finite exponent search even for moving bases beyond the classified range.
+
+### An effective bound from the smaller moving power alone
+
+Let $M_0=\min(p^a,q^b)$. Even with unrestricted $E$, at a prime-power remainder $s=r^d$ there is the effective bound
+$$
+          \log(2W)\ll_{p,q,s}\log(2M_0)
+                    \big(1+\log\log(3M_0)\big)^{d(r-1)+2}.
+$$
+Thus a prescribed upper bound on just one of the two moving powers gives an effective finite search over all cofactors and over the entire other exponent.
+
+Interchange the bases so $Q=q^b=M_0$ and $P=p^a$. The layer gives $EQ=1+t p^k$ with $1\le t<Q/s^2$. In the monotone expansion above this yields an equality between two sums in coprime bases,
+$$
+                \sum_{i=1}^m c_i s^{k_i}=w+w p^a+w t p^{a+k}.
+$$
+All coefficients are positive and bounded by $T=2wQ$. Partition the equality into minimal equal subsums, repeatedly removing a minimal one from both sides. In each component all proper nonempty signed subsums are nonzero. Let $x_1\ge\cdots\ge x_n$ be its pure powers of $s$ or $p$, before multiplication by their coefficients. Here $n\le m+3$. Write $D_j=\log(x_1/x_j)$ and let $B$ be the maximum of three and all exponents in the original equality.
+
+For $j<n$, the signed prefix has absolute value at most $nT x_{j+1}$ by its omitted tail. If all its signs agree, its absolute value is at least $x_1$. Otherwise group the two bases to write it as $A s^u-C p^v$, where $u,v$ are the smallest respective exponents in the prefix. Factoring those powers gives $1\le A,C\le nT\exp(D_j)$. Matveev applied to $(A/C)s^u p^{-v}-1\ne0$ gives a lower bound for its absolute value of $\exp(-K\log(2B)(\log(2T)+D_j))$, with effective $K$ depending on the fixed bases and number of terms. Omit any trivial factors. If only a rational constant remains, the same bound follows directly from its denominator. Multiplying by $C p^v\ge x_j$ and comparing to the tail gives in both sign cases
+$$
+              D_{j+1}\ll_{p,q,s}\log(2B)\big(\log(2T)+D_j\big).
+$$
+Starting at $D_1=0$ bounds $D_n$ by $O_{p,q,s}(\log(2T)(\log(2B))^{n-1})$. At the full equality $A s^u=C p^v$, so $s^u\mid C$ because $s,p$ are coprime. As $C\le nT\exp(D_n)$ and $x_n\le s^u$, we have $\log x_1\le\log(nT)+2D_n$. This applies to every component, including the one containing the largest power in the full sum. The exponents satisfy $B\ll_s\log(2W)$, since each term is at most $w(W+1)$. Conversely $W+1\le s^{k_1}$, so bounding the largest power bounds $W$. Invert the resulting inequality as in (2), now with $n-1\le m+2$ and $T=2wQ$.
 
 ## Finiteness when the cofactor and both exponents vary
 

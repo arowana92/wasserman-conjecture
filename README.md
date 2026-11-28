@@ -24,6 +24,7 @@ At weights 7,064,355,413,422,079 and 16,795,978,692,415,487 the smallest prime l
 
 In any counterexample, select a cut (one part or the sum of two) from each of the two nonendpoint rows. When the ratio of the cuts is reduced, its smaller term $x$ must exceed both 4096 and $(3125N/108)^{1/5}$. If $x\le 10^6$, the stronger bound $159375N<108x^5$ holds. [Proof and exhaustive split check](cross_cut_ratios.md) · [Near the fifth-root bound](cross_cut_critical.md)
 
+- [All cofactors at two sparse layers through moving prime powers of $10^{334}$, and a quadratic logarithmic count across all cofactors](paired_cofactor_range.md)
 - [All exponents at cofactors 7, 11 and 19 for bases 2 and 3, and finiteness at a prime-power remainder when the cofactor and both exponents vary](residual_power_classes.md)
 - [Three predecessor primes with at most three low digit units and a gap, 1,408 of 1,431 base pairs under the two-prime condition, and families with arbitrarily many predecessor primes](three_unit_layers.md)
 - [All 1,073,741,824 exponent triples through 1,024 at bases 2, 3 and 5, including unbounded translations in all three exponents](periodic_exponent_cube.md)
