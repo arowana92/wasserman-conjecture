@@ -78,7 +78,8 @@ private theorem pair_bound (x y : Nat) :
   change y = w*r at hr
   have h₁ : r ∣ y := ⟨w, by rw [hr, Nat.mul_comm]⟩
   have h₂ := Nat.gcd_dvd_gcd_of_dvd_right x h₁
-  have h₃ := Nat.gcd_mul_dvd_mul_gcd x r (y-1)
+  have h₃ : x.gcd (r*(y-1)) ∣ x.gcd r * x.gcd (y-1) := by
+    first | exact Nat.gcd_mul_right_dvd_mul_gcd .. | exact Nat.gcd_mul_dvd_mul_gcd ..
   rw [Nat.gcd_mul_left, ← Nat.gcd_comm y (x-1)]
   change (x*w).gcd (y*(y-1)) ∣ x.gcd y * x.gcd (y-1) * w
   have h₄ : y*(y-1) = (r*(y-1))*w := calc
@@ -125,5 +126,26 @@ theorem endpoint_quotient_dvd_pair (x y z : Nat) (hx : 0 < x) (hy : 0 < y) :
   exact Nat.dvd_trans (Nat.dvd_gcd (Nat.dvd_gcd
     (quotient_dvd he (delete_separate x y z))
     (quotient_dvd he (delete_two_left x y z))) (quotient_dvd he yy)) (pair_bound x y)
+
+/-- Two rows sharing a part h have exact endpoint gcd Q if the complement
+h*(h-1) is coprime to their common coefficient divisor. -/
+theorem exact_shared_part_gcd (h a b c d n Q : Nat) (hh : 2 ≤ h)
+    (w₁ : h+a+b = n) (w₂ : h+c+d = n)
+    (factor : n*(n-1) = (h*(h-1))*Q)
+    (avoid : (h*(h-1)).Coprime ((trinomial h a b).gcd (trinomial h c d))) :
+    (n*(n-1)).gcd ((trinomial h a b).gcd (trinomial h c d)) = Q := by
+  have pos : 0 < h*(h-1) := Nat.mul_pos (by omega) (by omega)
+  have h₁ := delete_two_left h a b
+  have h₂ := delete_two_left h c d
+  rw [w₁, factor, Nat.mul_comm (trinomial h a b)] at h₁
+  rw [w₂, factor, Nat.mul_comm (trinomial h c d)] at h₂
+  have common := Nat.dvd_gcd ((Nat.mul_dvd_mul_iff_left pos).mp h₁)
+                              ((Nat.mul_dvd_mul_iff_left pos).mp h₂)
+  obtain ⟨t, ht⟩ := common
+  have htdiv : t ∣ (trinomial h a b).gcd (trinomial h c d) :=
+    ⟨Q, by rw [ht, Nat.mul_comm]⟩
+  have cop := Nat.Coprime.coprime_dvd_left htdiv avoid.symm
+  rw [factor, ht, Nat.mul_comm (h*(h-1)) Q, Nat.gcd_mul_left, cop.symm.gcd_eq_one,
+      Nat.mul_one]
 
 end Wasserman.PairDivisor
