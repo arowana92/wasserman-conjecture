@@ -31,7 +31,7 @@ $$
 $$
 has no carry in base $p$. This is the [same-cut reduction](three_factor_exponent_rectangles.md#the-same-cut-in-both-bases). For the prime-power theorem coinciding bases are already covered by the result for predecessors with at most two primes.
 
-Second, put $w(x)=(p/\lambda_p)^{v_p(x(D-x))}$. With **any fixed lower prefix** of a scale $t$, there are at most $w(x)\lambda_p^n$ choices for its next $n$ base-$p$ digits that can occur if $xt+(D-x)t$ adds freely in these positions. This is the [digit-block bound](three_factor_exponent_rectangles.md#how-many-exponent-terms-can-pass-a-cut); the proof counts just the indicated positions. When both slopes are units it counts at most $((p+1)/2)^n$ words. In particular the bound applies to the first $n$ positions even when higher positions carry. Also $\sum_{1\le x<D}w(x)\ll_p D$, by summing the valuation levels (at most $2D/p^a$ slopes have valuation at least $a\ge1$).
+Second, put $w(x)=(p/\lambda_p)^{v_p(x(D-x))}$. With **any fixed lower prefix** of a scale $t$, there are at most $w(x)\lambda_p^n$ choices for its next $n$ base-$p$ digits that can occur if $xt+(D-x)t$ adds freely in these positions. This is the [digit-block bound](three_factor_exponent_rectangles.md#how-many-exponent-terms-can-pass-a-cut), whose proof counts the indicated positions. When both slopes are units it counts at most $((p+1)/2)^n$ words. In particular the bound applies to the first $n$ positions even when higher positions carry. Also $\sum_{1\le x<D}w(x)\ll_p D$, by summing the valuation levels (at most $2D/p^a$ slopes have valuation at least $a\ge1$).
 
 We use the elementary identity
 $$
@@ -39,7 +39,7 @@ $$
 $$
 for distinct positive units $u,v$ congruent modulo $p$ for odd $p$, or modulo 4 for $p=2$. In fact, raising to an exponent prime to $p$ leaves the valuation of the difference unchanged, by the geometric sum. Raising to $p$ increases it by exactly one, by binomial expansion and the extra factor of two in the binary hypothesis.
 
-Fix any $j\ge1$ and $n=\lceil\log_p H\rceil$. Partition the prime-to-$p$ bases in $I$ into residue classes modulo $p^{f}$ with $f=1$ for odd $p$ and $f=2$ for $p=2$. In each class, the bottom $f+v_p(j)$ digits of $q^j$ are fixed. The next $n$ digits distinguish all the bases in that class by (2): a collision would require $p^{f+n}\mid q-q'$, impossible in an interval of length $H$. Applying the block bound and summing over the bounded number of classes and over $x$ gives $O_p(D H^{\beta_p})$ possible exceptional bases, simultaneously for all outer $b$. This estimate is independent of $j$.
+Fix any $j\ge1$ and $n=\lceil\log_p H\rceil$. Partition the prime-to-$p$ bases in $I$ into residue classes modulo $p^{f}$ with $f=1$ for odd $p$ and $f=2$ for $p=2$. In each class, the bottom $f+v_p(j)$ digits of $q^j$ are fixed. The next $n$ digits distinguish all the bases in that class by (2), since a collision would require $p^{f+n}\mid q-q'$, impossible in an interval of length $H$. Applying the block bound and summing over the bounded number of classes and over $x$ gives $O_p(D H^{\beta_p})$ possible exceptional bases, simultaneously for all outer $b$. This estimate is independent of $j$.
 
 ## Replacing infinitely many exponents by one digit test
 
@@ -64,7 +64,7 @@ Let $M\ge2$, set $\epsilon=v_p(2)$ and $B=p^{M-\epsilon}$. Suppose the prime bas
 $$
                        q\equiv p^M-1\bmod p^M B .
 $$
-For any prime power $D$ coprime to $p$ and every $b\ge1$, the full conjecture holds at $1+Dp^b q^j$ under either condition:
+For any prime power $D$ coprime to $p$ and every $b\ge1$, the full conjecture holds at $1+Dp^b q^j$ in each of the following cases.
 
 - $j$ is odd and $D\le p^M$.
 - $j$ is even and $D\cdot j/p^{v_p(j)}\le B$.
