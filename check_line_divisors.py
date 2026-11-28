@@ -35,9 +35,11 @@ def valuation(row, p):
     return value
 
 
-def minimum(r, s, t, p):
+def minimum(r, s, t, p, offset=0):
     """Return the exact minimum valuation and one positive witness row."""
     common = gcd(r, s, t)
+    if offset % common:
+        raise ValueError("the offset must be divisible by the gcd of the normal")
     normal = (r//common, s//common, -t//common)
     unit = next(i for i in range(3) if normal[i] % p)
     a, b = [i for i in range(3) if i != unit]
@@ -58,7 +60,7 @@ def minimum(r, s, t, p):
             digits_by_carry[carry] = choices
         return digits_by_carry[carry]
 
-    start = (0, 0, 0)
+    start = (-offset//common, 0, 0)
     goal = (0, 0, 7)
     parent = {}
     distance = {start: 0}
@@ -72,7 +74,7 @@ def minimum(r, s, t, p):
             while state != start:
                 state, digits = parent[state]
                 row = [p*v+d for v, d in zip(row, digits)]
-            assert min(row) > 0 and r*row[0]+s*row[1] == t*row[2]
+            assert min(row) > 0 and r*row[0]+s*row[1] - t*row[2] == offset
             assert valuation(row, p) == cost
             return cost, tuple(row)
         carry, overflow, used = state
