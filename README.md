@@ -22,6 +22,7 @@ The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. T
 
 In any counterexample, select a cut (one part or the sum of two) from each of the two nonendpoint rows. When the ratio of the cuts is reduced, its smaller term $x$ must exceed both 4096 and $(3125N/108)^{1/5}$. If $x\le 10^6$, the stronger bound $159375N<108x^5$ holds. [Proof and exhaustive split check](cross_cut_ratios.md) · [Near the fifth-root bound](cross_cut_critical.md)
 
+- [Two weights proved simultaneously at every 8192nd power with up to two prime bases, and an exact binary spacing law for the last possible companion](fermat_inverse_powers.md)
 - [When a forced binomial contains the whole weight, including three-prime predecessors with two unrestricted exponents and uniform counts as the primes grow](inverse_weight_cuts.md)
 - [Why one prime list for weights $2p\le X$ needs $\gg\sqrt X/\log X$ large primes, with 45,287 disjoint witnesses below ten million](prime_lists_across_weights.md)
 - [Explicit prime lists certifying all triples at 7,364 weights up to 10,940,257,758,976, with independent verification](large_weight_prime_lists.md)
