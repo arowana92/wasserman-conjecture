@@ -22,6 +22,7 @@ The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. T
 
 In any counterexample, select a cut (one part or the sum of two) from each of the two nonendpoint rows. When the ratio of the cuts is reduced, its smaller term $x$ must exceed both 4096 and $(3125N/108)^{1/5}$. If $x\le 10^6$, the stronger bound $159375N<108x^5$ holds. [Proof and exhaustive split check](cross_cut_ratios.md) · [Near the fifth-root bound](cross_cut_critical.md)
 
+- [A sharp predecessor divisor for any fixed part ratio, with independently chosen geometric-sum ratios certifying both rows at every weight](part_ratio_predecessor.md)
 - [Nonzero values of height-two forms on either nonendpoint row must exceed 2,048 in magnitude, and two exact relations of height at most four exclude a counterexample](affine_endpoint_gap.md)
 - [All integer translates of a rational line have a uniform prime bound, almost all have gcd one, and the gcd on $X+Y=tZ+e$ is explicit for every $t,e$](affine_line_gcds.md)
 - [The exact gcd on every integer translate of $X+2Y=2(2^k-1)Z$, and the exact valuation on analogous lines at every prime](translated_line_minima.md)
