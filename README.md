@@ -22,6 +22,7 @@ The conjecture has been checked here for every $3\le N\le1{,}000{,}000{,}000$. T
 
 In any counterexample, select a cut (one part or the sum of two) from each of the two nonendpoint rows. When the ratio of the cuts is reduced, its smaller term $x$ must exceed both 4096 and $(3125N/108)^{1/5}$. If $x\le 10^6$, the stronger bound $159375N<108x^5$ holds. [Proof and exhaustive split check](cross_cut_ratios.md) · [Near the fifth-root bound](cross_cut_critical.md)
 
+- [The base $2^{61}-1$ at all binary-power exponents and all odd prime powers $D\le2^{60}$, and a density-one theorem for varying prime bases](prime_bases_at_geometric_exponents.md)
 - [How a gap above the lowest base-$p$ digit of the weight or predecessor excludes three-prime counterexamples](low_digit_inverse_cuts.md)
 - [Exact parity on binary trinomial rows with two separated digit blocks, and the eleven admissible odd residues at modulus 1024](binary_run_packing.md)
 - [Two weights proved simultaneously at every 8192nd power with up to two prime bases, and an exact binary spacing law for the last possible companion](fermat_inverse_powers.md)
