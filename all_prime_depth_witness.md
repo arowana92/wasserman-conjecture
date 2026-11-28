@@ -69,6 +69,8 @@ PARI/GP generated and validated certificates of 100, 93 and 94 elliptic steps fo
 
 ## The simultaneous-prime question
 
+The [unconditional infinitude theorem](unbounded_absolute_carry_depth.md) gives unbounded absolute depth using growing endpoint powers. Here the endpoint remains squarefree, so the delay also counts digits beyond the full endpoint powers.
+
 For any chosen $h\ge8$ one can instead impose the four template residues through $p^h$ and refine the residue at 89 to $W\equiv9587+89^h\bmod 89^{h+1}$. If $q=W/2$ and $v=(1+dW)/7$ are both primes greater than 52154, their bases are genuinely avoided by $A,C$ respectively. All four other endpoint primes clear $A$ through depth $h$. At 89 the next column of $A$ carries, because the seed parts at 9587 lie below $89^h$ and the three slope residues include two nonzero complementary residues. The $v$-row argument forces $A$ as above, so the endpoint pair depth at the weight is exactly $h+1$. The all-weight endpoint reduction then gives the ordinary conjecture at that weight.
 
 The two linear forms for $q,v$ on this progression are admissible. At the four modulus primes both are units, including $v\equiv6\bmod7$. At each remaining prime, which is odd, at most two residue classes are forbidden. Infinitely many simultaneous prime values for each $h$ would prove unbounded depth over all weights. That last infinitude is a prime-tuples hypothesis. The 728-digit example and its sharp depth use the explicit prime certificates above.
