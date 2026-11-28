@@ -21,7 +21,7 @@ Represent each possible two-prime set by an edge between its primes. Every certi
 
 Use the Chen–Friedlander–Iwaniec theorem for linear forms $ap+b=cs$ with $(a,b,c)=(2,-1,1)$. These coefficients are pairwise coprime, $a,c\ge1$, $b\ne0$, and $2\mid abc$. For $t=X/2$ it gives $\gg t/(\log t)^2$ primes $p\le t$ such that $2p-1$ has at most two prime factors, each exceeding $t^{3/11}$. The theorem permits negative $b$. This is the unconditional result stated as Theorem 6 in the cited paper. [Garcia, Luca, Shi and Udell, Theorem 6](https://arxiv.org/pdf/1906.05927)
 
-Discard the $O((\log t)^2)$ weights with at most two binary digit units and the finitely many trivial inputs. All vertices of the resulting graph exceed $t^{3/11}$: this holds for $p$ as well since $2p-1>t^{3/11}$, and inputs $p\le t^{3/11}$ may be discarded at cost $O(t^{3/11})$.
+Discard the $O((\log t)^2)$ weights with at most two binary digit units and the finitely many trivial inputs. Also discard the $O(t^{3/11})$ inputs with $p\le t^{3/11}$. Every vertex of the remaining graph now exceeds $t^{3/11}$.
 
 If the edges are hit by $k$ vertices, at most $k$ of the eligible weights have their own $p$ among the chosen vertices. Among the others with $M=q$ or $M=q^2$, the vertex $q$ must be chosen and determines at most two weights. For $M=rq$ with distinct factors the unordered pair $\{r,q\}$ must be chosen and determines $p$ uniquely. The total count is therefore at most $3k+\binom{k}{2}$. Comparison proves (1). The endpoints of a maximal matching hit every edge, so that matching has at least half the lower bound. Its edges come from different weights because the edges supplied by one weight all contain its $p$. The corresponding actual coefficient gcds are pairwise coprime.
 

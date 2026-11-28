@@ -14,6 +14,15 @@ def cut_unit(total, part, p):
     return True
 
 
+def factorial_floor_unit(n, h, a, p):
+    large = n-h-a
+    while h or a or n != large:
+        n,h,a,large = n//p,h//p,a//p,large//p
+        if n != h+a+large:
+            return False
+    return True
+
+
 def block(length, cutoff, exponent):
     t = length+1
     assert 3 <= t <= cutoff
@@ -69,6 +78,7 @@ def block(length, cutoff, exponent):
                 a = prod(q[p] for p in group)
             assert 0 < a < base
             assert all(cut_unit(n,h,p) and cut_unit(base,a,p) for p in group)
+            assert all(factorial_floor_unit(n,h,a,p) for p in group)
         assert (n-start)**7 <= 6**6*(n-1)**4 and n < 2*start
     print("length",length,"cutoff",cutoff,"binary exponent",exponent,"modulus bits",
           modulus.bit_length(),"tested origins",tried,"offset bits",(base-start).bit_length())

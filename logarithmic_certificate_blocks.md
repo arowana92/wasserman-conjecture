@@ -43,7 +43,7 @@ Use 1 for an empty group. For all the prescribed higher blocks the [borrow-free 
 
 ## Reproducible example
 
-The [checker](check_sparse_certificate_modulus.py) computes the paired primes directly and chooses the exact power $J_p$ sufficient for the finite input, also on prescribed large-prime blocks. It checks independently that both cuts $\binom{N}{h}$ and $\binom{B}{A_i}$ are units at their assigned bases, that the integer in (1) has no prime factor through the cutoff, and that every weight meets the full-conjecture interval inequality.
+The [checker](check_sparse_certificate_modulus.py) computes the paired primes directly and chooses the exact power $J_p$ sufficient for the finite input, also on prescribed large-prime blocks. It checks independently that both cuts $\binom{N}{h}$ and $\binom{B}{A_i}$ are units at their assigned bases, that the integer in (1) has no prime factor through the cutoff, and that every weight meets the full-conjecture interval inequality. A separate factorial-floor computation evaluates the original trinomial at every assigned prime. It stops once the two smaller factorial quotients vanish and the larger quotient equals the numerator quotient, since all higher layers then contribute zero.
 
 For length 1,000 and cutoff 1,009 the modulus has 6,214 bits and the first translate above $2^{16384}$ works. Its offset has 6,213 bits. There are 18 unpaired primes using the free second digit, and 38 offsets use their singleton splits. For these finite sizes the checker takes the small threshold at least $\lfloor\sqrt T\rfloor+1$ to keep the two-member bound valid. This has no effect on the asymptotics. [Lean verification of the common-divisor identity](PairDivisor.lean)
 

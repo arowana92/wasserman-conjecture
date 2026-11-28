@@ -10,7 +10,7 @@ satisfies **$R<u$** in the following ranges.
 - For every weight $N\le10^{1000}$ if $u\le2000$.
 - For $u\le2000$, outside a common set of $O_\epsilon(X^\epsilon)$ weights $N\le X$, for every $\epsilon>0$.
 
-This includes prime powers partly missing from the coefficient. The [earlier bound](avoided_predecessor_directions.md) counts full powers only at primes entirely absent. Since $u$ divides both $N$ and $K$, the endpoint gcd is at least $u(N-1)/R\ge N$ throughout these ranges. Any two rows enjoying this last bound share an endpoint prime.
+This includes prime powers partly missing from the coefficient. The [earlier bound](avoided_predecessor_directions.md) counts full powers only at primes entirely absent. Since $u$ divides both $N$ and $K$, the endpoint gcd is at least $u(N-1)/R\ge N$ throughout these ranges. Any two rows enjoying this last bound share an endpoint prime. Hence a counterexample through weight $10^{1000}$ would have to include a nonendpoint row whose parts sum to more than 2,000 after division by their common gcd.
 
 ## Listing all possible violations
 
